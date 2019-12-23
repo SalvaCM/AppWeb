@@ -46,27 +46,54 @@ Campo generado automáticamente.
 Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 </remarks>
 </member>
-<member name="F:AppWeb.Inicio._Button4">
+<member name="F:AppWeb.Inicio._btnInicio">
 <summary>
-Control Button4.
+Control btnInicio.
 </summary>
 <remarks>
 Campo generado automáticamente.
 Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 </remarks>
 </member>
-<member name="F:AppWeb.Inicio._Button1">
+<member name="F:AppWeb.Inicio._btnReservas">
 <summary>
-Control Button1.
+Control btnReservas.
 </summary>
 <remarks>
 Campo generado automáticamente.
 Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 </remarks>
 </member>
-<member name="F:AppWeb.Inicio._Button2">
+<member name="F:AppWeb.Inicio._btnIniciarSesion">
 <summary>
-Control Button2.
+Control btnIniciarSesion.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Inicio._btnCerrarSesion">
+<summary>
+Control btnCerrarSesion.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Inicio._divFiltros">
+<summary>
+Control divFiltros.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Inicio._lblFiltros">
+<summary>
+Control lblFiltros.
 </summary>
 <remarks>
 Campo generado automáticamente.
@@ -91,9 +118,135 @@ Campo generado automáticamente.
 Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 </remarks>
 </member>
+<member name="F:AppWeb.Inicio._btnAplicarFiltros">
+<summary>
+Control btnAplicarFiltros.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Inicio._divAlojamientos">
+<summary>
+Control divAlojamientos.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Inicio._lblAlojamientos">
+<summary>
+Control lblAlojamientos.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
 <member name="F:AppWeb.Inicio._ListBox1">
 <summary>
 Control ListBox1.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Inicio._btnReservarAlojamiento">
+<summary>
+Control btnReservarAlojamiento.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Inicio._divFechasReserva">
+<summary>
+Control divFechasReserva.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Inicio._lblTituloFechas">
+<summary>
+Control lblTituloFechas.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Inicio._lblFechaEntrada">
+<summary>
+Control lblFechaEntrada.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Inicio._lblFechaSalida">
+<summary>
+Control lblFechaSalida.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Inicio._Calendar1">
+<summary>
+Control Calendar1.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Inicio._Calendar2">
+<summary>
+Control Calendar2.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Inicio._btnRealizarReserva">
+<summary>
+Control btnRealizarReserva.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Inicio._lblPruebas1">
+<summary>
+Control lblPruebas1.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Inicio._lblPruebas2">
+<summary>
+Control lblPruebas2.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Inicio._lblPruebas3">
+<summary>
+Control lblPruebas3.
 </summary>
 <remarks>
 Campo generado automáticamente.
@@ -136,27 +289,45 @@ Campo generado automáticamente.
 Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 </remarks>
 </member>
-<member name="F:AppWeb.Reserva._Button4">
+<member name="F:AppWeb.Reserva._btnInicio">
 <summary>
-Control Button4.
+Control btnInicio.
 </summary>
 <remarks>
 Campo generado automáticamente.
 Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 </remarks>
 </member>
-<member name="F:AppWeb.Reserva._Button1">
+<member name="F:AppWeb.Reserva._btnReservas">
 <summary>
-Control Button1.
+Control btnReservas.
 </summary>
 <remarks>
 Campo generado automáticamente.
 Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 </remarks>
 </member>
-<member name="F:AppWeb.Reserva._Button2">
+<member name="F:AppWeb.Reserva._btnIniciarSesion">
 <summary>
-Control Button2.
+Control btnIniciarSesion.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Reserva._btnCerrarSesion">
+<summary>
+Control btnCerrarSesion.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Reserva._divVerReservas">
+<summary>
+Control divVerReservas.
 </summary>
 <remarks>
 Campo generado automáticamente.
@@ -208,27 +379,252 @@ Campo generado automáticamente.
 Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 </remarks>
 </member>
-<member name="F:AppWeb.Reserva._Calendar1">
+<member name="F:AppWeb.Reserva._GridView1">
 <summary>
-Control Calendar1.
+Control GridView1.
 </summary>
 <remarks>
 Campo generado automáticamente.
 Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 </remarks>
 </member>
-<member name="F:AppWeb.Reserva._Button3">
+<member name="F:AppWeb.Reserva._divOpcionesReservas">
 <summary>
-Control Button3.
+Control divOpcionesReservas.
 </summary>
 <remarks>
 Campo generado automáticamente.
 Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 </remarks>
 </member>
-<member name="F:AppWeb.Reserva._Button5">
+<member name="F:AppWeb.Reserva._btnNuevaReserva">
 <summary>
-Control Button5.
+Control btnNuevaReserva.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Reserva._btnModificarReserva">
+<summary>
+Control btnModificarReserva.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Reserva._btnEliminar">
+<summary>
+Control btnEliminar.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Reserva._divModificarReservas">
+<summary>
+Control divModificarReservas.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Reserva._lblCodReserva">
+<summary>
+Control lblCodReserva.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Reserva._txtBoxCodReserva">
+<summary>
+Control txtBoxCodReserva.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Reserva._lblFechaEntrada">
+<summary>
+Control lblFechaEntrada.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Reserva._txtBoxFechaEntrada">
+<summary>
+Control txtBoxFechaEntrada.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Reserva._lblFechaSalida">
+<summary>
+Control lblFechaSalida.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Reserva._txtBoxFechaSalida">
+<summary>
+Control txtBoxFechaSalida.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Reserva._lblFechaReserva">
+<summary>
+Control lblFechaReserva.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Reserva._txtBoxFechaReserva">
+<summary>
+Control txtBoxFechaReserva.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Reserva._lblDni">
+<summary>
+Control lblDni.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Reserva._txtBoxDni">
+<summary>
+Control txtBoxDni.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Reserva._lblNombre">
+<summary>
+Control lblNombre.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Reserva._txtBoxNombre">
+<summary>
+Control txtBoxNombre.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Reserva._lblApellidos">
+<summary>
+Control lblApellidos.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Reserva._txtBoxApellidos">
+<summary>
+Control txtBoxApellidos.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Reserva._lblTelefono">
+<summary>
+Control lblTelefono.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Reserva._txtBoxTelefono">
+<summary>
+Control txtBoxTelefono.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Reserva._lblCodAlojamiento">
+<summary>
+Control lblCodAlojamiento.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Reserva._txtBoxCodAlojamiento">
+<summary>
+Control txtBoxCodAlojamiento.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Reserva._lblNombreAloj">
+<summary>
+Control lblNombreAloj.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Reserva._txtBoxNombreAlojamiento">
+<summary>
+Control txtBoxNombreAlojamiento.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Reserva._btnModificar">
+<summary>
+Control btnModificar.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Reserva._btnCancelar">
+<summary>
+Control btnCancelar.
 </summary>
 <remarks>
 Campo generado automáticamente.
@@ -244,27 +640,36 @@ Campo generado automáticamente.
 Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 </remarks>
 </member>
-<member name="F:AppWeb.Usuario._Button4">
+<member name="F:AppWeb.Usuario._btnInicio">
 <summary>
-Control Button4.
+Control btnInicio.
 </summary>
 <remarks>
 Campo generado automáticamente.
 Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 </remarks>
 </member>
-<member name="F:AppWeb.Usuario._Button1">
+<member name="F:AppWeb.Usuario._btnReservas">
 <summary>
-Control Button1.
+Control btnReservas.
 </summary>
 <remarks>
 Campo generado automáticamente.
 Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 </remarks>
 </member>
-<member name="F:AppWeb.Usuario._Button2">
+<member name="F:AppWeb.Usuario._btnIniciarSesion">
 <summary>
-Control Button2.
+Control btnIniciarSesion.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Usuario._btnCerrarSesion">
+<summary>
+Control btnCerrarSesion.
 </summary>
 <remarks>
 Campo generado automáticamente.
@@ -316,6 +721,42 @@ Campo generado automáticamente.
 Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 </remarks>
 </member>
+<member name="F:AppWeb.WebForm1._btnInicio">
+<summary>
+Control btnInicio.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.WebForm1._btnReservas">
+<summary>
+Control btnReservas.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.WebForm1._btnIniciarSesion">
+<summary>
+Control btnIniciarSesion.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.WebForm1._btnCerrarSesion">
+<summary>
+Control btnCerrarSesion.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
 <member name="F:AppWeb.WebForm1._Label1">
 <summary>
 Control Label1.
@@ -325,9 +766,9 @@ Campo generado automáticamente.
 Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 </remarks>
 </member>
-<member name="F:AppWeb.WebForm1._TextBox1">
+<member name="F:AppWeb.WebForm1._txtBoxUsuario">
 <summary>
-Control TextBox1.
+Control txtBoxUsuario.
 </summary>
 <remarks>
 Campo generado automáticamente.
@@ -343,9 +784,18 @@ Campo generado automáticamente.
 Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 </remarks>
 </member>
-<member name="F:AppWeb.WebForm1._Button1">
+<member name="F:AppWeb.WebForm1._lblPruebas">
 <summary>
-Control Button1.
+Control lblPruebas.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.WebForm1._btnConectarse">
+<summary>
+Control btnConectarse.
 </summary>
 <remarks>
 Campo generado automáticamente.

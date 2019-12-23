@@ -12,7 +12,7 @@ Option Explicit On
 
 
 Partial Public Class WebForm1
-    
+
     '''<summary>
     '''Control form1.
     '''</summary>
@@ -21,7 +21,43 @@ Partial Public Class WebForm1
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
-    
+
+    '''<summary>
+    '''Control btnInicio.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnInicio As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''Control btnReservas.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnReservas As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''Control btnIniciarSesion.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnIniciarSesion As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''Control btnCerrarSesion.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnCerrarSesion As Global.System.Web.UI.WebControls.Button
+
     '''<summary>
     '''Control Label1.
     '''</summary>
@@ -30,16 +66,16 @@ Partial Public Class WebForm1
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
-    '''Control TextBox1.
+    '''Control txtBoxUsuario.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents TextBox1 As Global.System.Web.UI.WebControls.TextBox
-    
+    Protected WithEvents txtBoxUsuario As Global.System.Web.UI.WebControls.TextBox
+
     '''<summary>
     '''Control Label2.
     '''</summary>
@@ -48,13 +84,22 @@ Partial Public Class WebForm1
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents Label2 As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
-    '''Control Button1.
+    '''Control lblPruebas.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents Button1 As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents lblPruebas As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control btnConectarse.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnConectarse As Global.System.Web.UI.WebControls.Button
 End Class

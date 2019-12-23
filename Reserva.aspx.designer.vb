@@ -12,7 +12,7 @@ Option Explicit On
 
 
 Partial Public Class Reserva
-    
+
     '''<summary>
     '''Control form1.
     '''</summary>
@@ -21,34 +21,52 @@ Partial Public Class Reserva
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
-    
+
     '''<summary>
-    '''Control Button4.
+    '''Control btnInicio.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents Button4 As Global.System.Web.UI.WebControls.Button
-    
+    Protected WithEvents btnInicio As Global.System.Web.UI.WebControls.Button
+
     '''<summary>
-    '''Control Button1.
+    '''Control btnReservas.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents Button1 As Global.System.Web.UI.WebControls.Button
-    
+    Protected WithEvents btnReservas As Global.System.Web.UI.WebControls.Button
+
     '''<summary>
-    '''Control Button2.
+    '''Control btnIniciarSesion.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents Button2 As Global.System.Web.UI.WebControls.Button
-    
+    Protected WithEvents btnIniciarSesion As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''Control btnCerrarSesion.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnCerrarSesion As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''Control divVerReservas.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents divVerReservas As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
     '''<summary>
     '''Control Label1.
     '''</summary>
@@ -57,7 +75,7 @@ Partial Public Class Reserva
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control Label2.
     '''</summary>
@@ -66,7 +84,7 @@ Partial Public Class Reserva
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents Label2 As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control Label3.
     '''</summary>
@@ -75,7 +93,7 @@ Partial Public Class Reserva
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents Label3 As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control Label4.
     '''</summary>
@@ -84,7 +102,7 @@ Partial Public Class Reserva
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents Label4 As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control Label5.
     '''</summary>
@@ -93,31 +111,256 @@ Partial Public Class Reserva
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents Label5 As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
-    '''Control Calendar1.
+    '''Control GridView1.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents Calendar1 As Global.System.Web.UI.WebControls.Calendar
-    
+    Protected WithEvents GridView1 As Global.System.Web.UI.WebControls.GridView
+
     '''<summary>
-    '''Control Button3.
+    '''Control divOpcionesReservas.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents Button3 As Global.System.Web.UI.WebControls.Button
-    
+    Protected WithEvents divOpcionesReservas As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
     '''<summary>
-    '''Control Button5.
+    '''Control btnNuevaReserva.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents Button5 As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents btnNuevaReserva As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''Control btnModificarReserva.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnModificarReserva As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''Control btnEliminar.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnEliminar As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''Control divModificarReservas.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents divModificarReservas As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
+    '''Control lblCodReserva.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lblCodReserva As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control txtBoxCodReserva.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents txtBoxCodReserva As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Control lblFechaEntrada.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lblFechaEntrada As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control txtBoxFechaEntrada.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents txtBoxFechaEntrada As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Control lblFechaSalida.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lblFechaSalida As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control txtBoxFechaSalida.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents txtBoxFechaSalida As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Control lblFechaReserva.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lblFechaReserva As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control txtBoxFechaReserva.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents txtBoxFechaReserva As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Control lblDni.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lblDni As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control txtBoxDni.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents txtBoxDni As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Control lblNombre.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lblNombre As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control txtBoxNombre.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents txtBoxNombre As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Control lblApellidos.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lblApellidos As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control txtBoxApellidos.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents txtBoxApellidos As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Control lblTelefono.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lblTelefono As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control txtBoxTelefono.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents txtBoxTelefono As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Control lblCodAlojamiento.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lblCodAlojamiento As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control txtBoxCodAlojamiento.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents txtBoxCodAlojamiento As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Control lblNombreAloj.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lblNombreAloj As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control txtBoxNombreAlojamiento.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents txtBoxNombreAlojamiento As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Control btnModificar.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnModificar As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''Control btnCancelar.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnCancelar As Global.System.Web.UI.WebControls.Button
 End Class

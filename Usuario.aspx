@@ -10,12 +10,11 @@
 <body>
     <form id="form1" runat="server">
          <header style="text-align: right;">
-
-   <asp:Button ID="Button4" runat="server" Text="Cerrar Sesion"/>
-
-   <asp:Button ID="Button1" runat="server" Text="Inicia Sesion"/>
-   <asp:Button ID="Button2" runat="server" Text="Reservas"/> 
-  </header>
+             <asp:Button ID="btnInicio" runat="server" Text="Inicio"/> 
+             <asp:Button ID="btnReservas" runat="server" Text="Ver reservas"/> 
+             <asp:Button ID="btnIniciarSesion" runat="server" Text="Iniciar sesión"/>
+             <asp:Button ID="btnCerrarSesion" runat="server" Text="Cerrar sesión"/>
+        </header>
         <div>
 
             <asp:ListBox ID="ListBox1" runat="server" Height="348px" Width="552px"></asp:ListBox>
