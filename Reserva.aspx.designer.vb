@@ -95,6 +95,15 @@ Partial Public Class Reserva
     Protected WithEvents GridView1 As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
+    '''Control lblSinReservas.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lblSinReservas As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''Control divOpcionesReservas.
     '''</summary>
     '''<remarks>
@@ -113,22 +122,49 @@ Partial Public Class Reserva
     Protected WithEvents btnNuevaReserva As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''Control btnModificarReserva.
+    '''Control btnModificarEliminar.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents btnModificarReserva As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents btnModificarEliminar As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''Control btnEliminar.
+    '''Control divOpcionesModificarEliminar.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents btnEliminar As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents divOpcionesModificarEliminar As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
+    '''Control lblIntroduzca.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lblIntroduzca As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control txtBoxCodReservIntroducido.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents txtBoxCodReservIntroducido As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Control btnBuscar.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnBuscar As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''Control divModificarReservas.
@@ -167,6 +203,33 @@ Partial Public Class Reserva
     Protected WithEvents txtBoxCodReserva As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''Control Label2.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents Label2 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control TextBox1.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents TextBox1 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Control RegularExpressionValidator4.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents RegularExpressionValidator4 As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
     '''Control lblFechaEntrada.
     '''</summary>
     '''<remarks>
@@ -183,6 +246,15 @@ Partial Public Class Reserva
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents txtBoxFechaEntrada As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Control RegularExpressionValidator3.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents RegularExpressionValidator3 As Global.System.Web.UI.WebControls.RegularExpressionValidator
 
     '''<summary>
     '''Control lblFechaSalida.
@@ -203,6 +275,15 @@ Partial Public Class Reserva
     Protected WithEvents txtBoxFechaSalida As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''Control RegularExpressionValidator2.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents RegularExpressionValidator2 As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
     '''Control lblFechaReserva.
     '''</summary>
     '''<remarks>
@@ -219,6 +300,15 @@ Partial Public Class Reserva
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents txtBoxFechaReserva As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Control RegularExpressionValidator1.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents RegularExpressionValidator1 As Global.System.Web.UI.WebControls.RegularExpressionValidator
 
     '''<summary>
     '''Control lblDni.
@@ -338,6 +428,15 @@ Partial Public Class Reserva
     Protected WithEvents btnModificar As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
+    '''Control btnEliminar.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnEliminar As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
     '''Control btnCancelar.
     '''</summary>
     '''<remarks>
@@ -345,4 +444,13 @@ Partial Public Class Reserva
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents btnCancelar As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''Control lblPruebasFechas.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lblPruebasFechas As Global.System.Web.UI.WebControls.Label
 End Class

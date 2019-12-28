@@ -1,16 +1,14 @@
 ﻿Imports MySql.Data.MySqlClient
 Public Class Inicio
     Inherits System.Web.UI.Page
+
 #Region "Variables"
     Public conexion As New MySqlConnection
 
     Dim fechaActual As String = DateTime.Now.ToString("dd/MM/yyyy")
     Dim fechaEntrada
     Dim fechaSalida
-
 #End Region
-
-
 
 #Region "Inicio"
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -18,16 +16,12 @@ Public Class Inicio
         If Not IsPostBack Then ' Estos eventos ocurrirán sólo la primer vez que se inicie la página
             cargarDatosAlojamientos()
 
-
             'Se hace invisible el div que contiene fechas (luego se hace visible cuando se pulse el botón reservar)
             divFechasReserva.Visible = False
 
         End If
     End Sub
 #End Region
-
-
-
 
     Protected Sub cargarDatosAlojamientos()
         Try
@@ -39,24 +33,14 @@ Public Class Inicio
             Dim database As String = "alojamientos"
             'Establecemos los parametros de la conexion a la BBDD
             conexion.ConnectionString = "server=" & servidor & ";" & "database=" & database & ";" & "user id=" & usuario & ";" & "password=" & pswd & ";"
-            conexion.Open()
-            'Abrimos la conexion a la BBDD
-
-            'Imprimimos un mensaje como que se ha conectado satisfactoriamente a la BBDD MySQL
-
-
+            conexion.Open() 'Abrimos la conexion a la BBDD
 
             Dim sql As String = "SELECT * FROM talojamientos  ;"
-
             Dim comando As New MySqlCommand(sql, conexion)
-
             Dim Datos As MySqlDataReader = comando.ExecuteReader
             If Datos.Read Then
                 While Datos.Read
-
                     ListBox1.Items.Add(Datos("cNombre") & "" & Datos(1))
-
-
                 End While
             End If
 

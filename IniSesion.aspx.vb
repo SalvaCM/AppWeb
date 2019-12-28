@@ -80,9 +80,9 @@ Public Class WebForm1
     Protected Sub btnIniciarSesion_Click(sender As Object, e As EventArgs) Handles btnIniciarSesion.Click
         Response.Redirect("IniSesion.aspx") 'Ir a la página de iniciar sesión
     End Sub
-
-
 #End Region
+
+#Region "Métodos"
     Protected Sub cargarDatosUsuariosYContrasenas()
         Try
             'Cerramos la conexion a la BBDD
@@ -120,6 +120,8 @@ Public Class WebForm1
             MsgBox(ex.Message)
         End Try
     End Sub
+#End Region
+
 
     Protected Sub mostrarArrayLists()
         For i = 0 To listaNombres.Count - 1
