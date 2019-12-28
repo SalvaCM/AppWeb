@@ -52,11 +52,12 @@ Public Class Inicio
 
             Dim Datos As MySqlDataReader = comando.ExecuteReader
             If Datos.Read Then
-                For i As Integer = 1 To 10
+                While Datos.Read
 
-                    ListBox1.Items.Add(Datos(i) & "" & Datos(1))
+                    ListBox1.Items.Add(Datos("cNombre") & "" & Datos(1))
 
-                Next
+
+                End While
             End If
 
         Catch ex As Exception

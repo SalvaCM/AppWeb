@@ -25,17 +25,27 @@
 
         <div>
 
-        <br />
+
         <p> &nbsp;
             <asp:Label ID="Label1" runat="server" Text="Username:"></asp:Label> &nbsp;
             <asp:TextBox ID="txtBoxUsuario" runat="server"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtBoxUsuario" EnableClientScript="False" ErrorMessage="Introduzca un usuario" ForeColor="Red"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtBoxUsuario" EnableClientScript="False" ErrorMessage="El usuario debe tener el siguiente formato: &quot;11111111A&quot;" ForeColor="Red" ValidationExpression="\d{8}[a-zA-Z]"></asp:RegularExpressionValidator>
         </p>
         <p>
             <asp:Label ID="Label2" runat="server" Text="Pasword:"></asp:Label> &nbsp;
+            <asp:TextBox ID="txtBoxContrasena" runat="server"></asp:TextBox>
+            &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtBoxContrasena" EnableClientScript="False" ErrorMessage="Introduzca una contrasena" ForeColor="Red"></asp:RequiredFieldValidator>
+            </p>
+            <p>
+                &nbsp;
             <input id="Password1" type="password" /></p>
         <p>
             <asp:Label ID="lblPruebas" runat="server" Text="Label"></asp:Label>
         </p>
+            <p>
+                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+            </p>
         <p>
             <asp:Button ID="btnConectarse" runat="server" Text="Conectarse" /> 
         </p>
