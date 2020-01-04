@@ -62,7 +62,7 @@
          </div>
          <div id="divOpcionesModificarEliminar" runat="server" class="auto-style1">
                 <asp:Label ID="lblIntroduzca" runat="server" Text="Introduzca el código de la reserva que desea modificar/eliminar: "></asp:Label>
-              <asp:TextBox ID="txtBoxCodReservIntroducido" runat="server"></asp:TextBox>
+              <asp:TextBox ID="txtBoxCodReservIntroducido" runat="server" type="number" min="0"></asp:TextBox>
               <asp:Button ID="btnBuscar" runat="server" Text="Buscar reserva" />
          </div>
           <div id="divModificarReservas" runat="server">
