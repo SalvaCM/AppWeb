@@ -5,10 +5,10 @@ Imports System.Configuration
 Public Class Reserva
     Inherits System.Web.UI.Page
     Public conexion As New MySqlConnection
-    Dim conn As New MySqlConnection("Server=192.168.0.7; Database=alojamientos; Uid=grupoAlojamientos; Pwd=123456")
+	Dim conn As New MySqlConnection("Server=192.168.101.24; Database=alojamientos; Uid=grupoAlojamientos; Pwd=123456")
 
 #Region "Variables"
-    Dim mydatatable As New DataTable
+	Dim mydatatable As New DataTable
 
     Dim listaCodReserva As New ArrayList
     Dim listaFechaReserva As New ArrayList
@@ -264,8 +264,8 @@ Public Class Reserva
 
     Protected Sub eliminarReserva()
         Try
-            '  Dim conn As New MySqlConnection("Server=192.168.0.7; Database=alojamientos; Uid=grupoAlojamientos; Pwd=123456")
-            conn.Open()
+			'  Dim conn As New MySqlConnection("Server=192.168.101.24; Database=alojamientos; Uid=grupoAlojamientos; Pwd=123456")
+			conn.Open()
 
             Dim query As String = "DELETE FROM treservas where cReserva=" & txtBoxCodReserva.Text.ToString
             Dim cmd As New MySqlCommand(query, conn)
