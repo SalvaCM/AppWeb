@@ -51,7 +51,7 @@ Public Class Reserva
         Try
             'Cerramos la conexion a la BBDD
             conexion.Close()
-            Dim servidor As String = "localhost"
+            Dim servidor As String = "192.168.101.24"
             Dim usuario As String = "grupoAlojamientos"
             Dim pswd As String = "123456"
             Dim database As String = "alojamientos"

@@ -32,7 +32,8 @@
         </p>
         <p>
             <asp:Label ID="Label2" runat="server" Text="Pasword:"></asp:Label> &nbsp;
-            <input id="Password1" type="password" /></p>
+            <asp:TextBox ID="txtBoxUsuario0" runat="server"></asp:TextBox>
+            </p>
         <p>
             <asp:Label ID="lblPruebas" runat="server" Text="Label"></asp:Label>
         </p>

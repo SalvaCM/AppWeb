@@ -1,4 +1,7 @@
 ﻿Imports MySql.Data.MySqlClient
+Imports System
+Imports System.Configuration
+Imports System.Data.SqlClient
 Public Class Inicio
     Inherits System.Web.UI.Page
 #Region "Variables"
@@ -23,6 +26,20 @@ Public Class Inicio
             divFechasReserva.Visible = False
 
         End If
+
+
+
+        If (HttpContext.Current.User.Identity.IsAuthenticated) Then
+
+            Response.Write("Bienvenido : ")
+        Else
+            Response.Write("no estas logeado : ")
+
+        End If
+
+
+
+
     End Sub
 #End Region
 
@@ -30,34 +47,38 @@ Public Class Inicio
 
 
     Protected Sub cargarDatosAlojamientos()
+        ListBox1.Items.Clear()
+
         Try
             'Cerramos la conexion a la BBDD
             conexion.Close()
-            Dim servidor As String = "localhost"
-            Dim usuario As String = "grupoAlojamientos"
-            Dim pswd As String = "123456"
-            Dim database As String = "alojamientos"
+            Dim sql As String = ""
+
             'Establecemos los parametros de la conexion a la BBDD
-            conexion.ConnectionString = "server=" & servidor & ";" & "database=" & database & ";" & "user id=" & usuario & ";" & "password=" & pswd & ";"
-            conexion.Open()
+            Dim connectionString = ConfigurationManager.ConnectionStrings("myConnectionString").ConnectionString
+
+
+
+            conexion = New MySqlConnection(connectionString)
             'Abrimos la conexion a la BBDD
 
             'Imprimimos un mensaje como que se ha conectado satisfactoriamente a la BBDD MySQL
 
+            sql = "SELECT cNombre FROM talojamientos WHERE cLocalidad = '" & DropDownList1.SelectedValue & "' ;"
 
 
-            Dim sql As String = "SELECT * FROM talojamientos  ;"
 
             Dim comando As New MySqlCommand(sql, conexion)
 
             Dim Datos As MySqlDataReader = comando.ExecuteReader
-            If Datos.Read Then
-                For i As Integer = 1 To 10
+            While Datos.Read
 
-                    ListBox1.Items.Add(Datos(i) & "" & Datos(1))
 
-                Next
-            End If
+                ListBox1.Items.Add(Datos(0))
+
+
+            End While
+
 
         Catch ex As Exception
             'En caso de que no se conecte mandamos un mensaje con el error lanzado desde la BBDD MySQL
@@ -126,6 +147,46 @@ Public Class Inicio
         lblPruebas1.Text = "fechaActual" & fechaActual.ToString
         lblPruebas2.Text = "fechaEntrada" & fechaEntrada
         lblPruebas3.Text = "fechaSalida" & fechaSalida
+    End Sub
+
+    Protected Sub btnAplicarFiltros_Click(sender As Object, e As EventArgs) Handles btnAplicarFiltros.Click
+        ListBox1.Items.Clear()
+
+        Try
+            'Cerramos la conexion a la BBDD
+            conexion.Close()
+            Dim sql As String = ""
+            Dim servidor As String = "192.168.101.24"
+            Dim usuario As String = "grupoAlojamientos"
+            Dim pswd As String = "123456"
+            Dim database As String = "alojamientos"
+            'Establecemos los parametros de la conexion a la BBDD
+            conexion.ConnectionString = "server=" & servidor & ";" & "database=" & database & ";" & "user id=" & usuario & ";" & "password=" & pswd & ";"
+            conexion.Open()
+            'Abrimos la conexion a la BBDD
+
+            'Imprimimos un mensaje como que se ha conectado satisfactoriamente a la BBDD MySQL
+
+            sql = "SELECT cNombre FROM talojamientos WHERE cLocalidad = '" & DropDownList1.SelectedValue & "' ;"
+
+
+
+            Dim comando As New MySqlCommand(sql, conexion)
+
+            Dim Datos As MySqlDataReader = comando.ExecuteReader
+            While Datos.Read
+
+
+                ListBox1.Items.Add(Datos(0))
+
+
+            End While
+
+
+        Catch ex As Exception
+            'En caso de que no se conecte mandamos un mensaje con el error lanzado desde la BBDD MySQL
+            MsgBox(ex.Message)
+        End Try
     End Sub
 
 #End Region

@@ -54,10 +54,10 @@
                 <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" style="margin-left: 0px" Width="104px">
                     <asp:ListItem>Gipuzkoa</asp:ListItem>
                     <asp:ListItem>Bizkaia</asp:ListItem>
-                    <asp:ListItem>Alaba</asp:ListItem>
+                    <asp:ListItem>Araba/Álava</asp:ListItem>
                 </asp:DropDownList>
 
-                <asp:Button ID="btnAplicarFiltros" runat="server" Text="Aplicar filtros"/>
+                <asp:Button ID="btnAplicarFiltros" runat="server" Text="Aplicar filtros" style="height: 26px"/>
             </div>
             
             <div id="divAlojamientos" runat="server">
