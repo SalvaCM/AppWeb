@@ -1,49 +1,30 @@
 ﻿Imports MySql.Data.MySqlClient
+Imports System.Data.SqlClient
 Imports System.Security.Cryptography
 Imports System.Web.UI.WebControls.Expressions
-Public Class WebForm1
+Imports System
+Imports System.Windows.Forms
+Public Class Registrarse
     Inherits System.Web.UI.Page
-
-
-#Region "Propiedades publicas"
-    Public Property usuario As String
-        Get
-            Return usuario
-        End Get
-
-        Set(ByVal usuario As String)
-            usuario = usuario
-        End Set
-    End Property
-#End Region
-
-#Region "VARIABLES"
     Public conexion As New MySqlConnection
-    Public usuarioIntroducido As String
-    Private contrasenaIntroducida As String
-    Private contrasenaIntroducidaEncriptada As String
-    Dim listaNombres As New ArrayList
-    Dim listaContrasenas As New ArrayList
+    Public DNIIntroducido As String
+    Public NombreIntroducido As String
+    Public ApellidoIntroducido As String
+    Public TelefonoIntroducido As String
     Public cierto As Boolean = False
-
-#End Region
+    Private contrasenaIntroducida As String
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
+
     End Sub
+    Protected Sub btnRegistrarse_Click(sender As Object, e As EventArgs) Handles btnRegistrarse.Click
 
+        DNIIntroducido = txtBoxUsuario.Text
+        NombreIntroducido = txtBoxNombre.Text
+        ApellidoIntroducido = TextBoxApellido.Text
+        TelefonoIntroducido = TextBoxTelefono.Text
 
-
-#Region "BOTONES CABECERA"
-    Protected Sub btnInicio_Click(sender As Object, e As EventArgs) Handles btnInicio.Click
-        Response.Redirect("Inicio.aspx") 'Ir a la página de inicio
-    End Sub
-
-#End Region
-
-#Region "Métodos"
-    Protected Sub cargarDatosUsuariosYContrasenas()
-        usuarioIntroducido = txtBoxUsuario.Text
         contrasenaIntroducida = txtBoxContrasena.Text
         'Encriptamos
         Dim enc As New UTF8Encoding
@@ -80,32 +61,32 @@ Public Class WebForm1
             Dim connectionString = ConfigurationManager.ConnectionStrings("myConnectionString").ConnectionString
             'Establecemos los parametros de la conexion a la BBDD
             conexion = New MySqlConnection(connectionString)
+
             conexion.Open() 'Abrimos la conexion a la BBDD
+
 
             sql = "SELECT * FROM tusuarios  ;"
 
-
             Dim comando As New MySqlCommand(sql, conexion)
-
             Dim Datos As MySqlDataReader = comando.ExecuteReader
             While Datos.Read
 
-                If sb.ToString() = Datos(2) And usuarioIntroducido.Equals(Datos(0)) Then
+                If DNIIntroducido.Equals(Datos(0)) Then
                     cierto = True
-                    System.Web.HttpContext.Current.Session(“ID”) = usuarioIntroducido
-                    Response.Redirect("Inicio.aspx?ID=" + usuarioIntroducido, False)
 
                 Else
                     If cierto = True Then
 
                     Else
                         cierto = False
+
+
                     End If
                 End If
 
             End While
             If cierto.Equals(False) Then
-                MsgBox("informacion introducida incorrecta")
+                Insertar(DNIIntroducido, ApellidoIntroducido, sb.ToString, NombreIntroducido, TelefonoIntroducido)
             End If
 
 
@@ -114,15 +95,30 @@ Public Class WebForm1
             MsgBox(ex.Message)
         End Try
     End Sub
+    Protected Sub Insertar(DNIIntroducido, ApellidoIntroducido, sb, NombreIntroducido, TelefonoIntroducido)
 
-    Protected Sub btnConectarse_Click(sender As Object, e As EventArgs) Handles btnConectarse.Click
-        cargarDatosUsuariosYContrasenas()
+        Dim sql As String = ""
+        Dim connectionString = ConfigurationManager.ConnectionStrings("myConnectionString").ConnectionString
+        'Establecemos los parametros de la conexion a la BBDD
+
+        Dim conexion1 As New MySqlConnection(connectionString)
+        conexion1.Open() 'Abrimos la conexion a la BBDD
+        Try
+            '  Dim conn As New MySqlConnection("Server=192.168.101.24; Database=alojamientos; Uid=grupoAlojamientos; Pwd=123456")
+            Dim Query As String = "INSERT INTO tusuarios(cDni,cApellidos,cContrasena,cNombre,cTelefono,cTipoUsuario)VALUES(" + DNIIntroducido + ",'" + ApellidoIntroducido.ToString + "','" + sb.ToString + "','" + NombreIntroducido.ToString + "'," + TelefonoIntroducido + ", 'Normal' )"
+
+
+
+            Dim comando1 As New MySqlCommand(Query, conexion1)
+
+
+
+            comando1.ExecuteNonQuery()
+            conexion1.Close()
+        Catch ex As Exception
+            'En caso de que no se conecte mandamos un mensaje con el error lanzado desde la BBDD MySQL
+            ' MsgBox(ex.Message)
+        End Try
     End Sub
-
-
-#End Region
-
-
-
 
 End Class

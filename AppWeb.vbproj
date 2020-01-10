@@ -97,6 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Inicio.aspx" />
+    <Content Include="Registrarse.aspx" />
     <Content Include="Reserva.aspx" />
     <Content Include="Usuario.aspx" />
     <Content Include="Web.config" />
@@ -128,6 +129,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Registrarse.aspx.designer.vb">
+      <DependentUpon>Registrarse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registrarse.aspx.vb">
+      <DependentUpon>Registrarse.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Reserva.aspx.designer.vb">
       <DependentUpon>Reserva.aspx</DependentUpon>

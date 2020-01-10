@@ -39,9 +39,15 @@
     </style>
 </head>
 <body>
+    <%
+        'Store information in a Session variable.
+        Session("myInformation") = "somevalue"
+
+        'Display the contents of the Session variable.
+        'Response.Write Session("myInformation")
+%>
     <form id="form1" runat="server">
          <header style="text-align: right;">
-             <asp:Button ID="btnInicio" runat="server" Text="Inicio"/> 
              <asp:Button ID="btnReservas" runat="server" Text="Ver reservas"/> 
              <asp:Button ID="btnIniciarSesion" runat="server" Text="Iniciar sesión"/>
              <asp:Button ID="btnCerrarSesion" runat="server" Text="Cerrar sesión"/>

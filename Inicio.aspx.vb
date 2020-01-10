@@ -28,12 +28,15 @@ Public Class Inicio
         End If
 
 
-
-        If (HttpContext.Current.User.Identity.IsAuthenticated) Then
-
-            Response.Write("Bienvenido : ")
-        Else
+        If (HttpContext.Current.Session("ID") = vbNullString) Then
+            btnIniciarSesion.Visible = True
+            btnReservas.Visible = False
             Response.Write("no estas logeado : ")
+        Else
+
+            Response.Write("Bienvenido : " & System.Web.HttpContext.Current.Session(“ID”))
+            btnIniciarSesion.Visible = False
+            btnReservas.Visible = True
 
         End If
 
@@ -51,7 +54,7 @@ Public Class Inicio
 
         Try
             'Cerramos la conexion a la BBDD
-            conexion.Close()
+
             Dim sql As String = ""
 
             'Establecemos los parametros de la conexion a la BBDD
@@ -60,6 +63,59 @@ Public Class Inicio
 
 
             conexion = New MySqlConnection(connectionString)
+            'Abrimos la conexion a la BBDD
+            conexion.Open()
+            'Imprimimos un mensaje como que se ha conectado satisfactoriamente a la BBDD MySQL
+
+            sql = "SELECT cNombre FROM talojamientos WHERE cLocalidad = '" & DropDownList1.SelectedValue & "' ;"
+
+
+
+            Dim comando As New MySqlCommand(sql, conexion)
+
+            Dim Datos As MySqlDataReader = comando.ExecuteReader
+            While Datos.Read
+
+
+                ListBox1.Items.Add(Datos(0))
+
+
+            End While
+            conexion.Close()
+
+        Catch ex As Exception
+            'En caso de que no se conecte mandamos un mensaje con el error lanzado desde la BBDD MySQL
+            MsgBox(ex.Message)
+        End Try
+
+    End Sub
+
+#Region "BOTONES CABECERA"
+
+
+    Protected Sub btnReservas_Click(sender As Object, e As EventArgs) Handles btnReservas.Click
+        Response.Redirect("Reserva.aspx") 'Ir a la página Reservas
+    End Sub
+
+
+
+
+#End Region
+
+#Region "BOTONES "
+    Protected Sub btnAplicarFiltros_Click(sender As Object, e As EventArgs) Handles btnAplicarFiltros.Click
+        ListBox1.Items.Clear()
+
+        Try
+            'Cerramos la conexion a la BBDD
+
+            Dim sql As String = ""
+            Dim connectionString = ConfigurationManager.ConnectionStrings("myConnectionString").ConnectionString
+
+
+
+            conexion = New MySqlConnection(connectionString)
+            conexion.Open()
             'Abrimos la conexion a la BBDD
 
             'Imprimimos un mensaje como que se ha conectado satisfactoriamente a la BBDD MySQL
@@ -78,31 +134,13 @@ Public Class Inicio
 
 
             End While
-
+            conexion.Close()
 
         Catch ex As Exception
             'En caso de que no se conecte mandamos un mensaje con el error lanzado desde la BBDD MySQL
             MsgBox(ex.Message)
         End Try
     End Sub
-
-#Region "BOTONES CABECERA"
-
-    Protected Sub btnInicio_Click(sender As Object, e As EventArgs) Handles btnInicio.Click
-        Response.Redirect("Inicio.aspx") 'Ir a la página de inicio
-    End Sub
-    Protected Sub btnReservas_Click(sender As Object, e As EventArgs) Handles btnReservas.Click
-        Response.Redirect("Reserva.aspx") 'Ir a la página Reservas
-    End Sub
-
-    Protected Sub btnIniciarSesion_Click(sender As Object, e As EventArgs) Handles btnIniciarSesion.Click
-        Response.Redirect("IniSesion.aspx") 'Ir a la página de iniciar sesión
-    End Sub
-
-
-#End Region
-
-#Region "BOTONES "
     Protected Sub btnReservarAlojamiento_Click(sender As Object, e As EventArgs) Handles btnReservarAlojamiento.Click
         divFechasReserva.Visible = True
     End Sub
@@ -149,45 +187,7 @@ Public Class Inicio
         lblPruebas3.Text = "fechaSalida" & fechaSalida
     End Sub
 
-    Protected Sub btnAplicarFiltros_Click(sender As Object, e As EventArgs) Handles btnAplicarFiltros.Click
-        ListBox1.Items.Clear()
 
-        Try
-            'Cerramos la conexion a la BBDD
-            conexion.Close()
-            Dim sql As String = ""
-            Dim servidor As String = "192.168.101.24"
-            Dim usuario As String = "grupoAlojamientos"
-            Dim pswd As String = "123456"
-            Dim database As String = "alojamientos"
-            'Establecemos los parametros de la conexion a la BBDD
-            conexion.ConnectionString = "server=" & servidor & ";" & "database=" & database & ";" & "user id=" & usuario & ";" & "password=" & pswd & ";"
-            conexion.Open()
-            'Abrimos la conexion a la BBDD
-
-            'Imprimimos un mensaje como que se ha conectado satisfactoriamente a la BBDD MySQL
-
-            sql = "SELECT cNombre FROM talojamientos WHERE cLocalidad = '" & DropDownList1.SelectedValue & "' ;"
-
-
-
-            Dim comando As New MySqlCommand(sql, conexion)
-
-            Dim Datos As MySqlDataReader = comando.ExecuteReader
-            While Datos.Read
-
-
-                ListBox1.Items.Add(Datos(0))
-
-
-            End While
-
-
-        Catch ex As Exception
-            'En caso de que no se conecte mandamos un mensaje con el error lanzado desde la BBDD MySQL
-            MsgBox(ex.Message)
-        End Try
-    End Sub
 
 #End Region
 

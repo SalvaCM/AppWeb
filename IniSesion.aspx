@@ -18,9 +18,6 @@
     <form id="form1" runat="server">
         <header style="text-align: right;">
          <asp:Button ID="btnInicio" runat="server" Text="Inicio"/> 
-         <asp:Button ID="btnReservas" runat="server" Text="Ver reservas"/> 
-         <asp:Button ID="btnIniciarSesion" runat="server" Text="Iniciar sesión"/>
-         <asp:Button ID="btnCerrarSesion" runat="server" Text="Cerrar sesión"/>
         </header>
 
         <div>
@@ -32,10 +29,10 @@
         </p>
         <p>
             <asp:Label ID="Label2" runat="server" Text="Pasword:"></asp:Label> &nbsp;
-            <asp:TextBox ID="txtBoxUsuario0" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtBoxContrasena" runat="server"></asp:TextBox>
             </p>
         <p>
-            <asp:Label ID="lblPruebas" runat="server" Text="Label"></asp:Label>
+            <asp:Label ID="TextBox1" runat="server" Text="Label"></asp:Label>
         </p>
         <p>
             <asp:Button ID="btnConectarse" runat="server" Text="Conectarse" /> 
