@@ -39,15 +39,9 @@
     </style>
 </head>
 <body>
-    <%
-        'Store information in a Session variable.
-        Session("myInformation") = "somevalue"
-
-        'Display the contents of the Session variable.
-        'Response.Write Session("myInformation")
-%>
     <form id="form1" runat="server">
          <header style="text-align: right;">
+             <asp:Button ID="btnInicio" runat="server" Text="Inicio"/> 
              <asp:Button ID="btnReservas" runat="server" Text="Ver reservas"/> 
              <asp:Button ID="btnIniciarSesion" runat="server" Text="Iniciar sesión"/>
              <asp:Button ID="btnCerrarSesion" runat="server" Text="Cerrar sesión"/>
@@ -58,17 +52,17 @@
                 <asp:Label ID="lblFiltros" runat="server" Text="Seleccione los filtros que desee aplicar:"></asp:Label>
                 <asp:Label ID="Label1" runat="server" Text="Localidad"></asp:Label>
                 <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" style="margin-left: 0px" Width="104px">
-                    <asp:ListItem>Gipuzkoa</asp:ListItem>
-                    <asp:ListItem>Bizkaia</asp:ListItem>
                     <asp:ListItem>Araba/Álava</asp:ListItem>
+                    <asp:ListItem>Bizkaia</asp:ListItem>
+                    <asp:ListItem>Gipuzkoa</asp:ListItem>
                 </asp:DropDownList>
 
-                <asp:Button ID="btnAplicarFiltros" runat="server" Text="Aplicar filtros" style="height: 26px"/>
+                <asp:Button ID="btnAplicarFiltros" runat="server" Text="Aplicar filtros"/>
             </div>
             
             <div id="divAlojamientos" runat="server">
                  <asp:Label ID="lblAlojamientos" runat="server" Text="Seleccione el alojamiento que desee reservar:"></asp:Label>
-                <asp:ListBox ID="ListBox1" runat="server" Height="147px" Width="552px" AutoPostBack="True"></asp:ListBox>
+                <asp:ListBox ID="ListBox1" runat="server" Height="425px" Width="890px" AutoPostBack="True"></asp:ListBox>
         
                 <asp:Button ID="btnReservarAlojamiento" runat="server" Text="Reservar alojamiento seleccionado"/>
             <br />
