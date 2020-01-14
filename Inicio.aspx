@@ -1,4 +1,4 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="Inicio.aspx.vb" Inherits="AppWeb.Inicio" %>
+﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="Inicio.aspx.vb" Inherits="AppWeb.Inicio"  MaintainScrollPositionOnPostback="true" %>
 
 <!DOCTYPE html>
 
@@ -21,7 +21,7 @@
 }
 
         .auto-style1 {
-            height: 661px;
+            height: 10661px;
             width: 776px;
         }
 
@@ -41,7 +41,7 @@
 <body>
     <form id="form1" runat="server">
          <header style="text-align: right;">
-             <asp:Button ID="btnInicio" runat="server" Text="Inicio"/> 
+             <asp:Button ID="btnRegistrarse" runat="server" Text="Registrarse" />
              <asp:Button ID="btnReservas" runat="server" Text="Ver reservas"/> 
              <asp:Button ID="btnIniciarSesion" runat="server" Text="Iniciar sesión"/>
              <asp:Button ID="btnCerrarSesion" runat="server" Text="Cerrar sesión"/>
@@ -62,7 +62,7 @@
             
             <div id="divAlojamientos" runat="server">
                  <asp:Label ID="lblAlojamientos" runat="server" Text="Seleccione el alojamiento que desee reservar:"></asp:Label>
-                <asp:ListBox ID="ListBox1" runat="server" Height="425px" Width="890px" AutoPostBack="True"></asp:ListBox>
+                <asp:ListBox ID="ListBox1" runat="server" Height="425px" Width="890px"></asp:ListBox>
         
                 <asp:Button ID="btnReservarAlojamiento" runat="server" Text="Reservar alojamiento seleccionado"/>
             <br />
@@ -105,16 +105,8 @@
                 <asp:Button ID="btnRealizarReserva" runat="server" Text="Reservar"/>
                 <br />
                 <br />
-                <asp:Label ID="lblPruebas1" runat="server" Text="Label"></asp:Label>
-                 <asp:Label ID="lblPruebas2" runat="server" Text="Label"></asp:Label>
-                 <asp:Label ID="lblPruebas3" runat="server" Text="Label"></asp:Label>
             </div>
             
-            <asp:Table ID="Table1" runat="server" Height="145px" Width="339px">
-            </asp:Table>
-            <asp:GridView ID="GridView1" runat="server" DataSourceID="SqlDataSource1">
-            </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
             <br />
             <br />
         </div>

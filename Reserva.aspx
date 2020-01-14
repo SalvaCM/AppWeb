@@ -29,7 +29,6 @@
    
         <div id="divVerReservas" runat="server">
             <br />
-            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
             <br />
             <br />
             <asp:Label ID="lblDetallesReservas" runat="server" Text="DETALLES DE SUS RESERVAS" ForeColor="#3333CC"></asp:Label>
@@ -64,11 +63,10 @@
           <div id="divModificarReservas" runat="server">
               <asp:Label ID="Label5" runat="server" Text="MODIFIQUE SU RESERVA" ForeColor="#3333CC"></asp:Label><br />
               
+              <br />
+              
               <asp:Label ID="lblCodReserva" runat="server" Text="CÓDIGO DE RESERVA: "></asp:Label>
-              <asp:TextBox ID="txtBoxCodReserva" runat="server" Enabled="False"></asp:TextBox><br />
-              <asp:Label ID="Label2" runat="server" Text="FECHA DE RESERVA: "></asp:Label>
-              <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-              <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="txtBoxFechaReserva" ErrorMessage="Introduzca la fecha en un formato válido: dd/mm/aaaa" ForeColor="Red" ValidationExpression="([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}"></asp:RegularExpressionValidator>
+              <asp:TextBox ID="txtBoxCodReserva" runat="server" Enabled="False"></asp:TextBox>
               <br />
               <asp:Label ID="lblFechaEntrada" runat="server" Text="FECHA DE ENTRADA: "></asp:Label>
               <asp:TextBox ID="txtBoxFechaEntrada" runat="server"></asp:TextBox>
@@ -102,7 +100,6 @@
               <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" />
 
               <br />
-               <asp:Label ID="lblPruebasFechas" runat="server" Text=""></asp:Label>
          </div>
     &nbsp;&nbsp;&nbsp;
          </form>

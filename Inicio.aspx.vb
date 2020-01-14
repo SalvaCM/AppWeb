@@ -12,7 +12,7 @@ Public Class Inicio
     Dim fechaEntrada
     Dim fechaSalida
     Public CodigoAlojamiento As String
-    Public reservas As String
+    Public reservas As Integer
 
 
 #End Region
@@ -33,13 +33,17 @@ Public Class Inicio
         If (HttpContext.Current.Session("ID") = vbNullString) Then
             btnIniciarSesion.Visible = True
             btnReservas.Visible = False
+            btnRegistrarse.Visible = True
+            btnCerrarSesion.Visible = False
+
             Response.Write("no estas logeado : ")
         Else
 
             Response.Write("Bienvenido : " & System.Web.HttpContext.Current.Session(“ID”))
             btnIniciarSesion.Visible = False
             btnReservas.Visible = True
-
+            btnCerrarSesion.Visible = True
+            btnRegistrarse.Visible = False
         End If
 
 
@@ -86,9 +90,7 @@ Public Class Inicio
 
 #Region "BOTONES CABECERA"
 
-    Protected Sub btnInicio_Click(sender As Object, e As EventArgs) Handles btnInicio.Click
-        Response.Redirect("Inicio.aspx") 'Ir a la página de inicio
-    End Sub
+
     Protected Sub btnReservas_Click(sender As Object, e As EventArgs) Handles btnReservas.Click
         Response.Redirect("Reserva.aspx") 'Ir a la página Reservas
     End Sub
@@ -96,7 +98,13 @@ Public Class Inicio
     Protected Sub btnIniciarSesion_Click(sender As Object, e As EventArgs) Handles btnIniciarSesion.Click
         Response.Redirect("IniSesion.aspx") 'Ir a la página de iniciar sesión
     End Sub
+    Protected Sub btnCerrarSesion_Click(sender As Object, e As EventArgs) Handles btnCerrarSesion.Click
+        Session.RemoveAll()
+        Session.Clear()
+        Session.Abandon()
+        Response.Redirect("Inicio.aspx", False)
 
+    End Sub
 
 #End Region
 
@@ -174,7 +182,7 @@ Public Class Inicio
                 fechaSalida = fechaSalida.Replace("/", "-")
 
 
-                Dim sql1 = "INSERT INTO `treservas`(`cCodAlojamiento`, `cCodUsuario`, `cFechaEntrada`, `cFechaRealizada`, `cFechaSalida`) VALUES (" + CodigoAlojamiento.ToString + ",'" + HttpContext.Current.Session("ID").ToString + "','" + fechaEntrada + "','" + fechaActual + "','" + fechaSalida + "')"
+                Dim sql1 = "INSERT INTO `treservas`(`cReserva`,`cCodAlojamiento`, `cCodUsuario`, `cFechaEntrada`, `cFechaRealizada`, `cFechaSalida`) VALUES (" + reservas.ToString + "," + CodigoAlojamiento.ToString + ",'" + HttpContext.Current.Session("ID").ToString + "','" + fechaEntrada + "','" + fechaActual + "','" + fechaSalida + "')"
                 Dim comando1 As New MySqlCommand(sql1, conexion)
                 Dim Datos As MySqlDataReader = comando1.ExecuteReader
 
@@ -206,9 +214,7 @@ Public Class Inicio
         End If
 
 
-        lblPruebas1.Text = "fechaActual" & fechaActual.ToString
-        lblPruebas2.Text = "fechaEntrada" & fechaEntrada
-        lblPruebas3.Text = "fechaSalida" & fechaSalida
+
     End Sub
 
     Protected Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox1.SelectedIndexChanged
@@ -251,7 +257,7 @@ Public Class Inicio
 
             'Si se pasa por URL
             sql = "SELECT  cCodAlojamiento FROM talojamientos WHERE cNombre = '" & item & "' ;"
-            MsgBox(sql)
+
             Dim comando As New MySqlCommand(sql, conexion)
 
             Dim Datos As MySqlDataReader = comando.ExecuteReader
@@ -266,16 +272,18 @@ Public Class Inicio
 
             Dim sql1 As String = ""
 
-            sql = "SELECT Max(cReserva) FROM treservas ;"
+            sql1 = "SELECT Max(cReserva) FROM treservas ;"
 
-            Dim comando1 As New MySqlCommand(sql, conexion)
+            Dim comando1 As New MySqlCommand(sql1, conexion)
 
             Dim Datos1 As MySqlDataReader = comando1.ExecuteReader
 
             While Datos1.Read
 
 
-                reservas = Datos1(0) + 1
+
+                reservas = Datos1.GetInt32(0)
+                reservas = reservas + 1
 
 
             End While
@@ -285,6 +293,10 @@ Public Class Inicio
             MsgBox(ex.Message)
         End Try
 
+    End Sub
+
+    Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles btnRegistrarse.Click
+        Response.Redirect("Registrarse.aspx", False)
     End Sub
 
 

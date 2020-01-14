@@ -121,4 +121,7 @@ Public Class Registrarse
         End Try
     End Sub
 
+    Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Response.Redirect("IniSesion.aspx", True)
+    End Sub
 End Class

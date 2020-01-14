@@ -90,7 +90,7 @@ Public Class WebForm1
 
                 If sb.ToString() = Datos(2) And usuarioIntroducido.Equals(Datos(0)) Then
                     cierto = True
-                    System.Web.HttpContext.Current.Session(“ID”) = usuarioIntroducido
+                    HttpContext.Current.Session(“ID”) = usuarioIntroducido
                     Response.Redirect("Inicio.aspx?ID=" + usuarioIntroducido, False)
 
                 Else
@@ -115,6 +115,11 @@ Public Class WebForm1
 
     Protected Sub btnConectarse_Click(sender As Object, e As EventArgs) Handles btnConectarse.Click
         cargarDatosUsuariosYContrasenas()
+    End Sub
+
+    Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Response.Redirect("Registrarse.aspx", False)
+
     End Sub
 
 

@@ -29,13 +29,13 @@
         </p>
         <p>
             <asp:Label ID="Label2" runat="server" Text="Pasword:"></asp:Label> &nbsp;
-            <asp:TextBox ID="txtBoxContrasena" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtBoxContrasena" runat="server" TextMode="Password"></asp:TextBox>
             </p>
         <p>
-            <asp:Label ID="TextBox1" runat="server" Text="Label"></asp:Label>
-        </p>
+            &nbsp;</p>
         <p>
             <asp:Button ID="btnConectarse" runat="server" Text="Conectarse" /> 
+            <asp:Button ID="Button1" runat="server" Text="Registrarse" />
         </p>
         <p>&nbsp;</p>
         </div>

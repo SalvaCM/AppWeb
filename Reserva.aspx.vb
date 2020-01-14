@@ -19,7 +19,7 @@ Public Class Reserva
     Dim listaApellidos As New ArrayList
     Dim listaTelefono As New ArrayList
 
-    Dim codReservIntroducido As Integer = 0
+    Dim codReservIntroducido As Integer
     Dim fechaReservaIntroducida As Date
     Dim fechaEntradaIntroducida As Date
     Dim fechaSalidaIntroducida As Date
@@ -51,7 +51,7 @@ Public Class Reserva
 #Region "Cargar DatosReservas"
     Protected Sub cargarDatosReservas()
         'FALTA ACABAR: Se cargan los datos del USUARIO LOGEADO
-        Dim usuarioLogeado As String = "22758295W"
+        Dim usuarioLogeado As String = HttpContext.Current.Session("ID").ToString
 
         Try
             conn.Close() 'Cerramos la conexion a la BBDD
@@ -182,12 +182,18 @@ Public Class Reserva
             cargarDatosReservas()
         End If
 
-        If codReservIntroducido = Nothing Then
-            MsgBox("Debe introducir el código de la reserva que desea modificar/eliminar")
+        If listaCodReserva.Contains(0) Then
+            divModificarReservas.Visible = True
+            cargarDatosReservaSeleccionada()
         ElseIf listaCodReserva.Contains(codReservIntroducido) Then
             divModificarReservas.Visible = True
             cargarDatosReservaSeleccionada()
-        Else
+        ElseIf codReservIntroducido = Nothing Then
+            MsgBox("Debe introducir el código de la reserva que desea modificar/eliminar")
+
+
+
+
             MsgBox("El código introducido no pertenece a ninguna de sus reservas.")
         End If
 
@@ -278,5 +284,7 @@ Public Class Reserva
         Session.RemoveAll()
         Session.Clear()
         Session.Abandon()
+        Response.Redirect("Inicio.aspx", False)
+
     End Sub
 End Class
