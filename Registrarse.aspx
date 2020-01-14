@@ -18,7 +18,7 @@
     <form id="form1" runat="server">
         <header style="text-align: right;">
             <asp:Button ID="Button1" runat="server" Text="Iniciar Sesion" CausesValidation="False" ValidateRequestMode="Disabled" ViewStateMode="Disabled" />
-         <asp:Button ID="btnInicio" runat="server" Text="Inicio"/> 
+         <asp:Button ID="btnInicio" runat="server" Text="Inicio" CausesValidation="False" ValidateRequestMode="Disabled"/> 
         </header>
 
         <div>

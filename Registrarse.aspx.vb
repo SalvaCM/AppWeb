@@ -115,6 +115,7 @@ Public Class Registrarse
 
             comando1.ExecuteNonQuery()
             conexion1.Close()
+            Response.Redirect("IniSesion.aspx", True)
         Catch ex As Exception
             'En caso de que no se conecte mandamos un mensaje con el error lanzado desde la BBDD MySQL
             MsgBox(ex.Message)
@@ -123,5 +124,9 @@ Public Class Registrarse
 
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Response.Redirect("IniSesion.aspx", True)
+    End Sub
+
+    Protected Sub btnInicio_Click(sender As Object, e As EventArgs) Handles btnInicio.Click
+        Response.Redirect("Inicio.aspx", True)
     End Sub
 End Class
