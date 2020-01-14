@@ -105,7 +105,7 @@ Public Class Registrarse
         conexion1.Open() 'Abrimos la conexion a la BBDD
         Try
             '  Dim conn As New MySqlConnection("Server=192.168.101.24; Database=alojamientos; Uid=grupoAlojamientos; Pwd=123456")
-            Dim Query As String = "INSERT INTO tusuarios(cDni,cApellidos,cContrasena,cNombre,cTelefono,cTipoUsuario)VALUES(" + DNIIntroducido + ",'" + ApellidoIntroducido.ToString + "','" + sb.ToString + "','" + NombreIntroducido.ToString + "'," + TelefonoIntroducido + ", 'Normal' )"
+            Dim Query As String = "INSERT INTO tusuarios(cDni,cApellidos,cContrasena,cNombre,cTelefono,cTipoUsuario)VALUES('" + DNIIntroducido.ToString + "','" + ApellidoIntroducido.ToString + "','" + sb.ToString + "','" + NombreIntroducido.ToString + "'," + TelefonoIntroducido + ", 'Normal' )"
 
 
 
@@ -117,7 +117,7 @@ Public Class Registrarse
             conexion1.Close()
         Catch ex As Exception
             'En caso de que no se conecte mandamos un mensaje con el error lanzado desde la BBDD MySQL
-            ' MsgBox(ex.Message)
+            MsgBox(ex.Message)
         End Try
     End Sub
 
