@@ -13,6 +13,7 @@ Public Class Registrarse
     Public TelefonoIntroducido As String
     Public cierto As Boolean = False
     Private contrasenaIntroducida As String
+    Public correoIntroducido As String
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
@@ -26,6 +27,7 @@ Public Class Registrarse
         TelefonoIntroducido = TextBoxTelefono.Text
 
         contrasenaIntroducida = txtBoxContrasena.Text
+        correoIntroducido = TextBoxEmail.Text
         'Encriptamos
         Dim enc As New UTF8Encoding
         Dim data() As Byte = enc.GetBytes(contrasenaIntroducida)
@@ -86,7 +88,7 @@ Public Class Registrarse
 
             End While
             If cierto.Equals(False) Then
-                Insertar(DNIIntroducido, ApellidoIntroducido, sb.ToString, NombreIntroducido, TelefonoIntroducido)
+                Insertar(DNIIntroducido, ApellidoIntroducido, sb.ToString, NombreIntroducido, TelefonoIntroducido, correoIntroducido)
             End If
 
 
@@ -95,7 +97,7 @@ Public Class Registrarse
             MsgBox(ex.Message)
         End Try
     End Sub
-    Protected Sub Insertar(DNIIntroducido, ApellidoIntroducido, sb, NombreIntroducido, TelefonoIntroducido)
+    Protected Sub Insertar(DNIIntroducido, ApellidoIntroducido, sb, NombreIntroducido, TelefonoIntroducido, correoIntroducido)
 
         Dim sql As String = ""
         Dim connectionString = ConfigurationManager.ConnectionStrings("myConnectionString").ConnectionString
@@ -105,7 +107,7 @@ Public Class Registrarse
         conexion1.Open() 'Abrimos la conexion a la BBDD
         Try
             '  Dim conn As New MySqlConnection("Server=192.168.101.24; Database=alojamientos; Uid=grupoAlojamientos; Pwd=123456")
-            Dim Query As String = "INSERT INTO tusuarios(cDni,cApellidos,cContrasena,cNombre,cTelefono,cEmail)VALUES('" + DNIIntroducido.ToString + "','" + ApellidoIntroducido.ToString + "','" + sb.ToString + "','" + NombreIntroducido.ToString + "'," + TelefonoIntroducido + ", 'example@gmail.com' )"
+            Dim Query As String = "INSERT INTO tusuarios(cDni,cApellidos,cContrasena,cNombre,cTelefono,cEmail)VALUES('" + DNIIntroducido.ToString + "','" + ApellidoIntroducido.ToString + "','" + sb.ToString + "','" + NombreIntroducido.ToString + "'," + TelefonoIntroducido + ", '" & correoIntroducido & "' )"
 
 
 
