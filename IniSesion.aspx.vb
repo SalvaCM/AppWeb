@@ -36,6 +36,10 @@ Public Class WebForm1
     Protected Sub btnInicio_Click(sender As Object, e As EventArgs) Handles btnInicio.Click
         Response.Redirect("Inicio.aspx") 'Ir a la página de inicio
     End Sub
+    Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Response.Redirect("Registrarse.aspx", False)
+
+    End Sub
 
 #End Region
 
@@ -103,13 +107,13 @@ Public Class WebForm1
 
             End While
             If cierto.Equals(False) Then
-                MsgBox("informacion introducida incorrecta")
+                MsgBox("informacion introducida incorrecta", MsgBoxStyle.MsgBoxSetForeground)
             End If
 
 
         Catch ex As Exception
             'En caso de que no se conecte mandamos un mensaje con el error lanzado desde la BBDD MySQL
-            MsgBox(ex.Message)
+            MsgBox(ex.Message, MsgBoxStyle.MsgBoxSetForeground)
         End Try
     End Sub
 
@@ -117,10 +121,6 @@ Public Class WebForm1
         cargarDatosUsuariosYContrasenas()
     End Sub
 
-    Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Response.Redirect("Registrarse.aspx", False)
-
-    End Sub
 
 
 #End Region

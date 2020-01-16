@@ -94,7 +94,7 @@ Public Class Registrarse
 
         Catch ex As Exception
             'En caso de que no se conecte mandamos un mensaje con el error lanzado desde la BBDD MySQL
-            MsgBox(ex.Message)
+            MsgBox(ex.Message, MsgBoxStyle.MsgBoxSetForeground)
         End Try
     End Sub
     Protected Sub Insertar(DNIIntroducido, ApellidoIntroducido, sb, NombreIntroducido, TelefonoIntroducido, correoIntroducido)
@@ -120,7 +120,7 @@ Public Class Registrarse
             Response.Redirect("IniSesion.aspx", True)
         Catch ex As Exception
             'En caso de que no se conecte mandamos un mensaje con el error lanzado desde la BBDD MySQL
-            MsgBox(ex.Message)
+            MsgBox(ex.Message, MsgBoxStyle.MsgBoxSetForeground)
         End Try
     End Sub
 

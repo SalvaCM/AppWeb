@@ -9,7 +9,7 @@ Public Class Reserva
 
 #Region "Variables"
     Dim mydatatable As New DataTable
-
+    Dim thisDay = DateTime.Today
     Dim listaCodReserva As New ArrayList
     Dim listaFechaReserva As New ArrayList
     Dim listaFechaEntrada As New ArrayList
@@ -28,6 +28,21 @@ Public Class Reserva
 
 #Region "Inicio página Reservas"
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
+
+
+
+
+        If (HttpContext.Current.Session("ID") = vbNullString) Then
+            Response.Redirect("Inicio.aspx")
+
+
+
+        End If
+
+
+
+
 
         If Not IsPostBack Then ' Estos eventos ocurrirán sólo la primer vez que se inicie la página
             cargarDatosReservas()
@@ -86,7 +101,7 @@ Public Class Reserva
 
         Catch ex As Exception
             'En caso de que no se conecte mandamos un mensaje con el error lanzado desde la BBDD MySQL
-            MsgBox(ex.Message)
+            MsgBox(ex.Message, MsgBoxStyle.MsgBoxSetForeground)
         End Try
     End Sub
 
@@ -154,7 +169,7 @@ Public Class Reserva
 
         Catch ex As Exception
             'En caso de que no se conecte mandamos un mensaje con el error lanzado desde la BBDD MySQL
-            MsgBox(ex.Message)
+            MsgBox(ex.Message, MsgBoxStyle.MsgBoxSetForeground)
         End Try
     End Sub
 #End Region
@@ -189,22 +204,21 @@ Public Class Reserva
             divModificarReservas.Visible = True
             cargarDatosReservaSeleccionada()
         ElseIf codReservIntroducido = Nothing Then
-            MsgBox("Debe introducir el código de la reserva que desea modificar/eliminar")
+            MsgBox("Debe introducir el código de la reserva que desea modificar/eliminar", MsgBoxStyle.MsgBoxSetForeground)
 
 
 
 
-            MsgBox("El código introducido no pertenece a ninguna de sus reservas.")
+            MsgBox("El código introducido no pertenece a ninguna de sus reservas.", MsgBoxStyle.MsgBoxSetForeground)
         End If
 
     End Sub
     Protected Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
-
-        If txtBoxFechaReserva.Text <> "" And txtBoxFechaEntrada.Text <> "" And txtBoxFechaSalida.Text <> "" Then
+        fechaEntradaIntroducida = txtBoxFechaEntrada.Text
+        fechaSalidaIntroducida = txtBoxFechaSalida.Text
+        If fechaEntradaIntroducida > thisDay And fechaSalidaIntroducida >= fechaEntradaIntroducida Then
             'Se cargan las fechas nuevas introducidas por el usuario
             fechaReservaIntroducida = txtBoxFechaReserva.Text
-            fechaEntradaIntroducida = txtBoxFechaEntrada.Text
-            fechaSalidaIntroducida = txtBoxFechaSalida.Text
 
             'Se modifica la fecha en la BBDD
             Try
@@ -219,15 +233,16 @@ Public Class Reserva
                 conn.Close()
             Catch ex As Exception
                 'En caso de que no se conecte mandamos un mensaje con el error lanzado desde la BBDD MySQL
-                MsgBox(ex.Message)
+                MsgBox(ex.Message, MsgBoxStyle.MsgBoxSetForeground)
             End Try
 
             'Una vez modificada la reserva se actualizan los datos de la tabla
-            MsgBox("La reserva se modificó.", , "Reserva")
+            MsgBox("La reserva se modificó.", MsgBoxStyle.MsgBoxSetForeground, "Reserva")
 
             cargarDatosReservas()
             rellenarTablaDetallesReservas()
-
+        Else
+            MsgBox("Las fechas deben ser superiores a la actual", MsgBoxStyle.MsgBoxSetForeground, "Reserva")
 
         End If
 
@@ -238,10 +253,10 @@ Public Class Reserva
 
         'Si el usuario está logeado, realizar reserva
         Dim resp As MsgBoxResult
-        resp = MsgBox("¿Está seguro de que desea eliminar su reserva? Si continúa su reserva se eliminará permanentemente.", MsgBoxStyle.YesNo + MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "Reserva")
+        resp = MsgBox("¿Está seguro de que desea eliminar su reserva? Si continúa su reserva se eliminará permanentemente.", MsgBoxStyle.YesNo + MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.MsgBoxSetForeground, "Reserva")
         If resp = MsgBoxResult.Yes Then
             eliminarReserva()
-            MsgBox("La reserva se eliminó.", , "Reserva")
+            MsgBox("La reserva se eliminó.", MsgBoxStyle.MsgBoxSetForeground, "Reserva")
 
             'Se vuelven a cargar los datos de la tabla
             cargarDatosReservas()
@@ -251,7 +266,7 @@ Public Class Reserva
             divOpcionesModificarEliminar.Visible = False
             divModificarReservas.Visible = False
         Else
-            MsgBox("La reserva no se eliminó.", , "Reserva")
+            MsgBox("La reserva no se eliminó.", MsgBoxStyle.MsgBoxSetForeground, "Reserva")
         End If
 
 
@@ -276,7 +291,7 @@ Public Class Reserva
             conn.Close()
         Catch ex As Exception
             'En caso de que no se conecte mandamos un mensaje con el error lanzado desde la BBDD MySQL
-            MsgBox(ex.Message)
+            MsgBox(ex.Message, MsgBoxStyle.MsgBoxSetForeground)
         End Try
     End Sub
 

@@ -7,7 +7,7 @@ Public Class Inicio
 
 #Region "Variables"
     Public conexion As New MySqlConnection
-
+    Dim thisDay = DateTime.Today
     Dim fechaActual As String = DateTime.Now.ToString("yyyy/MM/dd")
     Dim fechaEntrada
     Dim fechaSalida
@@ -84,7 +84,7 @@ Public Class Inicio
             conexion.Close()
         Catch ex As Exception
             'En caso de que no se conecte mandamos un mensaje con el error lanzado desde la BBDD MySQL
-            MsgBox(ex.Message)
+            MsgBox(ex.Message, MsgBoxStyle.MsgBoxSetForeground)
         End Try
     End Sub
 
@@ -144,7 +144,7 @@ Public Class Inicio
 
         Catch ex As Exception
             'En caso de que no se conecte mandamos un mensaje con el error lanzado desde la BBDD MySQL
-            MsgBox(ex.Message)
+            MsgBox(ex.Message, MsgBoxStyle.MsgBoxSetForeground)
         End Try
     End Sub
     Protected Sub btnReservarAlojamiento_Click(sender As Object, e As EventArgs) Handles btnReservarAlojamiento.Click
@@ -155,16 +155,15 @@ Public Class Inicio
     Protected Sub btnRealizarReserva_Click(sender As Object, e As EventArgs) Handles btnRealizarReserva.Click
 
         'Validar fechas
-        validarFechas()
 
         'Si el usuario está logeado, realizar reserva
         If (HttpContext.Current.Session("ID") = vbNullString) Then
-            MsgBox("Debe iniciar sesión antes de realizar su reserva", MsgBoxStyle.OkOnly + MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Atención!")
+            MsgBox("Debe iniciar sesión antes de realizar su reserva", MsgBoxStyle.OkOnly + MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.MsgBoxSetForeground, "¡Atención!")
             Response.Redirect("IniSesion.aspx") 'Ir a la página de iniciar sesión
         Else
 
             Dim resp As MsgBoxResult
-            resp = MsgBox("¿Desea finalizar su reserva? Si continúa su reserva se guardará.", MsgBoxStyle.YesNo + MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "Reserva")
+            resp = MsgBox("¿Desea finalizar su reserva? Si continúa su reserva se guardará.", MsgBoxStyle.YesNo + MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.MsgBoxSetForeground, "Reserva")
             If resp = MsgBoxResult.Yes Then
                 IDAlojamiento()
                 'Cerramos la conexion a la BBDD
@@ -187,10 +186,10 @@ Public Class Inicio
                 Dim Datos As MySqlDataReader = comando1.ExecuteReader
 
 
-                MsgBox("La reserva se guardó correctamente", , "Reserva")
+                MsgBox("La reserva se guardó correctamente", MsgBoxStyle.MsgBoxSetForeground , "Reserva")
 
             Else
-                MsgBox("La reserva no se realizó.", , "Reserva")
+                MsgBox("La reserva no se realizó.", MsgBoxStyle.MsgBoxSetForeground, "Reserva")
             End If
         End If
 
@@ -202,20 +201,19 @@ Public Class Inicio
 #End Region
 
 #Region "Fechas"
-    Protected Sub validarFechas()
-        fechaEntrada = Calendar1.SelectedDate.ToString("yyyy/MM/dd")
-        fechaSalida = Calendar2.SelectedDate.ToString("yyyy/MM/dd")
 
-        If fechaEntrada < fechaActual Then
-            MsgBox("La fecha de entrada no puede ser menor a la fecha actual", , "Error")
+
+    Protected Sub Calendar1_DayRender(sender As Object, e As DayRenderEventArgs) Handles Calendar1.DayRender
+        If e.Day.Date < thisDay Then
+            e.Day.IsSelectable = False
         End If
-        If fechaSalida < fechaEntrada Then
-            MsgBox("La fecha de salida no puede ser menor a la fecha de entrada", , "Error")
-        End If
-
-
-
     End Sub
+    Protected Sub Calendar2_DayRender(sender As Object, e As DayRenderEventArgs) Handles Calendar2.DayRender
+        If e.Day.Date < thisDay Then
+            e.Day.IsSelectable = False
+        End If
+    End Sub
+
 
     Protected Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox1.SelectedIndexChanged
 
@@ -290,7 +288,7 @@ Public Class Inicio
             conexion.Close()
         Catch ex As MySqlException
             'En caso de que no se conecte mandamos un mensaje con el error lanzado desde la BBDD MySQL
-            MsgBox(ex.Message)
+            MsgBox(ex.Message, MsgBoxStyle.MsgBoxSetForeground)
         End Try
 
     End Sub

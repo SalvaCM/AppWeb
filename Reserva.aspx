@@ -77,7 +77,7 @@
               <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtBoxFechaSalida" ErrorMessage="Introduzca la fecha en un formato válido: dd/mm/aaaa" ForeColor="Red" ValidationExpression="([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}"></asp:RegularExpressionValidator>
               <br />
               <asp:Label ID="lblFechaReserva" runat="server" Text="FECHA DE RESERVA: "></asp:Label>
-              <asp:TextBox ID="txtBoxFechaReserva" runat="server"></asp:TextBox>
+              <asp:TextBox ID="txtBoxFechaReserva" runat="server" Enabled="False"></asp:TextBox>
               <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtBoxFechaReserva" ErrorMessage="Introduzca la fecha en un formato válido: dd/mm/aaaa" ForeColor="Red" ValidationExpression="([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}"></asp:RegularExpressionValidator>
               <br />
               <asp:Label ID="lblDni" runat="server" Text="DNI: "></asp:Label>
