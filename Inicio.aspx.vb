@@ -174,6 +174,7 @@ Public Class Inicio
                 conexion = New MySqlConnection(connectionString)
                 conexion.Open() 'Abrimos la conexion a la BBDD
 
+                validarFechas()
 
                 'cambio de formato de fechas para que la insert funcione en mysql
                 fechaActual = fechaActual.Replace("/", "-")
@@ -201,7 +202,11 @@ Public Class Inicio
 #End Region
 
 #Region "Fechas"
+    Protected Sub validarFechas()
+        fechaEntrada = Calendar1.SelectedDate.ToString("yyyy/MM/dd")
+        fechaSalida = Calendar2.SelectedDate.ToString("yyyy/MM/dd")
 
+    End Sub
 
     Protected Sub Calendar1_DayRender(sender As Object, e As DayRenderEventArgs) Handles Calendar1.DayRender
         If e.Day.Date < thisDay Then
