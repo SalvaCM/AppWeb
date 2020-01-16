@@ -64,38 +64,39 @@ Public Class Registrarse
             'Establecemos los parametros de la conexion a la BBDD
             conexion = New MySqlConnection(connectionString)
 
-            conexion.Open() 'Abrimos la conexion a la BBDD
+			Try
+				conexion.Open() 'Abrimos la conexion a la BBDD
+			Catch ex As Exception
+				MsgBox("No se pudo abrir la conexión a la BBDD", MsgBoxStyle.MsgBoxSetForeground)
+			End Try
 
+			Try
 
-            sql = "SELECT * FROM tusuarios  ;"
+			Catch ex As Exception
 
-            Dim comando As New MySqlCommand(sql, conexion)
+			End Try
+			sql = "SELECT * FROM tusuarios  ;"
+			Dim comando As New MySqlCommand(sql, conexion)
             Dim Datos As MySqlDataReader = comando.ExecuteReader
-            While Datos.Read
-
-                If DNIIntroducido.Equals(Datos(0)) Then
-                    cierto = True
-
-                Else
-                    If cierto = True Then
-
-                    Else
-                        cierto = False
-
-
-                    End If
-                End If
-
-            End While
+			While Datos.Read
+				If DNIIntroducido.Equals(Datos(0)) Then
+					cierto = True
+				Else
+					If cierto = True Then
+					Else
+						cierto = False
+					End If
+				End If
+			End While
             If cierto.Equals(False) Then
                 Insertar(DNIIntroducido, ApellidoIntroducido, sb.ToString, NombreIntroducido, TelefonoIntroducido, correoIntroducido)
             End If
 
 
         Catch ex As Exception
-            'En caso de que no se conecte mandamos un mensaje con el error lanzado desde la BBDD MySQL
-            MsgBox(ex.Message, MsgBoxStyle.MsgBoxSetForeground)
-        End Try
+			'En caso de que no se conecte mandamos un mensaje con el error lanzado desde la BBDD MySQL
+			Console.WriteLine("Error al conectar con BBDD1" & ex.Message, MsgBoxStyle.MsgBoxSetForeground) ' Excepciones más genéricas.
+		End Try
     End Sub
     Protected Sub Insertar(DNIIntroducido, ApellidoIntroducido, sb, NombreIntroducido, TelefonoIntroducido, correoIntroducido)
 
@@ -119,9 +120,9 @@ Public Class Registrarse
             conexion1.Close()
             Response.Redirect("IniSesion.aspx", True)
         Catch ex As Exception
-            'En caso de que no se conecte mandamos un mensaje con el error lanzado desde la BBDD MySQL
-            MsgBox(ex.Message, MsgBoxStyle.MsgBoxSetForeground)
-        End Try
+			'En caso de que no se conecte mandamos un mensaje con el error lanzado desde la BBDD MySQL
+			Console.WriteLine("Error al conectar con BBDD2" & ex.Message, MsgBoxStyle.MsgBoxSetForeground) ' Excepciones más genéricas.
+		End Try
     End Sub
 
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
