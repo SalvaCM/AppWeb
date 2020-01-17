@@ -64,6 +64,8 @@
               <asp:Label ID="Label5" runat="server" Text="MODIFIQUE SU RESERVA" ForeColor="#3333CC"></asp:Label><br />
               
               <br />
+              <asp:Label ID="Label6" runat="server" Text="Datos de la reserva:" ForeColor="#3333CC"></asp:Label>
+              <br />
               
               <asp:Label ID="lblCodReserva" runat="server" Text="CÓDIGO DE RESERVA: "></asp:Label>
               <asp:TextBox ID="txtBoxCodReserva" runat="server" Enabled="False"></asp:TextBox>
@@ -80,6 +82,31 @@
               <asp:TextBox ID="txtBoxFechaReserva" runat="server" Enabled="False"></asp:TextBox>
               <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtBoxFechaReserva" ErrorMessage="Introduzca la fecha en un formato válido: dd/mm/aaaa" ForeColor="Red" ValidationExpression="([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}"></asp:RegularExpressionValidator>
               <br />
+              <br />
+              <asp:Label ID="Label7" runat="server" Text="Datos del alojamiento:" ForeColor="#3333CC"></asp:Label>
+              <br />
+              <asp:Label ID="lblNombre0" runat="server" Text="NOMBRE: "></asp:Label>
+              <asp:TextBox ID="txtBoxNombreAlojamiento" runat="server" Enabled="False"></asp:TextBox>
+              <br />
+              <asp:Label ID="lblNombre1" runat="server" Text="DIRECCIÓN: "></asp:Label>
+              <asp:TextBox ID="txtBoxDireAloj" runat="server" Enabled="False"></asp:TextBox>
+              <br />
+              <asp:Label ID="lblNombre2" runat="server" Text="LOCALIZACIÓN: "></asp:Label>
+              <asp:TextBox ID="txtBoxLocalizAloj" runat="server" Enabled="False"></asp:TextBox>
+              <br />
+              <asp:Label ID="lblNombre3" runat="server" Text="EMAIL: "></asp:Label>
+              <asp:TextBox ID="txtBoxEmailAloj" runat="server" Enabled="False"></asp:TextBox>
+              <br />
+              <asp:Label ID="lblNombre4" runat="server" Text="TELÉFONO: "></asp:Label>
+              <asp:TextBox ID="txtBoxTelfAloj" runat="server" Enabled="False"></asp:TextBox>
+              <br />
+              <asp:Label ID="lblNombre5" runat="server" Text="WEB: "></asp:Label>
+              <asp:TextBox ID="txtBoxWebAloj" runat="server" Enabled="False"></asp:TextBox>
+              <br />
+              <br />
+              <asp:Label ID="Label8" runat="server" Text="Datos del usuario:" ForeColor="#3333CC"></asp:Label>
+              <br />
+              <br />
               <asp:Label ID="lblDni" runat="server" Text="DNI: "></asp:Label>
               <asp:TextBox ID="txtBoxDni" runat="server" Enabled="False"></asp:TextBox><br />
               <asp:Label ID="lblNombre" runat="server" Text="NOMBRE: "></asp:Label>
@@ -88,10 +115,6 @@
               <asp:TextBox ID="txtBoxApellidos" runat="server" Enabled="False"></asp:TextBox><br />
               <asp:Label ID="lblTelefono" runat="server" Text="TELEFONO: "></asp:Label>
               <asp:TextBox ID="txtBoxTelefono" runat="server" MaxLength="9" Enabled="False"></asp:TextBox><br />
-               <asp:Label ID="lblCodAlojamiento" runat="server" Text="CÓDIGO ALOJAMIENTO: "></asp:Label>
-              <asp:TextBox ID="txtBoxCodAlojamiento" runat="server" Enabled="False"></asp:TextBox><br />
-               <asp:Label ID="lblNombreAloj" runat="server" Text="NOMBRE ALOJAMIENTO: "></asp:Label>
-              <asp:TextBox ID="txtBoxNombreAlojamiento" runat="server" Enabled="False"></asp:TextBox>
               <br />
               <br />
 

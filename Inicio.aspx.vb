@@ -66,12 +66,12 @@ Public Class Inicio
             'Query para ejecutar select de la localidad seleccionada
             Dim sql As String
 
-            'Si se pasa por URL
-            sql = "SELECT cNombre, cCodAlojamiento FROM talojamientos WHERE cLocalidad = '" & DropDownList1.SelectedValue & "' ;"
+			'Si se pasa por URL
+			sql = "SELECT cNombre, cCodAlojamiento FROM tAlojamientos WHERE cLocalidad = '" & DropDownList1.SelectedValue & "' ;"
 
 
 
-            Dim comando As New MySqlCommand(sql, conexion)
+			Dim comando As New MySqlCommand(sql, conexion)
 
             Dim Datos As MySqlDataReader = comando.ExecuteReader
             While Datos.Read
@@ -243,62 +243,66 @@ Public Class Inicio
 
     End Sub
 
-    Public Sub IDAlojamiento()
-        Dim item As String = ListBox1.SelectedItem.ToString
-        Try
-            'Cerramos la conexion a la BBDD
-            conexion.Close()
+	Public Sub IDAlojamiento()
 
-            'Establecemos los parametros de la conexion a la BBDD
-            Dim connectionString = ConfigurationManager.ConnectionStrings("myConnectionString").ConnectionString
-            conexion = New MySqlConnection(connectionString)
-            conexion.Open() 'Abrimos la conexion a la BBDD
+		Dim item As String = ListBox1.SelectedItem.ToString
 
+		'btnReservas.Visible = True
 
-            'Query para ejecutar select de la localidad seleccionada
-            Dim sql As String = ""
+		Try
+			'Cerramos la conexion a la BBDD
+			conexion.Close()
 
-            'Si se pasa por URL
-            sql = "SELECT  cCodAlojamiento FROM talojamientos WHERE cNombre = '" & item & "' ;"
-
-            Dim comando As New MySqlCommand(sql, conexion)
-
-            Dim Datos As MySqlDataReader = comando.ExecuteReader
-            While Datos.Read
+			'Establecemos los parametros de la conexion a la BBDD
+			Dim connectionString = ConfigurationManager.ConnectionStrings("myConnectionString").ConnectionString
+			conexion = New MySqlConnection(connectionString)
+			conexion.Open() 'Abrimos la conexion a la BBDD
 
 
-                CodigoAlojamiento = Datos(0)
+			'Query para ejecutar select de la localidad seleccionada
+			Dim sql As String = ""
+
+			'Si se pasa por URL
+			sql = "SELECT  cCodAlojamiento FROM talojamientos WHERE cNombre = '" & item & "' ;"
+
+			Dim comando As New MySqlCommand(sql, conexion)
+
+			Dim Datos As MySqlDataReader = comando.ExecuteReader
+			While Datos.Read
 
 
-            End While
-            Datos.Close()
-
-            Dim sql1 As String = ""
-
-            sql1 = "SELECT Max(cReserva) FROM treservas ;"
-
-            Dim comando1 As New MySqlCommand(sql1, conexion)
-
-            Dim Datos1 As MySqlDataReader = comando1.ExecuteReader
-
-            While Datos1.Read
+				CodigoAlojamiento = Datos(0)
 
 
+			End While
+			Datos.Close()
 
-                reservas = Datos1.GetInt32(0)
-                reservas = reservas + 1
+			Dim sql1 As String = ""
+
+			sql1 = "SELECT Max(cReserva) FROM treservas ;"
+
+			Dim comando1 As New MySqlCommand(sql1, conexion)
+
+			Dim Datos1 As MySqlDataReader = comando1.ExecuteReader
+
+			While Datos1.Read
 
 
-            End While
-            conexion.Close()
-        Catch ex As MySqlException
-            'En caso de que no se conecte mandamos un mensaje con el error lanzado desde la BBDD MySQL
-            MsgBox(ex.Message, MsgBoxStyle.MsgBoxSetForeground)
-        End Try
 
-    End Sub
+				reservas = Datos1.GetInt32(0)
+				reservas = reservas + 1
 
-    Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles btnRegistrarse.Click
+
+			End While
+			conexion.Close()
+		Catch ex As MySqlException
+			'En caso de que no se conecte mandamos un mensaje con el error lanzado desde la BBDD MySQL
+			MsgBox(ex.Message, MsgBoxStyle.MsgBoxSetForeground)
+		End Try
+
+	End Sub
+
+	Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles btnRegistrarse.Click
         Response.Redirect("Registrarse.aspx", False)
     End Sub
 

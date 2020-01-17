@@ -22,6 +22,7 @@ Public Class Reserva
 	Dim listaDireccion As New ArrayList
 	Dim listaLocalizacion As New ArrayList
 	Dim listaEmail As New ArrayList
+	Dim listaTelefonoAloj As New ArrayList
 	Dim listaWeb As New ArrayList
 
 
@@ -78,8 +79,7 @@ Public Class Reserva
 			conn.Close() 'Cerramos la conexion a la BBDD
 
 			conn.Open() 'Abrimos la conexion a la BBDD
-			Dim query As String = "select R.cReserva, R.cFechaEntrada, R.cFechaSalida, R.cFechaRealizada, R.cCodUsuario,U.cNombre ""NombreUsuario"" ,U.cApellidos,R.cCodAlojamiento,A.cNombre ""NombreAlojamiento"", A.cDireccion, A.cLocalizacion, A.cEmail, A.cTelefono, A.cWeb   from tReservas R, tAlojamientos A, tUsuarios U where R.cCodAlojamiento=A.cCodAlojamiento and R.cCodUsuario=U.cDni and R.cCodUsuario='" & usuarioLogeado.ToString & "'"
-
+			Dim query As String = "select R.cReserva, R.cFechaEntrada, R.cFechaSalida, R.cFechaRealizada, R.cCodUsuario,U.cNombre ""NombreUsuario"" ,U.cApellidos, U.cTelefono ""telfUsuario"", R.cCodAlojamiento,A.cNombre ""NombreAlojamiento"", A.cDireccion, A.cLocalizacion, A.cEmail, A.cTelefono ""telfAloj"", A.cWeb     from tReservas R, tAlojamientos A, tUsuarios U where R.cCodAlojamiento=A.cCodAlojamiento and R.cCodUsuario=U.cDni and R.cCodUsuario='" & usuarioLogeado.ToString & "'"
 			Dim cmd As New MySqlCommand(query, conn)
 			cmd.ExecuteNonQuery()
 
@@ -97,9 +97,11 @@ Public Class Reserva
 					listaFechaSalida.Add(Datos("cFechaSalida"))
 					listaNombreAlojamiento.Add(Datos("NombreAlojamiento"))
 					listaNombre.Add(Datos("NombreUsuario"))
-					listaApellidos.Add(Datos("cApellidos"))
-					listaTelefono.Add(Datos("cTelefono"))
+					listaTelefono.Add(Datos("telfUsuario"))
 
+					listaApellidos.Add(Datos("cApellidos"))
+
+					listaTelefonoAloj.Add(Datos("telfAloj"))
 					listaDireccion.Add(Datos("cDireccion"))
 					listaLocalizacion.Add(Datos("cLocalizacion"))
 					listaEmail.Add(Datos("cEmail"))
@@ -159,9 +161,9 @@ Public Class Reserva
 			conn.Close() 'Cerramos la conexion a la BBDD
 
 			conn.Open() 'Abrimos la conexion a la BBDD
-			Dim query As String = "select R.cReserva, R.cFechaEntrada, R.cFechaSalida, R.cFechaRealizada, R.cCodUsuario,U.cNombre ""NombreUsuario"" ,U.cApellidos,U.cTelefono,R.cCodAlojamiento,A.cNombre ""NombreAlojamiento""   from treservas R, talojamientos A, tusuarios U where R.cCodAlojamiento=A.cCodAlojamiento and R.cCodUsuario=U.cDni and R.cReserva= " & codReservIntroducido.ToString
-			Dim cmd As New MySqlCommand(query, conn)
+			Dim query As String = "select R.cReserva, R.cFechaEntrada, R.cFechaSalida, R.cFechaRealizada, R.cCodUsuario,U.cNombre ""NombreUsuario"" ,U.cApellidos, U.cTelefono ""telfUsuario"", R.cCodAlojamiento,A.cNombre ""NombreAlojamiento"", A.cDireccion, A.cLocalizacion, A.cEmail, A.cTelefono ""telfAloj"", A.cWeb     from treservas R, talojamientos A, tusuarios U where R.cCodAlojamiento=A.cCodAlojamiento and R.cCodUsuario=U.cDni and R.cReserva= " & codReservIntroducido.ToString
 
+			Dim cmd As New MySqlCommand(query, conn)
 			cmd.ExecuteNonQuery()
 
 			Dim comando As New MySqlCommand(query, conn)
@@ -176,15 +178,19 @@ Public Class Reserva
 				txtBoxDni.Text = Datos("cCodUsuario")
 				txtBoxNombre.Text = Datos("NombreUsuario")
 				txtBoxApellidos.Text = Datos("cApellidos")
-				txtBoxTelefono.Text = Datos("cTelefono")
-				txtBoxCodAlojamiento.Text = Datos("cCodAlojamiento")
+				txtBoxTelefono.Text = Datos("telfUsuario")
 				txtBoxNombreAlojamiento.Text = Datos("NombreAlojamiento")
+				txtBoxDireAloj.Text = Datos("cDireccion")
+				txtBoxLocalizAloj.Text = Datos("cLocalizacion")
+				txtBoxEmailAloj.Text = Datos("cEmail")
+				txtBoxTelfAloj.Text = Datos("telfAloj")
+				txtBoxWebAloj.Text = Datos("cWeb")
 
 			End If
 
 		Catch ex As Exception
-            'En caso de que no se conecte mandamos un mensaje con el error lanzado desde la BBDD MySQL
-            MsgBox(ex.Message, MsgBoxStyle.MsgBoxSetForeground)
+			'En caso de que no se conecte mandamos un mensaje con el error lanzado desde la BBDD MySQL
+			MsgBox(ex.Message, MsgBoxStyle.MsgBoxSetForeground)
         End Try
     End Sub
 #End Region
