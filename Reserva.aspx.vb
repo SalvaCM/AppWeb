@@ -22,7 +22,6 @@ Public Class Reserva
 	Dim listaDireccion As New ArrayList
 	Dim listaLocalizacion As New ArrayList
 	Dim listaEmail As New ArrayList
-	Dim listaTelefonoAloj As New ArrayList
 	Dim listaWeb As New ArrayList
 
 
@@ -79,7 +78,7 @@ Public Class Reserva
 			conn.Close() 'Cerramos la conexion a la BBDD
 
 			conn.Open() 'Abrimos la conexion a la BBDD
-			Dim query As String = "select R.cReserva, R.cFechaEntrada, R.cFechaSalida, R.cFechaRealizada, R.cCodUsuario,U.cNombre ""NombreUsuario"" ,U.cApellidos, U.cTelefono ""telfUsuario"", R.cCodAlojamiento,A.cNombre ""NombreAlojamiento"", A.cDireccion, A.cLocalizacion, A.cEmail, A.cTelefono ""telfAloj"", A.cWeb     from tReservas R, tAlojamientos A, tUsuarios U where R.cCodAlojamiento=A.cCodAlojamiento and R.cCodUsuario=U.cDni and R.cCodUsuario='" & usuarioLogeado.ToString & "'"
+			Dim query As String = "select R.cReserva, R.cFechaEntrada, R.cFechaSalida, R.cFechaRealizada, R.cCodUsuario,U.cNombre ""NombreUsuario"" ,U.cApellidos,R.cCodAlojamiento,A.cNombre ""NombreAlojamiento"", A.cDireccion, A.cLocalizacion, A.cEmail, A.cTelefono, A.cWeb   from tReservas R, tAlojamientos A, tUsuarios U where R.cCodAlojamiento=A.cCodAlojamiento and R.cCodUsuario=U.cDni and R.cCodUsuario='" & usuarioLogeado.ToString & "'"
 
 			Dim cmd As New MySqlCommand(query, conn)
 			cmd.ExecuteNonQuery()
@@ -98,10 +97,8 @@ Public Class Reserva
 					listaFechaSalida.Add(Datos("cFechaSalida"))
 					listaNombreAlojamiento.Add(Datos("NombreAlojamiento"))
 					listaNombre.Add(Datos("NombreUsuario"))
-					listaTelefono.Add(Datos("telfUsuario"))
-
 					listaApellidos.Add(Datos("cApellidos"))
-					listaTelefonoAloj.Add(Datos("telfAloj"))
+					listaTelefono.Add(Datos("cTelefono"))
 
 					listaDireccion.Add(Datos("cDireccion"))
 					listaLocalizacion.Add(Datos("cLocalizacion"))
@@ -152,44 +149,40 @@ Public Class Reserva
 			mydatatable.Rows.Add(myrow)
 		Next
 
-        GridView1.DataSource = mydatatable
-        GridView1.DataBind()
+		GridView1.DataSource = mydatatable
+		GridView1.DataBind()
 
-    End Sub
+	End Sub
 
-    Protected Sub cargarDatosReservaSeleccionada()
-        Try
-            conn.Close() 'Cerramos la conexion a la BBDD
+	Protected Sub cargarDatosReservaSeleccionada()
+		Try
+			conn.Close() 'Cerramos la conexion a la BBDD
 
-            conn.Open() 'Abrimos la conexion a la BBDD
-			Dim query As String = "select R.cReserva, R.cFechaEntrada, R.cFechaSalida, R.cFechaRealizada, R.cCodUsuario,U.cNombre ""NombreUsuario"" ,U.cApellidos, U.cTelefono ""telfUsuario"", R.cCodAlojamiento,A.cNombre ""NombreAlojamiento"", A.cDireccion, A.cLocalizacion, A.cEmail, A.cTelefono ""telfAloj"", A.cWeb     from treservas R, talojamientos A, tusuarios U where R.cCodAlojamiento=A.cCodAlojamiento and R.cCodUsuario=U.cDni and R.cReserva= " & codReservIntroducido.ToString
+			conn.Open() 'Abrimos la conexion a la BBDD
+			Dim query As String = "select R.cReserva, R.cFechaEntrada, R.cFechaSalida, R.cFechaRealizada, R.cCodUsuario,U.cNombre ""NombreUsuario"" ,U.cApellidos,U.cTelefono,R.cCodAlojamiento,A.cNombre ""NombreAlojamiento""   from treservas R, talojamientos A, tusuarios U where R.cCodAlojamiento=A.cCodAlojamiento and R.cCodUsuario=U.cDni and R.cReserva= " & codReservIntroducido.ToString
 			Dim cmd As New MySqlCommand(query, conn)
 
-            cmd.ExecuteNonQuery()
+			cmd.ExecuteNonQuery()
 
-            Dim comando As New MySqlCommand(query, conn)
-            Dim Datos As MySqlDataReader = comando.ExecuteReader
+			Dim comando As New MySqlCommand(query, conn)
+			Dim Datos As MySqlDataReader = comando.ExecuteReader
 
-            If Datos.Read Then
+			If Datos.Read Then
 
-                txtBoxCodReserva.Text = Datos("cReserva")
-                txtBoxFechaEntrada.Text = Datos("cFechaEntrada")
-                txtBoxFechaSalida.Text = Datos("cFechaSalida")
-                txtBoxFechaReserva.Text = Datos("cFechaRealizada")
-                txtBoxDni.Text = Datos("cCodUsuario")
-                txtBoxNombre.Text = Datos("NombreUsuario")
-                txtBoxApellidos.Text = Datos("cApellidos")
-				txtBoxTelefono.Text = Datos("telfUsuario")
+				txtBoxCodReserva.Text = Datos("cReserva")
+				txtBoxFechaEntrada.Text = Datos("cFechaEntrada")
+				txtBoxFechaSalida.Text = Datos("cFechaSalida")
+				txtBoxFechaReserva.Text = Datos("cFechaRealizada")
+				txtBoxDni.Text = Datos("cCodUsuario")
+				txtBoxNombre.Text = Datos("NombreUsuario")
+				txtBoxApellidos.Text = Datos("cApellidos")
+				txtBoxTelefono.Text = Datos("cTelefono")
+				txtBoxCodAlojamiento.Text = Datos("cCodAlojamiento")
 				txtBoxNombreAlojamiento.Text = Datos("NombreAlojamiento")
-				txtBoxDireAloj.Text = Datos("cDireccion")
-				txtBoxLocalizAloj.Text = Datos("cLocalizacion")
-				txtBoxEmailAloj.Text = Datos("cEmail")
-				txtBoxTelfAloj.Text = Datos("telfAloj")
-				txtBoxWebAloj.Text = Datos("cWeb")
 
 			End If
 
-        Catch ex As Exception
+		Catch ex As Exception
             'En caso de que no se conecte mandamos un mensaje con el error lanzado desde la BBDD MySQL
             MsgBox(ex.Message, MsgBoxStyle.MsgBoxSetForeground)
         End Try

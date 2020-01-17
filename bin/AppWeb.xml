@@ -631,15 +631,6 @@ Campo generado automáticamente.
 Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 </remarks>
 </member>
-<member name="F:AppWeb.Reserva._Label6">
-<summary>
-Control Label6.
-</summary>
-<remarks>
-Campo generado automáticamente.
-Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-</remarks>
-</member>
 <member name="F:AppWeb.Reserva._lblCodReserva">
 <summary>
 Control lblCodReserva.
@@ -739,132 +730,6 @@ Campo generado automáticamente.
 Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 </remarks>
 </member>
-<member name="F:AppWeb.Reserva._Label7">
-<summary>
-Control Label7.
-</summary>
-<remarks>
-Campo generado automáticamente.
-Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-</remarks>
-</member>
-<member name="F:AppWeb.Reserva._lblNombre0">
-<summary>
-Control lblNombre0.
-</summary>
-<remarks>
-Campo generado automáticamente.
-Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-</remarks>
-</member>
-<member name="F:AppWeb.Reserva._txtBoxNombreAlojamiento">
-<summary>
-Control txtBoxNombreAlojamiento.
-</summary>
-<remarks>
-Campo generado automáticamente.
-Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-</remarks>
-</member>
-<member name="F:AppWeb.Reserva._lblNombre1">
-<summary>
-Control lblNombre1.
-</summary>
-<remarks>
-Campo generado automáticamente.
-Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-</remarks>
-</member>
-<member name="F:AppWeb.Reserva._txtBoxDireAloj">
-<summary>
-Control txtBoxDireAloj.
-</summary>
-<remarks>
-Campo generado automáticamente.
-Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-</remarks>
-</member>
-<member name="F:AppWeb.Reserva._lblNombre2">
-<summary>
-Control lblNombre2.
-</summary>
-<remarks>
-Campo generado automáticamente.
-Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-</remarks>
-</member>
-<member name="F:AppWeb.Reserva._txtBoxLocalizAloj">
-<summary>
-Control txtBoxLocalizAloj.
-</summary>
-<remarks>
-Campo generado automáticamente.
-Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-</remarks>
-</member>
-<member name="F:AppWeb.Reserva._lblNombre3">
-<summary>
-Control lblNombre3.
-</summary>
-<remarks>
-Campo generado automáticamente.
-Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-</remarks>
-</member>
-<member name="F:AppWeb.Reserva._txtBoxEmailAloj">
-<summary>
-Control txtBoxEmailAloj.
-</summary>
-<remarks>
-Campo generado automáticamente.
-Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-</remarks>
-</member>
-<member name="F:AppWeb.Reserva._lblNombre4">
-<summary>
-Control lblNombre4.
-</summary>
-<remarks>
-Campo generado automáticamente.
-Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-</remarks>
-</member>
-<member name="F:AppWeb.Reserva._txtBoxTelfAloj">
-<summary>
-Control txtBoxTelfAloj.
-</summary>
-<remarks>
-Campo generado automáticamente.
-Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-</remarks>
-</member>
-<member name="F:AppWeb.Reserva._lblNombre5">
-<summary>
-Control lblNombre5.
-</summary>
-<remarks>
-Campo generado automáticamente.
-Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-</remarks>
-</member>
-<member name="F:AppWeb.Reserva._txtBoxWebAloj">
-<summary>
-Control txtBoxWebAloj.
-</summary>
-<remarks>
-Campo generado automáticamente.
-Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-</remarks>
-</member>
-<member name="F:AppWeb.Reserva._Label8">
-<summary>
-Control Label8.
-</summary>
-<remarks>
-Campo generado automáticamente.
-Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-</remarks>
-</member>
 <member name="F:AppWeb.Reserva._lblDni">
 <summary>
 Control lblDni.
@@ -931,6 +796,42 @@ Para modificarlo, mueva la declaración del campo del archivo del diseñador al 
 <member name="F:AppWeb.Reserva._txtBoxTelefono">
 <summary>
 Control txtBoxTelefono.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Reserva._lblCodAlojamiento">
+<summary>
+Control lblCodAlojamiento.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Reserva._txtBoxCodAlojamiento">
+<summary>
+Control txtBoxCodAlojamiento.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Reserva._lblNombreAloj">
+<summary>
+Control lblNombreAloj.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Reserva._txtBoxNombreAlojamiento">
+<summary>
+Control txtBoxNombreAlojamiento.
 </summary>
 <remarks>
 Campo generado automáticamente.
