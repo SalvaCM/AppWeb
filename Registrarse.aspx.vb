@@ -89,8 +89,9 @@ Public Class Registrarse
 				End If
 			End While
             If cierto.Equals(False) Then
-                Insertar(DNIIntroducido, ApellidoIntroducido, sb.ToString, NombreIntroducido, TelefonoIntroducido, correoIntroducido)
-            End If
+				Insertar(DNIIntroducido, ApellidoIntroducido, sb.ToString, NombreIntroducido, TelefonoIntroducido, correoIntroducido)
+				MsgBox("El usuario se registró correctamente", MsgBoxStyle.MsgBoxSetForeground)
+			End If
 
 
         Catch ex As Exception
