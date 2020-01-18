@@ -102,7 +102,7 @@
                
                 
                 <br />
-                <asp:Button ID="btnRealizarReserva" runat="server" Text="Reservar"/>
+                <asp:Button ID="btnRealizarReserva" runat="server" Text="Reservar" />
                 <br />
                 <br />
             </div>

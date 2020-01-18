@@ -263,9 +263,9 @@ Public Class Reserva
             cargarDatosReservas()
             rellenarTablaDetallesReservas()
         Else
-            MsgBox("Las fechas deben ser superiores a la actual", MsgBoxStyle.MsgBoxSetForeground, "Reserva")
+			MsgBox("Introduzca un rango de fechas válido.", MsgBoxStyle.MsgBoxSetForeground, "Reserva")
 
-        End If
+		End If
 
         'Para pruebas
         ' lblPruebasFechas.Text = Format(fechaReservaIntroducida, "yyyy/MM/dd") & Format(fechaEntradaIntroducida, "yyyy/MM/dd") & Format(fechaSalidaIntroducida, "yyyy/MM/dd")

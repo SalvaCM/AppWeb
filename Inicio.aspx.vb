@@ -9,10 +9,10 @@ Public Class Inicio
     Public conexion As New MySqlConnection
     Dim thisDay = DateTime.Today
     Dim fechaActual As String = DateTime.Now.ToString("yyyy/MM/dd")
-    Dim fechaEntrada
-    Dim fechaSalida
+    Dim fechaEntrada As String = DateTime.Now.ToString("yyyy/MM/dd")
+    Dim fechaSalida As String = DateTime.Now.ToString("yyyy/MM/dd")
     Public CodigoAlojamiento As String
-    Public reservas As Integer
+    Public reservas As Integer = 0
     Dim item As String = String.Empty
 
 
@@ -157,11 +157,10 @@ Public Class Inicio
         End Try
 
 
-
     End Sub
 
     Protected Sub btnRealizarReserva_Click(sender As Object, e As EventArgs) Handles btnRealizarReserva.Click
-
+        Dim continuar As Boolean = False
         'Validar fechas
 
         'Si el usuario está logeado, realizar reserva
@@ -181,23 +180,28 @@ Public Class Inicio
                 conexion.Open() 'Abrimos la conexion a la BBDD
                 Console.WriteLine("Conexión a la BBDD realizada con éxito") 'Imprimimos un mensaje como que se ha conectado satisfactoriamente a la BBDD MySQL
 
-                validarFechas()
+                continuar = validarFechas()
 
-                'cambio de formato de fechas para que la insert funcione en mysql
-                fechaActual = fechaActual.Replace("/", "-")
-                fechaEntrada = fechaEntrada.Replace("/", "-")
-                fechaSalida = fechaSalida.Replace("/", "-")
+                If continuar Then
+                    'cambio de formato de fechas para que la insert funcione en mysql
+                    fechaActual = fechaActual.Replace("/", "-")
+                    fechaEntrada = fechaEntrada.Replace("/", "-")
+                    fechaSalida = fechaSalida.Replace("/", "-")
 
 
-                Dim sql1 = "INSERT INTO `treservas`(`cReserva`,`cCodAlojamiento`, `cCodUsuario`, `cFechaEntrada`, `cFechaRealizada`, `cFechaSalida`) VALUES (" + reservas.ToString + "," + CodigoAlojamiento.ToString + ",'" + HttpContext.Current.Session("ID").ToString + "','" + fechaEntrada + "','" + fechaActual + "','" + fechaSalida + "')"
-                Dim comando1 As New MySqlCommand(sql1, conexion)
-                Dim Datos As MySqlDataReader = comando1.ExecuteReader
+                    Dim sql1 = "INSERT INTO `treservas`(`cReserva`,`cCodAlojamiento`, `cCodUsuario`, `cFechaEntrada`, `cFechaRealizada`, `cFechaSalida`) VALUES (" + reservas.ToString + "," + CodigoAlojamiento.ToString + ",'" + HttpContext.Current.Session("ID").ToString + "','" + fechaEntrada + "','" + fechaActual + "','" + fechaSalida + "')"
+                    Dim comando1 As New MySqlCommand(sql1, conexion)
+                    Dim Datos As MySqlDataReader = comando1.ExecuteReader
 
-                MsgBox("La reserva se guardó correctamente", MsgBoxStyle.MsgBoxSetForeground, "Reserva")
+                    MsgBox("La reserva se guardó correctamente", MsgBoxStyle.MsgBoxSetForeground, "Reserva")
 
-                'Cerramos la conexion a la BBDD
-                conexion.Close()
-                Console.WriteLine("Conexión a la BBDD cerrada con éxito") 'Imprimimos un mensaje como que se ha conectado satisfactoriamente a la BBDD MySQL
+                    'Cerramos la conexion a la BBDD
+                    conexion.Close()
+                    Console.WriteLine("Conexión a la BBDD cerrada con éxito") 'Imprimimos un mensaje como que se ha conectado satisfactoriamente a la BBDD MySQL
+
+                Else
+                    MsgBox("La reserva no se realizó.", MsgBoxStyle.MsgBoxSetForeground, "Reserva")
+                End If
 
             Else
                 MsgBox("La reserva no se realizó.", MsgBoxStyle.MsgBoxSetForeground, "Reserva")
@@ -212,11 +216,27 @@ Public Class Inicio
 #End Region
 
 #Region "Fechas"
-    Protected Sub validarFechas()
+    Protected Function validarFechas() As Boolean
+        Dim continuar As Boolean = True
+
         fechaEntrada = Calendar1.SelectedDate.ToString("yyyy/MM/dd")
         fechaSalida = Calendar2.SelectedDate.ToString("yyyy/MM/dd")
 
-    End Sub
+        If fechaEntrada < thisDay Then
+            fechaEntrada = fechaActual
+        End If
+
+        If fechaSalida < thisDay Then
+            fechaSalida = fechaEntrada
+        End If
+
+        If fechaSalida <= fechaEntrada Then
+            MsgBox("Lo sentimos, la fecha de salida no puede ser anterior a la fecha de entrada. Gracias.")
+            continuar = False
+        End If
+
+        Return continuar
+    End Function
 
     Protected Sub Calendar1_DayRender(sender As Object, e As DayRenderEventArgs) Handles Calendar1.DayRender
         If e.Day.Date < thisDay Then
@@ -281,12 +301,15 @@ Public Class Inicio
 
 			Dim Datos As MySqlDataReader = comando.ExecuteReader
 			While Datos.Read
+                Try
+                    CodigoAlojamiento = Datos(0)
+                Catch ex As Exception
+                    Console.WriteLine("No se pudo obtener la lista de alojamientos, asegúrese de que la BBDD es la adecuada") 'Aqui saltó el error cuando los de open data cambiaron los xml de los alojamientos 
+                End Try
 
 
-				CodigoAlojamiento = Datos(0)
 
-
-			End While
+            End While
 			Datos.Close()
 
 			Dim sql1 As String = ""
@@ -299,13 +322,14 @@ Public Class Inicio
 
 			While Datos1.Read
 
+                Try
+                    reservas = Datos1.GetInt32(0)
+                    reservas = reservas + 1
+                Catch ex As Exception
+                    reservas = reservas + 1 'Si no hay reservas en la bbdd, codreserva = 1
+                End Try
 
-
-				reservas = Datos1.GetInt32(0)
-				reservas = reservas + 1
-
-
-			End While
+            End While
 			conexion.Close()
 		Catch ex As MySqlException
 			'En caso de que no se conecte mandamos un mensaje con el error lanzado desde la BBDD MySQL
