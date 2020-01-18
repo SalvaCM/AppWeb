@@ -108,7 +108,7 @@ Public Class Registrarse
         Dim conexion1 As New MySqlConnection(connectionString)
         conexion1.Open() 'Abrimos la conexion a la BBDD
         Try
-            '  Dim conn As New MySqlConnection("Server=192.168.101.24; Database=alojamientos; Uid=grupoAlojamientos; Pwd=123456")
+
             Dim Query As String = "INSERT INTO tusuarios(cDni,cApellidos,cContrasena,cNombre,cTelefono,cEmail)VALUES('" + DNIIntroducido.ToString + "','" + ApellidoIntroducido.ToString + "','" + sb.ToString + "','" + NombreIntroducido.ToString + "'," + TelefonoIntroducido + ", '" & correoIntroducido & "' )"
 
 

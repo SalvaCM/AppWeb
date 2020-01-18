@@ -5,10 +5,10 @@ Imports System.Configuration
 Public Class Reserva
     Inherits System.Web.UI.Page
     Public conexion As New MySqlConnection
-    Dim conn As New MySqlConnection("Server=192.168.101.24; Database=alojamientos; Uid=grupoAlojamientos; Pwd=123456")
-
+	'Dim conn As New MySqlConnection("Server=192.168.101.24; Database=alojamientos; Uid=grupoAlojamientos; Pwd=123456")'Servidor local clase
+	Dim conn As New MySqlConnection("Server=192.168.0.7; Database=alojamientos; Uid=grupoAlojamientos; Pwd=123456") 'Casa Alba
 #Region "Variables"
-    Dim mydatatable As New DataTable
+	Dim mydatatable As New DataTable
     Dim thisDay = DateTime.Today
     Dim listaCodReserva As New ArrayList
     Dim listaFechaReserva As New ArrayList
@@ -299,20 +299,19 @@ Public Class Reserva
 #End Region
 
     Protected Sub eliminarReserva()
-        Try
-            '  Dim conn As New MySqlConnection("Server=192.168.101.24; Database=alojamientos; Uid=grupoAlojamientos; Pwd=123456")
-            conn.Open()
+		Try
+			conn.Open()
 
-            Dim query As String = "DELETE FROM treservas where cReserva=" & txtBoxCodReserva.Text.ToString
-            Dim cmd As New MySqlCommand(query, conn)
+			Dim query As String = "DELETE FROM treservas where cReserva=" & txtBoxCodReserva.Text.ToString
+			Dim cmd As New MySqlCommand(query, conn)
 
-            'cmd.Parameters.AddWithValue("?id", id)
+			'cmd.Parameters.AddWithValue("?id", id)
 
-            cmd.ExecuteNonQuery()
-            conn.Close()
-        Catch ex As Exception
-            'En caso de que no se conecte mandamos un mensaje con el error lanzado desde la BBDD MySQL
-            MsgBox(ex.Message, MsgBoxStyle.MsgBoxSetForeground)
+			cmd.ExecuteNonQuery()
+			conn.Close()
+		Catch ex As Exception
+			'En caso de que no se conecte mandamos un mensaje con el error lanzado desde la BBDD MySQL
+			MsgBox(ex.Message, MsgBoxStyle.MsgBoxSetForeground)
         End Try
     End Sub
 
