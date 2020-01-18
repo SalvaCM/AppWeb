@@ -1,46 +1,9 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="Inicio.aspx.vb" Inherits="AppWeb.Inicio"  MaintainScrollPositionOnPostback="true" %>
-
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Alojamientos Euskadi</title>
-    <style>
-        .button span:hover {
-   background-color: blue;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-}
-
-        .auto-style1 {
-            height: 10661px;
-            width: 776px;
-        }
-
-        .auto-style2 {
-            width: 244px;
-        }
-        .auto-style3 {
-            width: 245px;
-        }
-        .auto-style4 {
-            width: 773px;
-            height: 81px;
-        }
-
-    </style>
-</head>
-<body>
-    <form id="form1" runat="server">
-         <header style="text-align: right;">
+﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/MasterPage.Master" CodeBehind="Inicio.aspx.vb" Inherits="AppWeb.Inicio" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <!-- Scrips y estilos-->
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <header style="text-align: right;">
              <asp:Button ID="btnRegistrarse" runat="server" Text="Registrarse" />
              <asp:Button ID="btnReservas" runat="server" Text="Ver reservas"/> 
              <asp:Button ID="btnIniciarSesion" runat="server" Text="Iniciar sesión"/>
@@ -102,7 +65,7 @@
                
                 
                 <br />
-                <asp:Button ID="btnRealizarReserva" runat="server" Text="Reservar" />
+                <asp:Button ID="btnRealizarReserva" runat="server" Text="Reservar"/>
                 <br />
                 <br />
             </div>
@@ -110,6 +73,4 @@
             <br />
             <br />
         </div>
-    </form>
-</body>
-</html>
+</asp:Content>

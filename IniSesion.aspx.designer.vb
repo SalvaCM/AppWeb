@@ -12,7 +12,7 @@ Option Explicit On
 
 
 Partial Public Class WebForm1
-    
+
     '''<summary>
     '''Control form1.
     '''</summary>
@@ -21,7 +21,7 @@ Partial Public Class WebForm1
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
-    
+
     '''<summary>
     '''Control btnInicio.
     '''</summary>
@@ -30,7 +30,7 @@ Partial Public Class WebForm1
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents btnInicio As Global.System.Web.UI.WebControls.Button
-    
+
     '''<summary>
     '''Control Label1.
     '''</summary>
@@ -39,7 +39,7 @@ Partial Public Class WebForm1
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control txtBoxUsuario.
     '''</summary>
@@ -48,7 +48,7 @@ Partial Public Class WebForm1
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents txtBoxUsuario As Global.System.Web.UI.WebControls.TextBox
-    
+
     '''<summary>
     '''Control Label2.
     '''</summary>
@@ -57,7 +57,7 @@ Partial Public Class WebForm1
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents Label2 As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control txtBoxContrasena.
     '''</summary>
@@ -66,7 +66,7 @@ Partial Public Class WebForm1
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents txtBoxContrasena As Global.System.Web.UI.WebControls.TextBox
-    
+
     '''<summary>
     '''Control btnConectarse.
     '''</summary>
@@ -75,7 +75,7 @@ Partial Public Class WebForm1
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents btnConectarse As Global.System.Web.UI.WebControls.Button
-    
+
     '''<summary>
     '''Control Button1.
     '''</summary>

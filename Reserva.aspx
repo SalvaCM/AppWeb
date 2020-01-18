@@ -1,26 +1,7 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="Reserva.aspx.vb" Inherits="AppWeb.Reserva" %>
-
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-     <title>Alojamientos Euskadi</title>
-    <style>
-        #Calendar1 {
-            color:red;
-            background-color:blueviolet;
-            border-style: solid;
-            
-        }
-        .auto-style1 {
-            height: 42px;
-            margin-top: 0px;
-        }
-    </style>
-</head>
-<body>
-     <form id="form1" runat="server">
+﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/MasterPage.Master" CodeBehind="Reserva.aspx.vb" Inherits="AppWeb.Reserva" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <header style="text-align: right;">
          <asp:Button ID="btnInicio" runat="server" Text="Inicio"/> 
          <asp:Button ID="btnCerrarSesion" runat="server" Text="Cerrar sesión"/>
@@ -124,7 +105,4 @@
 
               <br />
          </div>
-    &nbsp;&nbsp;&nbsp;
-         </form>
-</body>
-</html>
+</asp:Content>

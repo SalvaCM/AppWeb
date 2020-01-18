@@ -12,16 +12,7 @@ Option Explicit On
 
 
 Partial Public Class Inicio
-    
-    '''<summary>
-    '''Control form1.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
-    
+
     '''<summary>
     '''Control btnRegistrarse.
     '''</summary>
@@ -30,7 +21,7 @@ Partial Public Class Inicio
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents btnRegistrarse As Global.System.Web.UI.WebControls.Button
-    
+
     '''<summary>
     '''Control btnReservas.
     '''</summary>
@@ -39,7 +30,7 @@ Partial Public Class Inicio
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents btnReservas As Global.System.Web.UI.WebControls.Button
-    
+
     '''<summary>
     '''Control btnIniciarSesion.
     '''</summary>
@@ -48,7 +39,7 @@ Partial Public Class Inicio
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents btnIniciarSesion As Global.System.Web.UI.WebControls.Button
-    
+
     '''<summary>
     '''Control btnCerrarSesion.
     '''</summary>
@@ -57,7 +48,7 @@ Partial Public Class Inicio
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents btnCerrarSesion As Global.System.Web.UI.WebControls.Button
-    
+
     '''<summary>
     '''Control divFiltros.
     '''</summary>
@@ -66,7 +57,7 @@ Partial Public Class Inicio
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents divFiltros As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-    
+
     '''<summary>
     '''Control lblFiltros.
     '''</summary>
@@ -75,7 +66,7 @@ Partial Public Class Inicio
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblFiltros As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control Label1.
     '''</summary>
@@ -84,7 +75,7 @@ Partial Public Class Inicio
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control DropDownList1.
     '''</summary>
@@ -93,7 +84,7 @@ Partial Public Class Inicio
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents DropDownList1 As Global.System.Web.UI.WebControls.DropDownList
-    
+
     '''<summary>
     '''Control btnAplicarFiltros.
     '''</summary>
@@ -102,7 +93,7 @@ Partial Public Class Inicio
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents btnAplicarFiltros As Global.System.Web.UI.WebControls.Button
-    
+
     '''<summary>
     '''Control divAlojamientos.
     '''</summary>
@@ -111,7 +102,7 @@ Partial Public Class Inicio
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents divAlojamientos As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-    
+
     '''<summary>
     '''Control lblAlojamientos.
     '''</summary>
@@ -120,7 +111,7 @@ Partial Public Class Inicio
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblAlojamientos As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control ListBox1.
     '''</summary>
@@ -129,7 +120,7 @@ Partial Public Class Inicio
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents ListBox1 As Global.System.Web.UI.WebControls.ListBox
-    
+
     '''<summary>
     '''Control btnReservarAlojamiento.
     '''</summary>
@@ -138,7 +129,7 @@ Partial Public Class Inicio
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents btnReservarAlojamiento As Global.System.Web.UI.WebControls.Button
-    
+
     '''<summary>
     '''Control divFechasReserva.
     '''</summary>
@@ -147,7 +138,7 @@ Partial Public Class Inicio
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents divFechasReserva As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-    
+
     '''<summary>
     '''Control lblTituloFechas.
     '''</summary>
@@ -156,7 +147,7 @@ Partial Public Class Inicio
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblTituloFechas As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control lblFechaEntrada.
     '''</summary>
@@ -165,7 +156,7 @@ Partial Public Class Inicio
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblFechaEntrada As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control lblFechaSalida.
     '''</summary>
@@ -174,7 +165,7 @@ Partial Public Class Inicio
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblFechaSalida As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control Calendar1.
     '''</summary>
@@ -183,7 +174,7 @@ Partial Public Class Inicio
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents Calendar1 As Global.System.Web.UI.WebControls.Calendar
-    
+
     '''<summary>
     '''Control Calendar2.
     '''</summary>
@@ -192,7 +183,7 @@ Partial Public Class Inicio
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents Calendar2 As Global.System.Web.UI.WebControls.Calendar
-    
+
     '''<summary>
     '''Control btnRealizarReserva.
     '''</summary>
