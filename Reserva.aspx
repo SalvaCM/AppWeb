@@ -12,8 +12,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <header style="text-align: right;">
-         <asp:Button ID="btnInicio" runat="server" Text="Inicio"/> 
-         <asp:Button ID="btnCerrarSesion" runat="server" Text="Cerrar sesión"/>
+         <asp:Button ID="btnInicio" runat="server" Text="Inicio" CssClass="btn bg-light-blue "/> 
+         <asp:Button ID="btnCerrarSesion" runat="server" Text="Cerrar sesión" CssClass="btn bg-light-blue "/>
      </header>
         <div id="divVerReservas" runat="server">
             <br />

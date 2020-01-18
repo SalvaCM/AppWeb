@@ -4,8 +4,8 @@
     </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <header style="text-align: right;">
-            <asp:Button ID="Button1" runat="server" Text="Iniciar Sesion" CausesValidation="False" ValidateRequestMode="Disabled" ViewStateMode="Disabled" />
-         <asp:Button ID="btnInicio" runat="server" Text="Inicio" CausesValidation="False" ValidateRequestMode="Disabled"/> 
+            <asp:Button ID="Button1" runat="server" Text="Iniciar Sesion" CausesValidation="False" ValidateRequestMode="Disabled" ViewStateMode="Disabled" CssClass="btn bg-light-blue " />
+         <asp:Button ID="btnInicio" runat="server" Text="Inicio" CausesValidation="False" ValidateRequestMode="Disabled" CssClass="btn bg-light-blue "/> 
         </header>
         
         <section class="content-header">
