@@ -408,7 +408,6 @@
     <Content Include="Web.config" />
     <Content Include="IniSesion.aspx" />
     <Content Include="PanelGeneral.aspx" />
-    <Content Include="PanelAlojamientos.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Inicio.aspx.designer.vb">
@@ -477,13 +476,6 @@
     </Compile>
     <Compile Include="PanelGeneral.aspx.vb">
       <DependentUpon>PanelGeneral.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="PanelAlojamientos.aspx.designer.vb">
-      <DependentUpon>PanelAlojamientos.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="PanelAlojamientos.aspx.vb">
-      <DependentUpon>PanelAlojamientos.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
   </ItemGroup>

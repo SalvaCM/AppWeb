@@ -123,10 +123,11 @@ Public Class Reserva
 	Private Sub rellenarTablaDetallesReservas()
 		' Create columns
 		mydatatable.Columns.Add("Código de la reserva", Type.GetType("System.String"))
+		mydatatable.Columns.Add("Nombre alojamiento", Type.GetType("System.String"))
 		mydatatable.Columns.Add("Fecha reserva", Type.GetType("System.String"))
 		mydatatable.Columns.Add("Fecha entrada", Type.GetType("System.String"))
 		mydatatable.Columns.Add("Fecha salida", Type.GetType("System.String"))
-		mydatatable.Columns.Add("Nombre alojamiento", Type.GetType("System.String"))
+
 		mydatatable.Columns.Add("Dirección", Type.GetType("System.String"))
 		mydatatable.Columns.Add("Localización", Type.GetType("System.String"))
 		mydatatable.Columns.Add("Email", Type.GetType("System.String"))
@@ -139,10 +140,11 @@ Public Class Reserva
 			' create new row
 			myrow = mydatatable.NewRow
 			myrow("Código de la reserva") = listaCodReserva(i).ToString
+			myrow("Nombre alojamiento") = listaNombreAlojamiento(i).ToString
 			myrow("Fecha reserva") = listaFechaReserva(i).ToString
 			myrow("Fecha entrada") = listaFechaEntrada(i).ToString
 			myrow("Fecha salida") = listaFechaSalida(i).ToString
-			myrow("Nombre alojamiento") = listaNombreAlojamiento(i).ToString
+
 			myrow("Dirección") = listaDireccion(i).ToString
 			myrow("Localización") = listaLocalizacion(i).ToString
 			myrow("Email") = listaEmail(i).ToString

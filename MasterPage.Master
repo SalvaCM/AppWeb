@@ -99,15 +99,24 @@
             cursor:pointer;
         }
 
+        .auto-style1 {
+            width: 22px;
+            height: 20px;
+        }
+
+        .auto-style2 {
+            height: 748px;
+        }
+
     </style>
 
 </head>
 <body class="skin-blue">
     <header class="header"> 
         <!-- BEGIN CABECERA -->
-        <a href="'#" class="logo">Alojamientos Euskadi</a>
+        <a href="Inicio.aspx" class="logo">Alojamientos Euskadi</a>
         <nav class="navbar navbar-static-top" role="navigation">
-            <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
+            <a href="Inicio.aspx" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
                 <span class="sr-only">Toggle Navigation</span>
                 <span class="icon-bar" ></span>
                 <span class="icon-bar" ></span>
@@ -138,17 +147,27 @@
                         <li>
                             <a href="Inicio.aspx">
                                 <i class="fa fa-th"></i>
+                                <div class="pull-left image" style="width: 28px; height: 24px">
+                                     <img src="img/home.png" class="image" alt="Home Image" />
+                                </div>
+                                
                                 <span>Alojamientos</span>
                             </a>
                         </li>
                         <li>
                             <a href="Reserva.aspx">
+                                <div class="pull-left image" style="width: 29px; height: 28px">
+                                     <img src="img/booking.png" class="image" alt="Home Image" />
+                                </div>
                                 <i class="fa fa-dashboard"></i>
                                 <span>Mis reservas</span>
                             </a>
                         </li>
                          <li>
                             <a href="IniSesion.aspx">
+                                <div class="pull-left image" style="width: 28px; height: 21px">
+                                     <img src="img/off-button.png" class="auto-style1" alt="Home Image" />
+                                </div>
                                 <i class="fa fa-dashboard"></i>
                                 <span>Cerrar sesión</span>
                             </a>
@@ -165,15 +184,17 @@
                 </section>
                 <section class="content">
                     <form id="form1" runat="server">
-                        <div>
+                        <div class="auto-style2">
                             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                                 <!-- CARGAR aquí el diseño de la página que hereda de master page-->
 
 
                             </asp:ContentPlaceHolder>
                         </div>
+                      
                     </form>
                 </section>
+             
         </aside>
         </div>
         <!-- END MENU-->
