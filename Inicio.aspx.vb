@@ -2,6 +2,8 @@
 Imports System
 Imports System.Configuration
 Imports System.Data.SqlClient
+Imports System.Web.UI.WebControls.Expressions
+
 Public Class Inicio
     Inherits System.Web.UI.Page
 
@@ -9,12 +11,13 @@ Public Class Inicio
     Public conexion As New MySqlConnection
     Dim thisDay = DateTime.Today
     Dim fechaActual As String = DateTime.Now.ToString("yyyy/MM/dd")
-    Dim fechaEntrada
-    Dim fechaSalida
+    Dim fechaEntrada As String = DateTime.Now.ToString("yyyy/MM/dd")
+    Dim fechaSalida As String = DateTime.Now.ToString("yyyy/MM/dd")
     Public CodigoAlojamiento As String
-    Public reservas As Integer
-
-
+    Public reservas As Integer = 0
+    Dim item As String = String.Empty
+    Dim orden As String = "Asc"
+    Dim buscadar As String = ""
 #End Region
 
 #Region "Inicio"
@@ -46,9 +49,6 @@ Public Class Inicio
             btnRegistrarse.Visible = False
         End If
 
-
-
-
     End Sub
 #End Region
 
@@ -67,7 +67,8 @@ Public Class Inicio
             Dim sql As String
 
             'Si se pasa por URL
-            sql = "SELECT cNombre, cCodAlojamiento FROM talojamientos WHERE cLocalidad = '" & DropDownList1.SelectedValue & "' ;"
+
+            sql = "SELECT cNombre, cCodAlojamiento FROM tAlojamientos WHERE cLocalidad = '" & DropDownList1.SelectedValue & "' ;"
 
 
 
@@ -124,9 +125,18 @@ Public Class Inicio
             conexion.Open()
             'Abrimos la conexion a la BBDD
 
-            'Imprimimos un mensaje como que se ha conectado satisfactoriamente a la BBDD MySQL
+            If DropDownList3.SelectedValue.ToString <> "Ascendente" Then
+                orden = "Desc"
+            Else
+                orden = "Asc"
+            End If
 
-            sql = "SELECT cNombre FROM talojamientos WHERE cLocalidad = '" & DropDownList1.SelectedValue & "' ;"
+            Console.WriteLine("Conexión a la BBDD realizada con éxito") 'Imprimimos un mensaje como que se ha conectado satisfactoriamente a la BBDD MySQL
+            If DropDownList2.SelectedValue.ToString <> "Todos" Then
+                sql = "SELECT cNombre FROM tAlojamientos WHERE cLocalidad = '" & DropDownList1.SelectedValue & "'  AND cTipo = '" & DropDownList2.SelectedValue & "' ORDER BY  cNombre " & orden & ";"
+            Else
+                sql = "SELECT cNombre FROM tAlojamientos WHERE cLocalidad = '" & DropDownList1.SelectedValue & "' ORDER BY  cNombre " & orden & "  ;"
+            End If
 
 
 
@@ -141,6 +151,9 @@ Public Class Inicio
 
             End While
             conexion.Close()
+            Console.WriteLine("Conexión a la BBDD cerrada con éxito") 'Imprimimos un mensaje como que se ha conectado satisfactoriamente a la BBDD MySQL
+
+            divFechasReserva.Visible = False 'Se hace no visible las opciones de hacer la reserva
 
         Catch ex As Exception
             'En caso de que no se conecte mandamos un mensaje con el error lanzado desde la BBDD MySQL
@@ -148,12 +161,18 @@ Public Class Inicio
         End Try
     End Sub
     Protected Sub btnReservarAlojamiento_Click(sender As Object, e As EventArgs) Handles btnReservarAlojamiento.Click
-        divFechasReserva.Visible = True
+        Try
+            item = ListBox1.SelectedItem.ToString
+            divFechasReserva.Visible = True
+        Catch ex As Exception
+            MsgBox("Debe seleccionar algún alojamiento")
+        End Try
+
 
     End Sub
 
     Protected Sub btnRealizarReserva_Click(sender As Object, e As EventArgs) Handles btnRealizarReserva.Click
-
+        Dim continuar As Boolean = False
         'Validar fechas
 
         'Si el usuario está logeado, realizar reserva
@@ -166,28 +185,35 @@ Public Class Inicio
             resp = MsgBox("¿Desea finalizar su reserva? Si continúa su reserva se guardará.", MsgBoxStyle.YesNo + MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.MsgBoxSetForeground, "Reserva")
             If resp = MsgBoxResult.Yes Then
                 IDAlojamiento()
-                'Cerramos la conexion a la BBDD
-                conexion.Close()
 
                 'Establecemos los parametros de la conexion a la BBDD
                 Dim connectionString = ConfigurationManager.ConnectionStrings("myConnectionString").ConnectionString
                 conexion = New MySqlConnection(connectionString)
                 conexion.Open() 'Abrimos la conexion a la BBDD
+                Console.WriteLine("Conexión a la BBDD realizada con éxito") 'Imprimimos un mensaje como que se ha conectado satisfactoriamente a la BBDD MySQL
 
-                validarFechas()
+                continuar = validarFechas()
 
-                'cambio de formato de fechas para que la insert funcione en mysql
-                fechaActual = fechaActual.Replace("/", "-")
-                fechaEntrada = fechaEntrada.Replace("/", "-")
-                fechaSalida = fechaSalida.Replace("/", "-")
-
-
-                Dim sql1 = "INSERT INTO `treservas`(`cReserva`,`cCodAlojamiento`, `cCodUsuario`, `cFechaEntrada`, `cFechaRealizada`, `cFechaSalida`) VALUES (" + reservas.ToString + "," + CodigoAlojamiento.ToString + ",'" + HttpContext.Current.Session("ID").ToString + "','" + fechaEntrada + "','" + fechaActual + "','" + fechaSalida + "')"
-                Dim comando1 As New MySqlCommand(sql1, conexion)
-                Dim Datos As MySqlDataReader = comando1.ExecuteReader
+                If continuar Then
+                    'cambio de formato de fechas para que la insert funcione en mysql
+                    fechaActual = fechaActual.Replace("/", "-")
+                    fechaEntrada = fechaEntrada.Replace("/", "-")
+                    fechaSalida = fechaSalida.Replace("/", "-")
 
 
-                MsgBox("La reserva se guardó correctamente", MsgBoxStyle.MsgBoxSetForeground , "Reserva")
+                    Dim sql1 = "INSERT INTO `treservas`(`cReserva`,`cCodAlojamiento`, `cCodUsuario`, `cFechaEntrada`, `cFechaRealizada`, `cFechaSalida`) VALUES (" + reservas.ToString + "," + CodigoAlojamiento.ToString + ",'" + HttpContext.Current.Session("ID").ToString + "','" + fechaEntrada + "','" + fechaActual + "','" + fechaSalida + "')"
+                    Dim comando1 As New MySqlCommand(sql1, conexion)
+                    Dim Datos As MySqlDataReader = comando1.ExecuteReader
+
+                    MsgBox("La reserva se guardó correctamente", MsgBoxStyle.MsgBoxSetForeground, "Reserva")
+
+                    'Cerramos la conexion a la BBDD
+                    conexion.Close()
+                    Console.WriteLine("Conexión a la BBDD cerrada con éxito") 'Imprimimos un mensaje como que se ha conectado satisfactoriamente a la BBDD MySQL
+
+                Else
+                    MsgBox("La reserva no se realizó.", MsgBoxStyle.MsgBoxSetForeground, "Reserva")
+                End If
 
             Else
                 MsgBox("La reserva no se realizó.", MsgBoxStyle.MsgBoxSetForeground, "Reserva")
@@ -202,11 +228,27 @@ Public Class Inicio
 #End Region
 
 #Region "Fechas"
-    Protected Sub validarFechas()
+    Protected Function validarFechas() As Boolean
+        Dim continuar As Boolean = True
+
         fechaEntrada = Calendar1.SelectedDate.ToString("yyyy/MM/dd")
         fechaSalida = Calendar2.SelectedDate.ToString("yyyy/MM/dd")
 
-    End Sub
+        If fechaEntrada < thisDay Then
+            fechaEntrada = fechaActual
+        End If
+
+        If fechaSalida < thisDay Then
+            fechaSalida = fechaEntrada
+        End If
+
+        If fechaSalida <= fechaEntrada Then
+            MsgBox("Lo sentimos, la fecha de salida no puede ser anterior a la fecha de entrada. Gracias.")
+            continuar = False
+        End If
+
+        Return continuar
+    End Function
 
     Protected Sub Calendar1_DayRender(sender As Object, e As DayRenderEventArgs) Handles Calendar1.DayRender
         If e.Day.Date < thisDay Then
@@ -244,66 +286,108 @@ Public Class Inicio
     End Sub
 
     Public Sub IDAlojamiento()
-        Dim item As String = ListBox1.SelectedItem.ToString
+
+        item = ListBox1.SelectedItem.ToString
+
+
+
+        'btnReservas.Visible = True
+
+        Try
+			'Cerramos la conexion a la BBDD
+			conexion.Close()
+
+			'Establecemos los parametros de la conexion a la BBDD
+			Dim connectionString = ConfigurationManager.ConnectionStrings("myConnectionString").ConnectionString
+			conexion = New MySqlConnection(connectionString)
+			conexion.Open() 'Abrimos la conexion a la BBDD
+
+
+			'Query para ejecutar select de la localidad seleccionada
+			Dim sql As String = ""
+
+			'Si se pasa por URL
+			sql = "SELECT  cCodAlojamiento FROM talojamientos WHERE cNombre = '" & item & "' ;"
+
+			Dim comando As New MySqlCommand(sql, conexion)
+
+			Dim Datos As MySqlDataReader = comando.ExecuteReader
+			While Datos.Read
+                Try
+                    CodigoAlojamiento = Datos(0)
+                Catch ex As Exception
+                    Console.WriteLine("No se pudo obtener la lista de alojamientos, asegúrese de que la BBDD es la adecuada") 'Aqui saltó el error cuando los de open data cambiaron los xml de los alojamientos 
+                End Try
+
+
+
+            End While
+			Datos.Close()
+
+			Dim sql1 As String = ""
+
+			sql1 = "SELECT Max(cReserva) FROM treservas ;"
+
+			Dim comando1 As New MySqlCommand(sql1, conexion)
+
+			Dim Datos1 As MySqlDataReader = comando1.ExecuteReader
+
+			While Datos1.Read
+
+                Try
+                    reservas = Datos1.GetInt32(0)
+                    reservas = reservas + 1
+                Catch ex As Exception
+                    reservas = reservas + 1 'Si no hay reservas en la bbdd, codreserva = 1
+                End Try
+
+            End While
+			conexion.Close()
+		Catch ex As MySqlException
+			'En caso de que no se conecte mandamos un mensaje con el error lanzado desde la BBDD MySQL
+			MsgBox(ex.Message, MsgBoxStyle.MsgBoxSetForeground)
+		End Try
+
+	End Sub
+
+	Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles btnRegistrarse.Click
+        Response.Redirect("Registrarse.aspx", False)
+    End Sub
+
+    Protected Sub Buscador_Click(sender As Object, e As EventArgs) Handles Buscador.Click
+        ListBox1.Items.Clear()
+        buscadar = TextBox1.Text
         Try
             'Cerramos la conexion a la BBDD
-            conexion.Close()
 
-            'Establecemos los parametros de la conexion a la BBDD
-            Dim connectionString = ConfigurationManager.ConnectionStrings("myConnectionString").ConnectionString
-            conexion = New MySqlConnection(connectionString)
-            conexion.Open() 'Abrimos la conexion a la BBDD
-
-
-            'Query para ejecutar select de la localidad seleccionada
             Dim sql As String = ""
+            Dim connectionString = ConfigurationManager.ConnectionStrings("myConnectionString").ConnectionString
 
-            'Si se pasa por URL
-            sql = "SELECT  cCodAlojamiento FROM talojamientos WHERE cNombre = '" & item & "' ;"
+            conexion = New MySqlConnection(connectionString)
+            conexion.Open()
+            'Abrimos la conexion a la BBDD
+            sql = "SELECT cNombre FROM tAlojamientos WHERE cNombre = '" & buscadar & "';"
+
 
             Dim comando As New MySqlCommand(sql, conexion)
-
             Dim Datos As MySqlDataReader = comando.ExecuteReader
             While Datos.Read
 
 
-                CodigoAlojamiento = Datos(0)
-
-
-            End While
-            Datos.Close()
-
-            Dim sql1 As String = ""
-
-            sql1 = "SELECT Max(cReserva) FROM treservas ;"
-
-            Dim comando1 As New MySqlCommand(sql1, conexion)
-
-            Dim Datos1 As MySqlDataReader = comando1.ExecuteReader
-
-            While Datos1.Read
-
-
-
-                reservas = Datos1.GetInt32(0)
-                reservas = reservas + 1
+                ListBox1.Items.Add(Datos(0))
 
 
             End While
             conexion.Close()
-        Catch ex As MySqlException
+            Console.WriteLine("Conexión a la BBDD cerrada con éxito") 'Imprimimos un mensaje como que se ha conectado satisfactoriamente a la BBDD MySQL
+
+            divFechasReserva.Visible = False 'Se hace no visible las opciones de hacer la reserva
+
+        Catch ex As Exception
             'En caso de que no se conecte mandamos un mensaje con el error lanzado desde la BBDD MySQL
             MsgBox(ex.Message, MsgBoxStyle.MsgBoxSetForeground)
         End Try
-
     End Sub
-
-    Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles btnRegistrarse.Click
-        Response.Redirect("Registrarse.aspx", False)
-    End Sub
-
-
-
 #End Region
 
 End Class

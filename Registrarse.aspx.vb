@@ -65,13 +65,21 @@ Public Class Registrarse
             'Establecemos los parametros de la conexion a la BBDD
             conexion = New MySqlConnection(connectionString)
 
-            conexion.Open() 'Abrimos la conexion a la BBDD
+            Try
+                conexion.Open() 'Abrimos la conexion a la BBDD
+            Catch ex As Exception
+                MsgBox("No se pudo abrir la conexión a la BBDD", MsgBoxStyle.MsgBoxSetForeground)
+            End Try
 
+            Try
 
+            Catch ex As Exception
+
+            End Try
             sql = "SELECT * FROM tusuarios  ;"
-
             Dim comando As New MySqlCommand(sql, conexion)
             Dim Datos As MySqlDataReader = comando.ExecuteReader
+
             While Datos.Read
 
                 If DNIIntroducido.Equals(Datos(0)) Then
@@ -92,6 +100,7 @@ Public Class Registrarse
 
             End If
 
+
             conexion.Close()
 
             Response.Redirect("IniSesion.aspx")
@@ -100,15 +109,14 @@ Public Class Registrarse
 
 
         Catch ex As Exception
+
             'En caso de que no se conecte mandamos un mensaje con el error lanzado desde la BBDD MySQL
-            MsgBox(ex.ToString)
+
 
         End Try
 
     End Sub
-    Protected Sub Irte()
-        HttpContext.Current.RewritePath("IniSesion.aspx")
-    End Sub
+
     Protected Sub Insertar(DNIIntroducido, ApellidoIntroducido, sb, NombreIntroducido, TelefonoIntroducido, correoIntroducido)
 
         Dim sql As String = ""
@@ -118,7 +126,7 @@ Public Class Registrarse
         Dim conexion1 As New MySqlConnection(connectionString)
         conexion1.Open() 'Abrimos la conexion a la BBDD
         Try
-            '  Dim conn As New MySqlConnection("Server=192.168.101.24; Database=alojamientos; Uid=grupoAlojamientos; Pwd=123456")
+
             Dim Query As String = "INSERT INTO tusuarios(cDni,cApellidos,cContrasena,cNombre,cTelefono,cEmail)VALUES('" + DNIIntroducido.ToString + "','" + ApellidoIntroducido.ToString + "','" + sb.ToString + "','" + NombreIntroducido.ToString + "'," + TelefonoIntroducido + ", '" & correoIntroducido & "' )"
 
 
@@ -131,9 +139,9 @@ Public Class Registrarse
             conexion1.Close()
 
         Catch ex As Exception
-            'En caso de que no se conecte mandamos un mensaje con el error lanzado desde la BBDD MySQL
-            MsgBox(ex.ToString)
+
         End Try
+
     End Sub
 
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
