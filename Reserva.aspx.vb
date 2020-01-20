@@ -5,8 +5,8 @@ Imports System.Configuration
 Public Class Reserva
     Inherits System.Web.UI.Page
     Public conexion As New MySqlConnection
-	'Dim conn As New MySqlConnection("Server=192.168.101.24; Database=alojamientos; Uid=grupoAlojamientos; Pwd=123456")'Servidor local clase
-	Dim conn As New MySqlConnection("Server=192.168.0.7; Database=alojamientos; Uid=grupoAlojamientos; Pwd=123456") 'Casa Alba
+	Dim conn As New MySqlConnection("Server=192.168.101.24; Database=alojamientos; Uid=grupoAlojamientos; Pwd=123456") 'Servidor local clase
+	'Dim conn As New MySqlConnection("Server=192.168.0.7; Database=alojamientos; Uid=grupoAlojamientos; Pwd=123456") 'Casa Alba
 #Region "Variables"
 	Dim mydatatable As New DataTable
     Dim thisDay = DateTime.Today
