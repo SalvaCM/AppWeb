@@ -4,6 +4,7 @@ Imports System.Security.Cryptography
 Imports System.Web.UI.WebControls.Expressions
 Imports System
 Imports System.Windows.Forms
+Imports IHttpHandler
 Public Class Registrarse
     Inherits System.Web.UI.Page
     Public conexion As New MySqlConnection
@@ -19,7 +20,7 @@ Public Class Registrarse
 
 
     End Sub
-    Protected Sub btnRegistrarse_Click(sender As Object, e As EventArgs) Handles btnRegistrarse.Click
+    Protected Sub BtnRegistrarse_Click(sender As Object, e As EventArgs) Handles btnRegistrarse.Click
 
         DNIIntroducido = txtBoxUsuario.Text
         NombreIntroducido = txtBoxNombre.Text
@@ -81,21 +82,32 @@ Public Class Registrarse
 
                     Else
                         cierto = False
-
-
                     End If
                 End If
+
 
             End While
             If cierto.Equals(False) Then
                 Insertar(DNIIntroducido, ApellidoIntroducido, sb.ToString, NombreIntroducido, TelefonoIntroducido, correoIntroducido)
+
             End If
+
+            conexion.Close()
+
+            Response.Redirect("IniSesion.aspx")
+
+
 
 
         Catch ex As Exception
             'En caso de que no se conecte mandamos un mensaje con el error lanzado desde la BBDD MySQL
-            MsgBox(ex.Message, MsgBoxStyle.MsgBoxSetForeground)
+            MsgBox(ex.ToString)
+
         End Try
+
+    End Sub
+    Protected Sub Irte()
+        HttpContext.Current.RewritePath("IniSesion.aspx")
     End Sub
     Protected Sub Insertar(DNIIntroducido, ApellidoIntroducido, sb, NombreIntroducido, TelefonoIntroducido, correoIntroducido)
 
@@ -117,10 +129,10 @@ Public Class Registrarse
 
             comando1.ExecuteNonQuery()
             conexion1.Close()
-            Response.Redirect("IniSesion.aspx", True)
+
         Catch ex As Exception
             'En caso de que no se conecte mandamos un mensaje con el error lanzado desde la BBDD MySQL
-            MsgBox(ex.Message, MsgBoxStyle.MsgBoxSetForeground)
+            MsgBox(ex.ToString)
         End Try
     End Sub
 
@@ -131,4 +143,7 @@ Public Class Registrarse
     Protected Sub btnInicio_Click(sender As Object, e As EventArgs) Handles btnInicio.Click
         Response.Redirect("Inicio.aspx", True)
     End Sub
+
+
+
 End Class

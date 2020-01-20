@@ -55,7 +55,7 @@ Public Class Inicio
     Protected Sub cargarDatosAlojamientos()
         Try
             'Cerramos la conexion a la BBDD
-            conexion.Close()
+
 
             'Establecemos los parametros de la conexion a la BBDD
             Dim connectionString = ConfigurationManager.ConnectionStrings("myConnectionString").ConnectionString
@@ -214,7 +214,7 @@ Public Class Inicio
         End If
     End Sub
     Protected Sub Calendar2_DayRender(sender As Object, e As DayRenderEventArgs) Handles Calendar2.DayRender
-        If e.Day.Date < thisDay Then
+        If e.Day.Date < fechaEntrada Then
             e.Day.IsSelectable = False
         End If
     End Sub
