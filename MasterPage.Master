@@ -15,6 +15,16 @@
     <!-- Ion icons -->
     <link href="//code.iconicframework.com/ionicons/1.5.2/css/ionicons.min.css" rel="stylesheet" type="text/css"/>
 
+     <!-- Mapas -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css"/>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <!-- Clave google API AIzaSyBu0jfbbke_rcNMHQzoMPKIISMW_fyoB6s-->
+   <script src="https://maps.googleapis.com/maps/api/js?v=3"></script>
+    <script src="locationpicker.jquery.min.js"></script>
+
+   
     <style>
         html,body{
             min-height:100%;
@@ -161,6 +171,15 @@
                                 </div>
                                 <i class="fa fa-dashboard"></i>
                                 <span>Mis reservas</span>
+                            </a>
+                        </li>
+                         <li>
+                            <a href="Mapas.aspx">
+                                <div class="pull-left image" style="width: 28px; height: 21px">
+                                     <img src="img/off-button.png" class="auto-style1" alt="Home Image" />
+                                </div>
+                                <i class="fa fa-dashboard"></i>
+                                <span>Ver mapa</span>
                             </a>
                         </li>
                          <li>

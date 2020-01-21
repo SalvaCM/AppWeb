@@ -365,11 +365,11 @@ Public Class Inicio
 
             conexion = New MySqlConnection(connectionString)
             conexion.Open()
-            'Abrimos la conexion a la BBDD
-            sql = "SELECT cNombre FROM tAlojamientos WHERE cNombre = '" & buscadar & "';"
+			'Abrimos la conexion a la BBDD
+			sql = "SELECT cNombre FROM tAlojamientos WHERE cNombre = '" & buscadar & "';"
 
 
-            Dim comando As New MySqlCommand(sql, conexion)
+			Dim comando As New MySqlCommand(sql, conexion)
             Dim Datos As MySqlDataReader = comando.ExecuteReader
             While Datos.Read
 

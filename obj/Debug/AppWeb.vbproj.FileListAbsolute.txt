@@ -189,5 +189,3 @@ E:\workspaceAlojamientos\AppWeb\obj\Debug\AppWeb.vbproj.CopyComplete
 E:\workspaceAlojamientos\AppWeb\obj\Debug\AppWeb.dll
 E:\workspaceAlojamientos\AppWeb\obj\Debug\AppWeb.xml
 E:\workspaceAlojamientos\AppWeb\obj\Debug\AppWeb.pdb
-C:\workspaceAlojamientos\AppWeb\obj\Debug\AppWeb.vbproj.CoreCompileInputs.cache
-C:\workspaceAlojamientos\AppWeb\bin\MySql.Data.dll
