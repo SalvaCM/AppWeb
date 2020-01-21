@@ -76,7 +76,7 @@ Public Class Registrarse
             Catch ex As Exception
 
             End Try
-            sql = "SELECT * FROM tusuarios  ;"
+            sql = "SELECT * FROM tUsuarios  ;"
             Dim comando As New MySqlCommand(sql, conexion)
             Dim Datos As MySqlDataReader = comando.ExecuteReader
 
@@ -127,7 +127,7 @@ Public Class Registrarse
         conexion1.Open() 'Abrimos la conexion a la BBDD
         Try
 
-            Dim Query As String = "INSERT INTO tusuarios(cDni,cApellidos,cContrasena,cNombre,cTelefono,cEmail)VALUES('" + DNIIntroducido.ToString + "','" + ApellidoIntroducido.ToString + "','" + sb.ToString + "','" + NombreIntroducido.ToString + "'," + TelefonoIntroducido + ", '" & correoIntroducido & "' )"
+            Dim Query As String = "INSERT INTO tUsuarios(cDni,cApellidos,cContrasena,cNombre,cTelefono,cEmail)VALUES('" + DNIIntroducido.ToString + "','" + ApellidoIntroducido.ToString + "','" + sb.ToString + "','" + NombreIntroducido.ToString + "'," + TelefonoIntroducido + ", '" & correoIntroducido & "' )"
 
 
 

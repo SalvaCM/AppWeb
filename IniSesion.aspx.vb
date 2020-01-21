@@ -84,7 +84,7 @@ Public Class WebForm1
             conexion = New MySqlConnection(connectionString)
             conexion.Open() 'Abrimos la conexion a la BBDD
 
-            sql = "SELECT * FROM tusuarios  ;"
+            sql = "SELECT * FROM tUsuarios  ;"
 
 
             Dim comando As New MySqlCommand(sql, conexion)
