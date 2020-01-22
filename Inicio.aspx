@@ -27,6 +27,9 @@
             width: 428px;
             height: 139px;
         }
+        .auto-style10 {
+            width: 560px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -84,11 +87,14 @@
                     <asp:Label ID="lblAlojamientos" runat="server" Text="Seleccione el alojamiento que desee reservar:"></asp:Label>
                </div>
                <asp:ListBox ID="ListBox1" runat="server" Height="425px" Width="890px"></asp:ListBox>
-            <div>
+            <div class="auto-style10">
                 <br />
                 <asp:Button ID="btnReservarAlojamiento" runat="server" Text="Reservar alojamiento seleccionado" CssClass="btn bg-light-blue "/>
+           <asp:Button ID="btnDetalle" runat="server" Text="Mostrar detalles" CssClass="btn bg-light-blue " />
+                
            
             </div>
+                
             <br />
             <br />
             </div>

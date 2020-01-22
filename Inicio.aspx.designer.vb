@@ -167,6 +167,15 @@ Partial Public Class Inicio
     Protected WithEvents btnReservarAlojamiento As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
+    '''Control btnDetalle.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnDetalle As Global.System.Web.UI.WebControls.Button
+    
+    '''<summary>
     '''Control divFechasReserva.
     '''</summary>
     '''<remarks>

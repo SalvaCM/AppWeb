@@ -34,6 +34,7 @@ Public Class Inicio
 
 
         If (HttpContext.Current.Session("ID") = vbNullString) Then
+
             btnIniciarSesion.Visible = True
             btnReservas.Visible = False
             btnRegistrarse.Visible = True
@@ -201,7 +202,7 @@ Public Class Inicio
                     fechaSalida = fechaSalida.Replace("/", "-")
 
 
-                    Dim sql1 = "INSERT INTO `treservas`(`cReserva`,`cCodAlojamiento`, `cCodUsuario`, `cFechaEntrada`, `cFechaRealizada`, `cFechaSalida`) VALUES (" + reservas.ToString + "," + CodigoAlojamiento.ToString + ",'" + HttpContext.Current.Session("ID").ToString + "','" + fechaEntrada + "','" + fechaActual + "','" + fechaSalida + "')"
+                    Dim sql1 = "INSERT INTO `tReservas`(`cReserva`,`cCodAlojamiento`, `cCodUsuario`, `cFechaEntrada`, `cFechaRealizada`, `cFechaSalida`) VALUES (" + reservas.ToString + "," + CodigoAlojamiento.ToString + ",'" + HttpContext.Current.Session("ID").ToString + "','" + fechaEntrada + "','" + fechaActual + "','" + fechaSalida + "')"
                     Dim comando1 As New MySqlCommand(sql1, conexion)
                     Dim Datos As MySqlDataReader = comando1.ExecuteReader
 
@@ -306,10 +307,10 @@ Public Class Inicio
 			'Query para ejecutar select de la localidad seleccionada
 			Dim sql As String = ""
 
-			'Si se pasa por URL
-			sql = "SELECT  cCodAlojamiento FROM talojamientos WHERE cNombre = '" & item & "' ;"
+            'Si se pasa por URL
+            sql = "SELECT  cCodAlojamiento FROM tAlojamientos WHERE cNombre = '" & item & "' ;"
 
-			Dim comando As New MySqlCommand(sql, conexion)
+            Dim comando As New MySqlCommand(sql, conexion)
 
 			Dim Datos As MySqlDataReader = comando.ExecuteReader
 			While Datos.Read
@@ -326,9 +327,9 @@ Public Class Inicio
 
 			Dim sql1 As String = ""
 
-			sql1 = "SELECT Max(cReserva) FROM treservas ;"
+            sql1 = "SELECT Max(cReserva) FROM tReservas ;"
 
-			Dim comando1 As New MySqlCommand(sql1, conexion)
+            Dim comando1 As New MySqlCommand(sql1, conexion)
 
 			Dim Datos1 As MySqlDataReader = comando1.ExecuteReader
 
@@ -388,6 +389,29 @@ Public Class Inicio
             MsgBox(ex.Message, MsgBoxStyle.MsgBoxSetForeground)
         End Try
     End Sub
+
+    Protected Sub btnDetalle_Click(sender As Object, e As EventArgs) Handles btnDetalle.Click
+        Dim alojamiento As String
+        Try
+            alojamiento = ListBox1.SelectedItem.Value
+        Catch ex As Exception
+            alojamiento = Nothing
+        End Try
+
+        Session("aloj") = alojamiento
+        If (Session("aloj") = Nothing) Then
+            MsgBox("Tiene que elegir algun alojamiento para ver los detalles")
+        Else
+            Response.Redirect("detalle.aspx")
+        End If
+
+
+
+
+
+    End Sub
+
+
 #End Region
 
 End Class
