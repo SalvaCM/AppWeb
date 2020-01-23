@@ -43,4 +43,7 @@ Public Class detalle
         End Try
     End Sub
 
+    Protected Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
+        Response.Redirect("Inicio.aspx")
+    End Sub
 End Class

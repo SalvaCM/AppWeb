@@ -5,10 +5,10 @@ Imports System.Configuration
 Public Class Reserva
     Inherits System.Web.UI.Page
     Public conexion As New MySqlConnection
-	Dim conn As New MySqlConnection("Server=192.168.101.24; Database=alojamientos; Uid=grupoAlojamientos; Pwd=123456") 'Servidor local clase
-	'Dim conn As New MySqlConnection("Server=192.168.0.7; Database=alojamientos; Uid=grupoAlojamientos; Pwd=123456") 'Casa Alba
+    Dim conn As New MySqlConnection("Server=188.213.5.150; Database=alojamientos; Uid=accesoadatos; Pwd=123456") 'Servidor local clase
+    'Dim conn As New MySqlConnection("Server=192.168.0.7; Database=alojamientos; Uid=grupoAlojamientos; Pwd=123456") 'Casa Alba
 #Region "Variables"
-	Dim mydatatable As New DataTable
+    Dim mydatatable As New DataTable
     Dim thisDay = DateTime.Today
     Dim listaCodReserva As New ArrayList
     Dim listaFechaReserva As New ArrayList
@@ -152,9 +152,9 @@ Public Class Reserva
 			conn.Close() 'Cerramos la conexion a la BBDD
 
 			conn.Open() 'Abrimos la conexion a la BBDD
-			Dim query As String = "select R.cReserva, R.cFechaEntrada, R.cFechaSalida, R.cFechaRealizada, R.cCodUsuario,U.cNombre ""NombreUsuario"" ,U.cApellidos, U.cTelefono ""telfUsuario"", R.cCodAlojamiento,A.cNombre ""NombreAlojamiento"", A.cDireccion, A.cLocalizacion, A.cEmail, A.cTelefono ""telfAloj"", A.cWeb     from treservas R, talojamientos A, tusuarios U where R.cCodAlojamiento=A.cCodAlojamiento and R.cCodUsuario=U.cDni and R.cReserva= " & codReservIntroducido.ToString
+            Dim query As String = "select R.cReserva, R.cFechaEntrada, R.cFechaSalida, R.cFechaRealizada, R.cCodUsuario,U.cNombre ""NombreUsuario"" ,U.cApellidos, U.cTelefono ""telfUsuario"", R.cCodAlojamiento,A.cNombre ""NombreAlojamiento"", A.cDireccion, A.cLocalizacion, A.cEmail, A.cTelefono ""telfAloj"", A.cWeb     from tReservas R, tAlojamientos A, tUsuarios U where R.cCodAlojamiento=A.cCodAlojamiento and R.cCodUsuario=U.cDni and R.cReserva= " & codReservIntroducido.ToString
 
-			Dim cmd As New MySqlCommand(query, conn)
+            Dim cmd As New MySqlCommand(query, conn)
 			cmd.ExecuteNonQuery()
 
 			Dim comando As New MySqlCommand(query, conn)
@@ -293,8 +293,8 @@ Public Class Reserva
 		Try
 			conn.Open()
 
-			Dim query As String = "DELETE FROM treservas where cReserva=" & txtBoxCodReserva.Text.ToString
-			Dim cmd As New MySqlCommand(query, conn)
+            Dim query As String = "DELETE FROM tReservas where cReserva=" & txtBoxCodReserva.Text.ToString
+            Dim cmd As New MySqlCommand(query, conn)
 
 			'cmd.Parameters.AddWithValue("?id", id)
 
