@@ -372,17 +372,19 @@ Public Class Inicio
 
 			Dim comando As New MySqlCommand(sql, conexion)
             Dim Datos As MySqlDataReader = comando.ExecuteReader
-            While Datos.Read
-
-
-                ListBox1.Items.Add(Datos(0))
-
-
-            End While
+			While Datos.Read
+				ListBox1.Items.Add(Datos(0))
+			End While
             conexion.Close()
             Console.WriteLine("Conexión a la BBDD cerrada con éxito") 'Imprimimos un mensaje como que se ha conectado satisfactoriamente a la BBDD MySQL
 
-            divFechasReserva.Visible = False 'Se hace no visible las opciones de hacer la reserva
+			'Si no se encuentran datos, se muestra el mensaje:
+			If ListBox1.Items.Count = 0 Then
+				ListBox1.Items.Add("No se encontraron datos para la búsqueda realizada")
+			End If
+
+
+			divFechasReserva.Visible = False 'Se hace no visible las opciones de hacer la reserva
 
         Catch ex As Exception
             'En caso de que no se conecte mandamos un mensaje con el error lanzado desde la BBDD MySQL

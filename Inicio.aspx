@@ -47,7 +47,7 @@
                 <br />
                 <asp:Label ID="Label1" runat="server" Text="Localidad"></asp:Label>
                 :
-                <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" style="margin-left: 0px" Width="104px">
+                <asp:DropDownList ID="DropDownList1" runat="server" style="margin-left: 0px" Width="104px">
                     <asp:ListItem>Araba/Álava</asp:ListItem>
                     <asp:ListItem>Bizkaia</asp:ListItem>
                     <asp:ListItem>Gipuzkoa</asp:ListItem>
@@ -59,7 +59,7 @@
 
                 <br />
                 Tipo de vivienda:
-                <asp:DropDownList ID="DropDownList2" runat="server" AutoPostBack="True" style="margin-left: 0px" Width="104px">
+                <asp:DropDownList ID="DropDownList2" runat="server" style="margin-left: 0px" Width="104px">
                     <asp:ListItem Value="Todos">Todos</asp:ListItem>
                     <asp:ListItem>Camping</asp:ListItem>
                     <asp:ListItem>Aloc</asp:ListItem>
@@ -68,7 +68,7 @@
 
                 <br />
                 Orden :
-                <asp:DropDownList ID="DropDownList3" runat="server" AutoPostBack="True" style="margin-left: 0px" Width="104px">
+                <asp:DropDownList ID="DropDownList3" runat="server" style="margin-left: 0px" Width="104px">
                     <asp:ListItem Value="Ascendente">Ascendente</asp:ListItem>
                     <asp:ListItem>Descendiente</asp:ListItem>
                 </asp:DropDownList>
@@ -102,6 +102,8 @@
             <div id="divFechasReserva" runat="server">
                 <div class="auto-style5">
                 <asp:Label ID="lblTituloFechas" runat="server" Text="Seleccione la fecha de inicio y fin de su reserva"></asp:Label>
+
+
                </div>
                     <table class="auto-style8">
                     <tr>

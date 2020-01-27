@@ -130,9 +130,9 @@ Public Class Reserva
 			myrow = mydatatable.NewRow
 			myrow("Código de la reserva") = listaCodReserva(i).ToString
 			myrow("Nombre alojamiento") = listaNombreAlojamiento(i).ToString
-			myrow("Fecha reserva") = listaFechaReserva(i).ToString
-			myrow("Fecha entrada") = listaFechaEntrada(i).ToString
-			myrow("Fecha salida") = listaFechaSalida(i).ToString
+			myrow("Fecha reserva") = (listaFechaReserva(i).ToString).Substring(0, 10)
+			myrow("Fecha entrada") = (listaFechaEntrada(i).ToString).Substring(0, 10)
+			myrow("Fecha salida") = (listaFechaSalida(i).ToString).Substring(0, 10)
 
 			myrow("Dirección") = listaDireccion(i).ToString
 			myrow("Localización") = listaLocalizacion(i).ToString
