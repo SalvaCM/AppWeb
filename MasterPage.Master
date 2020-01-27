@@ -149,13 +149,7 @@
                      <!-- BEING Lista del menu-->
                     <ul class="sidebar-menu">
                         <li class="active">
-                            <a href="PanelGeneral.aspx">
-                                <i class="fa fa-dashboard"></i>
-                                <span>Panel General</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="Inicio.aspx">
+                             <a href="Inicio.aspx">
                                 <i class="fa fa-th"></i>
                                 <div class="pull-left image" style="width: 28px; height: 24px">
                                      <img src="img/home.png" class="image" alt="Home Image" />
@@ -164,6 +158,7 @@
                                 <span>Alojamientos</span>
                             </a>
                         </li>
+                      
                         <li>
                             <a href="Reserva.aspx">
                                 <div class="pull-left image" style="width: 29px; height: 28px">
@@ -176,7 +171,7 @@
                          <li>
                             <a href="Mapas.aspx">
                                 <div class="pull-left image" style="width: 28px; height: 21px">
-                                     <img src="img/off-button.png" class="auto-style1" alt="Home Image" />
+                                     <img src="img/mapa.png" class="auto-style1" alt="Home Image" />
                                 </div>
                                 <i class="fa fa-dashboard"></i>
                                 <span>Ver mapa</span>
@@ -196,11 +191,11 @@
                 </section>
             </aside>
             <aside class="right-side">
-                <section class="content-header">
+                <!--<section class="content-header">
                     <h1>
                         <asp:Label ID="lblOpcionMenu" runat="server" Text="Panel General"> </asp:Label>
                     </h1>
-                </section>
+                </section>-->
                 <section class="content">
                     <form id="form1" runat="server">
                         <div class="auto-style2">

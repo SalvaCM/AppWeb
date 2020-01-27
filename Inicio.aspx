@@ -90,7 +90,7 @@
             <div class="auto-style10">
                 <br />
                 <asp:Button ID="btnReservarAlojamiento" runat="server" Text="Reservar alojamiento seleccionado" CssClass="btn bg-light-blue "/>
-           <asp:Button ID="btnDetalle" runat="server" Text="Mostrar detalles" CssClass="btn bg-light-blue " />
+           <!--<asp:Button ID="btnDetalle" runat="server" Text="Mostrar detalles" CssClass="btn bg-light-blue " />-->
                 
            
             </div>
