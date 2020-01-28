@@ -90,16 +90,27 @@
                     <AlternatingRowStyle BackColor="#99CCFF" />
                     <Columns>
                         <asp:BoundField DataField="cCodigo" HeaderText="CODIGO" Visible="False" />
-                        <asp:TemplateField HeaderText="NOMBRE">
+                        <asp:TemplateField HeaderText="ALOJAMIENTO">
                             <EditItemTemplate>
                                 <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("cNombre") %>'></asp:TextBox>
                             </EditItemTemplate>
                             <ItemTemplate>
-                                <asp:Label ID="Label2" runat="server" Text='<%# Bind("cNombre") %>'></asp:Label>
+                                <asp:Label ID="Label2" Font-Bold="True" runat="server" Text='<%# Bind("cNombre") %>'></asp:Label>
+                                &nbsp;<br />
+                                <asp:Image ID="Image1" runat="server" Height="100px" ImageUrl="img/HOTEL.jpg" Width="150px" />
+                                <br />
+                                Localidad : <asp:Label ID="Label5" runat="server" ForeColor="Pink" Text='<%# Bind("cLocalidad") %>'></asp:Label>
+                                <br />
+                                Capacidad : <asp:Label ID="Label9" runat="server" ForeColor="Pink" Text='<%# Bind("cCapacidad") %>'></asp:Label>
+                                <br />
+                                E-Mail : <asp:Label ID="Label6" runat="server" ForeColor="Pink" Text='<%# Bind("cEmail") %>'></asp:Label>
+                                <br />
+                                Web: <asp:Label ID="Label7" runat="server" ForeColor="Pink" Text='<%# Bind("cWeb") %>'></asp:Label>
+                                <br />
                             </ItemTemplate>
-                            <ControlStyle Font-Bold="True" Width="300px" />
+                            <ControlStyle Width="500px" />
                             <HeaderStyle HorizontalAlign="Center" Width="300px" Wrap="False" />
-                            <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="300px" Wrap="False" />
+                            <ItemStyle  Width="300px" Height="150px" Wrap="False" />
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="DESCRIPCION">
                             <EditItemTemplate>
@@ -112,61 +123,6 @@
                             <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="500px" Wrap="True" />
                             <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="500px" Wrap="True" />
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="LOCALIDAD">
-                            <EditItemTemplate>
-                                <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("cLocalidad") %>'></asp:TextBox>
-                            </EditItemTemplate>
-                            <ItemTemplate>
-                                <asp:Label ID="Label5" runat="server" Text='<%# Bind("cLocalidad") %>'></asp:Label>
-                            </ItemTemplate>
-                            <ControlStyle Width="150px" />
-                            <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="150px" Wrap="True" />
-                            <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="150px" Wrap="True" />
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="CAPACIDAD">
-                            <EditItemTemplate>
-                                <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("cCapacidad") %>'></asp:TextBox>
-                            </EditItemTemplate>
-                            <ItemTemplate>
-                                <asp:Label ID="Label3" runat="server" Text='<%# Bind("cCapacidad") %>'></asp:Label>
-                            </ItemTemplate>
-                            <ControlStyle Width="100px" />
-                            <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="100px" Wrap="False" />
-                            <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="100px" Wrap="False" />
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="TELEFONO">
-                            <EditItemTemplate>
-                                <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("cTelefono") %>'></asp:TextBox>
-                            </EditItemTemplate>
-                            <ItemTemplate>
-                                <asp:Label ID="Label4" runat="server" Text='<%# Bind("cTelefono") %>'></asp:Label>
-                            </ItemTemplate>
-                            <ControlStyle Width="90px" />
-                            <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="90px" Wrap="True" />
-                            <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="90px" Wrap="True" />
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="EMAIL">
-                            <EditItemTemplate>
-                                <asp:TextBox ID="TextBox6" runat="server" Text='<%# Bind("cEmail") %>'></asp:TextBox>
-                            </EditItemTemplate>
-                            <ItemTemplate>
-                                <asp:Label ID="Label6" runat="server" Text='<%# Bind("cEmail") %>'></asp:Label>
-                            </ItemTemplate>
-                           <ControlStyle Width="250px" />
-                            <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="250px" Wrap="True" />
-                            <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="250px" Wrap="True" />
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="WEB">
-                            <EditItemTemplate>
-                                <asp:TextBox ID="TextBox7" runat="server" Text='<%# Bind("cWeb") %>'></asp:TextBox>
-                            </EditItemTemplate>
-                            <ItemTemplate>
-                                <asp:Label ID="Label7" runat="server" Text='<%# Bind("cWeb") %>'></asp:Label>
-                            </ItemTemplate>
-                            <ControlStyle Width="250px" />
-                            <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="250px" Wrap="True" />
-                            <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="250px" Wrap="True" />
-                        </asp:TemplateField>
                         <asp:TemplateField HeaderText="TIPO">
                             <EditItemTemplate>
                                 <asp:TextBox ID="TextBox8" runat="server" Text='<%# Bind("cTipo") %>'></asp:TextBox>
@@ -178,7 +134,11 @@
                             <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="100px" Wrap="True" />
                             <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="100px" Wrap="True" />
                         </asp:TemplateField>
-                        <asp:CommandField ButtonType="Button" ShowSelectButton="True" />
+                        <asp:TemplateField ShowHeader="False">
+                            <ItemTemplate>
+                                <asp:Button ID="Button1" runat="server" Text="RESERVAR" CssClass="btn bg-light-blue " />
+                            </ItemTemplate>
+                        </asp:TemplateField>
                     </Columns>
                     <FooterStyle BackColor="White" ForeColor="#000066" />
                     <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
