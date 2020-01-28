@@ -20,8 +20,9 @@
             height: 37px;
         }
         .auto-style8 {
-            height: 620px;
-            width: 835px;
+            height: 693px;
+            width: 843px;
+            margin-right: 0px;
         }
         .auto-style9 {
             width: 428px;
@@ -81,7 +82,9 @@
                 <br />
                 <br />
             </div>
-            
+             <div>
+                  <asp:Label ID="lblSinAlojamientos" runat="server" ForeColor="Red"></asp:Label>
+            </div>
             <div id="divAlojamientos" runat="server">
                <div class="auto-style4">
                     <asp:Label ID="lblAlojamientos" runat="server" Text="Seleccione el alojamiento que desee reservar:"></asp:Label>
@@ -110,6 +113,14 @@
                         <td class="auto-style6"> <asp:Label ID="lblFechaEntrada" runat="server" Text="Fecha de entrada"></asp:Label></td>
                         <td class="auto-style7"><asp:Label ID="lblFechaSalida" runat="server" Text="Fecha de salida"></asp:Label></td>
                     </tr>
+                   <!-- <tr>
+                        <td>
+                            <p>Fecha entrada: <input type="text" runat="server" id="datepicker1"></p>
+                        </td>
+                        <td>
+                            <td><p>Fecha salida: <input type="text" runat="server" id="datepicker2"></p>
+                        </td>
+                    </tr>-->
                     <tr>
                         <td class="auto-style9"> <asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="#3366CC" BorderWidth="1px" CellPadding="1" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="#003399" Height="200px" Width="220px">
                             <DayHeaderStyle BackColor="#99CCCC" ForeColor="#336666" Height="1px" />
@@ -117,7 +128,7 @@
                             <OtherMonthDayStyle ForeColor="#999999" />
                             <SelectedDayStyle BackColor="#009999" Font-Bold="True" ForeColor="#CCFF99" />
                             <SelectorStyle BackColor="#99CCCC" ForeColor="#336666" />
-                            <TitleStyle BackColor="#003399" BorderColor="#3366CC" BorderWidth="1px" Font-Bold="True" Font-Size="10pt" ForeColor="#CCCCFF" Height="25px" />
+                            <TitleStyle BackColor="#003399" BorderColor="#3366CC" BorderWidth="1px" Font-Bold="True" Font-Size="10pt" ForeColor="#CCCCFF" Height="15px" />
                             <TodayDayStyle BackColor="#99CCCC" ForeColor="White" />
                             <WeekendDayStyle BackColor="#CCCCFF" />
                             </asp:Calendar></td>

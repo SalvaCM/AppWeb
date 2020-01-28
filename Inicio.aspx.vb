@@ -367,7 +367,7 @@ Public Class Inicio
             conexion = New MySqlConnection(connectionString)
             conexion.Open()
 			'Abrimos la conexion a la BBDD
-			sql = "SELECT cNombre FROM tAlojamientos WHERE cNombre = '" & buscadar & "';"
+			sql = "SELECT cNombre FROM tAlojamientos WHERE cNombre = '" & buscadar.ToUpper & "';"
 
 
 			Dim comando As New MySqlCommand(sql, conexion)
@@ -380,7 +380,8 @@ Public Class Inicio
 
 			'Si no se encuentran datos, se muestra el mensaje:
 			If ListBox1.Items.Count = 0 Then
-				ListBox1.Items.Add("No se encontraron datos para la búsqueda realizada")
+				'ListBox1.Items.Add("No se encontraron datos para la búsqueda realizada")
+				lblSinAlojamientos.Text = "No se encontraron datos para la búsqueda realizada"
 			End If
 
 

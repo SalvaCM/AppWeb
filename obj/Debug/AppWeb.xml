@@ -154,6 +154,15 @@ Campo generado automáticamente.
 Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 </remarks>
 </member>
+<member name="F:AppWeb.Inicio._lblSinAlojamientos">
+<summary>
+Control lblSinAlojamientos.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
 <member name="F:AppWeb.Inicio._divAlojamientos">
 <summary>
 Control divAlojamientos.
@@ -229,6 +238,24 @@ Para modificarlo, mueva la declaración del campo del archivo del diseñador al 
 <member name="F:AppWeb.Inicio._lblFechaSalida">
 <summary>
 Control lblFechaSalida.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Inicio._datepicker1">
+<summary>
+Control datepicker1.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:AppWeb.Inicio._datepicker2">
+<summary>
+Control datepicker2.
 </summary>
 <remarks>
 Campo generado automáticamente.
@@ -1174,15 +1201,6 @@ Para modificarlo, mueva la declaración del campo del archivo del diseñador al 
 <member name="F:AppWeb.WebForm1._Button1">
 <summary>
 Control Button1.
-</summary>
-<remarks>
-Campo generado automáticamente.
-Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-</remarks>
-</member>
-<member name="F:AppWeb.Mapas._txt_location">
-<summary>
-Control txt_location.
 </summary>
 <remarks>
 Campo generado automáticamente.

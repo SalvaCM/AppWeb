@@ -14,7 +14,11 @@
    <link href="css/AdminLTE.css" rel="stylesheet" type="text/css"/>
     <!-- Ion icons -->
     <link href="//code.iconicframework.com/ionicons/1.5.2/css/ionicons.min.css" rel="stylesheet" type="text/css"/>
-
+     <!-- Mapas Mapbox -->
+     <meta charset='utf-8' />
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <script src='https://api.mapbox.com/mapbox-gl-js/v1.6.1/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v1.6.1/mapbox-gl.css' rel='stylesheet' />
      <!-- Mapas -->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css"/>
@@ -24,7 +28,22 @@
    <script src="https://maps.googleapis.com/maps/api/js?v=3"></script>
     <script src="locationpicker.jquery.min.js"></script>
 
-   
+   <!-- Calendario-->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+      <link rel="stylesheet" href="/resources/demos/style.css">
+      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <script>
+      $( function() {
+          $("#datepicker1").datepicker();
+          $("#datepicker2").datepicker();
+      });
+
+      </script>
+   <!-- FIN Calendario-->
     <style>
         html,body{
             min-height:100%;
@@ -117,6 +136,8 @@
         .auto-style2 {
             height: 748px;
         }
+
+      
 
     </style>
 
