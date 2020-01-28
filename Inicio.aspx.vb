@@ -54,41 +54,39 @@ Public Class Inicio
 #End Region
 
     Protected Sub cargarDatosAlojamientos()
-        Try
-            'Cerramos la conexion a la BBDD
+		Try
+			'Cerramos la conexion a la BBDD
+			'Establecemos los parametros de la conexion a la BBDD
+			Dim connectionString = ConfigurationManager.ConnectionStrings("myConnectionString").ConnectionString
+			conexion = New MySqlConnection(connectionString)
+
+			conexion.Open() 'Abrimos la conexion a la BBDD
 
 
-            'Establecemos los parametros de la conexion a la BBDD
-            Dim connectionString = ConfigurationManager.ConnectionStrings("myConnectionString").ConnectionString
-            conexion = New MySqlConnection(connectionString)
-            conexion.Open() 'Abrimos la conexion a la BBDD
+			'Query para ejecutar select de la localidad seleccionada
+			Dim sql As String
 
+			'Si se pasa por URL
 
-            'Query para ejecutar select de la localidad seleccionada
-            Dim sql As String
-
-            'Si se pasa por URL
-
-            sql = "SELECT cNombre, cCodAlojamiento FROM tAlojamientos WHERE cLocalidad = '" & DropDownList1.SelectedValue & "' ;"
+			sql = "SELECT cNombre,cCodAlojamiento,cDescripcion FROM tAlojamientos WHERE cLocalidad = '" & DropDownList1.SelectedValue & "' ;"
 
 
 
-            Dim comando As New MySqlCommand(sql, conexion)
+			Dim comando As New MySqlCommand(sql, conexion)
 
-            Dim Datos As MySqlDataReader = comando.ExecuteReader
-            While Datos.Read
+			Dim Datos As MySqlDataReader = comando.ExecuteReader
+			While Datos.Read
 
+				ListBox1.Items.Add(Datos(0).ToString & " -  " & Datos(1).ToString & " - " & Datos(2).ToString)
 
-                ListBox1.Items.Add(Datos(0))
-
-
-            End While
-            conexion.Close()
-        Catch ex As Exception
-            'En caso de que no se conecte mandamos un mensaje con el error lanzado desde la BBDD MySQL
-            MsgBox(ex.Message, MsgBoxStyle.MsgBoxSetForeground)
-        End Try
-    End Sub
+			End While
+			conexion.Close()
+		Catch ex As Exception
+			'En caso de que no se conecte mandamos un mensaje con el error lanzado desde la BBDD MySQL
+			MsgBox(ex.Message, MsgBoxStyle.MsgBoxSetForeground)
+		End Try
+		CargarGrid(GridView1, "SELECT cCodAlojamiento,cNombre,cDescripcion,cCapacidad,cTelefono,cLocalidad,cWeb,cEmail,cTipo FROM tAlojamientos  WHERE cLocalidad = '" & DropDownList1.SelectedValue & "' ORDER BY cCodAlojamiento ;")
+	End Sub
 
 #Region "BOTONES CABECERA"
 
@@ -390,27 +388,38 @@ Public Class Inicio
         End Try
     End Sub
 
-    Protected Sub btnDetalle_Click(sender As Object, e As EventArgs) Handles btnDetalle.Click
-        Dim alojamiento As String
-        Try
-            alojamiento = ListBox1.SelectedItem.Value
-        Catch ex As Exception
-            alojamiento = Nothing
-        End Try
+	Protected Sub btnDetalle_Click(sender As Object, e As EventArgs) Handles btnDetalle.Click
+		Dim alojamiento As String
+		Try
+			alojamiento = ListBox1.SelectedItem.Value
+		Catch ex As Exception
+			alojamiento = Nothing
+		End Try
 
-        Session("aloj") = alojamiento
-        If (Session("aloj") = Nothing) Then
-            MsgBox("Tiene que elegir algun alojamiento para ver los detalles")
-        Else
-            Response.Redirect("detalle.aspx")
-        End If
+		Session("aloj") = alojamiento
+		If (Session("aloj") = Nothing) Then
+			MsgBox("Tiene que elegir algun alojamiento para ver los detalles")
+		Else
+			Response.Redirect("detalle.aspx")
+		End If
 
+	End Sub
 
-
-
-
-    End Sub
-
+	'CargarGrid(GridView1, "SELECT cNombre, cCodAlojamiento,cDescripcion FROM tAlojamientos  WHERE cLocalidad = '" & DropDownList1.SelectedValue & "' ;")
+	Public Sub CargarGrid(GridView1 As GridView, query As String)
+		Dim adapter As New MySqlDataAdapter(query, conexion)
+		Try
+			conexion.Open()
+			Dim tabla As New DataTable()
+			adapter.Fill(tabla)
+			GridView1.DataSource = tabla
+			GridView1.DataBind()
+		Catch ex As Exception
+			Console.WriteLine(ex.Message)
+		Finally
+			conexion.Close()
+		End Try
+	End Sub
 
 #End Region
 

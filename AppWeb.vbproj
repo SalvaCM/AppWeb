@@ -413,6 +413,7 @@
     <Content Include="Mapas.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Alojamientos.vb" />
     <Compile Include="Inicio.aspx.designer.vb">
       <DependentUpon>Inicio.aspx</DependentUpon>
     </Compile>
