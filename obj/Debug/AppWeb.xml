@@ -118,9 +118,9 @@ Campo generado automáticamente.
 Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 </remarks>
 </member>
-<member name="F:AppWeb.Inicio._Buscador">
+<member name="F:AppWeb.Inicio._btnBuscar">
 <summary>
-Control Buscador.
+Control btnBuscar.
 </summary>
 <remarks>
 Campo generado automáticamente.
@@ -175,15 +175,6 @@ Para modificarlo, mueva la declaración del campo del archivo del diseñador al 
 <member name="F:AppWeb.Inicio._GridView1">
 <summary>
 Control GridView1.
-</summary>
-<remarks>
-Campo generado automáticamente.
-Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-</remarks>
-</member>
-<member name="F:AppWeb.Inicio._ListBox1">
-<summary>
-Control ListBox1.
 </summary>
 <remarks>
 Campo generado automáticamente.

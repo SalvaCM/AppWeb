@@ -12,16 +12,12 @@
         .auto-style5 {
             width: 458px;
         }
-        .auto-style6 {
-            width: 428px;
-            height: 37px;
-        }
         .auto-style7 {
-            height: 37px;
+            height: 23px;
         }
         .auto-style8 {
-            height: 620px;
-            width: 835px;
+            height: 602px;
+            width: 481px;
         }
         .auto-style9 {
             width: 428px;
@@ -29,6 +25,10 @@
         }
         .auto-style10 {
             width: 560px;
+        }
+        .auto-style11 {
+            width: 428px;
+            height: 23px;
         }
     </style>
 </asp:Content>
@@ -45,9 +45,8 @@
                 <asp:Label ID="lblFiltros" runat="server" Text="Seleccione los filtros que desee aplicar:"></asp:Label>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <br />
-                <asp:Label ID="Label1" runat="server" Text="Localidad"></asp:Label>
-                :
-                <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" style="margin-left: 0px" Width="104px">
+                <asp:Label ID="Label1" runat="server" Text="Localidad:"></asp:Label>
+                <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="False" style="margin-left: 0px" Width="104px">
                     <asp:ListItem>Araba/Álava</asp:ListItem>
                     <asp:ListItem>Bizkaia</asp:ListItem>
                     <asp:ListItem>Gipuzkoa</asp:ListItem>
@@ -55,11 +54,11 @@
 
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-&nbsp;<asp:Button ID="Buscador" runat="server" Text="Buscar" />
+&nbsp;<asp:Button ID="btnBuscar" runat="server" Text="Buscar" />
 
                 <br />
                 Tipo de vivienda:
-                <asp:DropDownList ID="DropDownList2" runat="server" AutoPostBack="True" style="margin-left: 0px" Width="104px">
+                <asp:DropDownList ID="DropDownList2" runat="server" AutoPostBack="False" style="margin-left: 0px" Width="104px">
                     <asp:ListItem Value="Todos">Todos</asp:ListItem>
                     <asp:ListItem>Camping</asp:ListItem>
                     <asp:ListItem>Aloc</asp:ListItem>
@@ -68,7 +67,7 @@
 
                 <br />
                 Orden :
-                <asp:DropDownList ID="DropDownList3" runat="server" AutoPostBack="True" style="margin-left: 0px" Width="104px">
+                <asp:DropDownList ID="DropDownList3" runat="server" AutoPostBack="False" style="margin-left: 0px" Width="104px">
                     <asp:ListItem Value="Ascendente">Ascendente</asp:ListItem>
                     <asp:ListItem>Descendiente</asp:ListItem>
                 </asp:DropDownList>
@@ -86,7 +85,7 @@
                <div class="auto-style4">
                     <asp:Label ID="lblAlojamientos" runat="server" Text="Seleccione el alojamiento que desee reservar:"></asp:Label>
                </div>
-                <asp:GridView ID="GridView1" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Outset" BorderWidth="1px" CellPadding="4" CellSpacing="4" GridLines="Horizontal" PageSize="1000" AutoGenerateColumns="False" EnablePersistedSelection="True">
+                <asp:GridView ID="GridView1" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Outset" BorderWidth="1px" CellPadding="4" CellSpacing="4" GridLines="Horizontal" PageSize="1000" AutoGenerateColumns="False">
                     <AlternatingRowStyle BackColor="#99CCFF" />
                     <Columns>
                         <asp:BoundField DataField="cCodigo" HeaderText="CODIGO" Visible="False" />
@@ -107,7 +106,7 @@
                                 <br />
                                 Web: <asp:Label ID="Label7" runat="server" ForeColor="Pink" Text='<%# Bind("cWeb") %>'></asp:Label>
                                 <br />
-                                <asp:Label ID="Label3" runat="server" ForeColor="Pink" Text='<%# Bind("cCodAlojamiento") %>'></asp:Label>
+                                <asp:Label ID="Label3" runat="server" ForeColor="Transparent" Text='<%# Bind("cCodAlojamiento") %>'></asp:Label>
                             </ItemTemplate>
                             <ControlStyle Width="500px" />
                             <HeaderStyle HorizontalAlign="Center" Width="300px" Wrap="False" />
@@ -135,9 +134,9 @@
                             <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="100px" Wrap="True" />
                             <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="100px" Wrap="True" />
                         </asp:TemplateField>
-                        <asp:TemplateField ShowHeader="False" HeaderText="RESERVAR">
+                        <asp:TemplateField ShowHeader="False" HeaderText="">
                             <ItemTemplate>
-                                <asp:Button ID="Button3" runat="server" CommandName="Select" CssClass="btn bg-light-blue" OnClientClick="Button1_Click1" Text="RESERVAR2" />
+                                <asp:Button ID="Button3" runat="server" CommandName="Select" CssClass="btn bg-light-blue" OnClientClick="Button1_Click1" Text="RESERVAR" />
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
@@ -151,7 +150,6 @@
                     <SortedDescendingCellStyle BackColor="#CAC9C9" />
                     <SortedDescendingHeaderStyle BackColor="#00547E" />
                 </asp:GridView>
-               <asp:ListBox ID="ListBox1" runat="server" Height="425px" Width="890px"></asp:ListBox>
             <div class="auto-style10">
                 <br />
                 <asp:Button ID="btnReservarAlojamiento" runat="server" Text="Reservar alojamiento seleccionado" CssClass="btn bg-light-blue "/>
@@ -170,11 +168,11 @@
                </div>
                     <table class="auto-style8">
                     <tr>
-                        <td class="auto-style6"> <asp:Label ID="lblFechaEntrada" runat="server" Text="Fecha de entrada"></asp:Label></td>
+                        <td class="auto-style11"> <asp:Label ID="lblFechaEntrada" runat="server" Text="Fecha de entrada"></asp:Label></td>
                         <td class="auto-style7"><asp:Label ID="lblFechaSalida" runat="server" Text="Fecha de salida"></asp:Label></td>
                     </tr>
                     <tr>
-                        <td class="auto-style9"> <asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="#3366CC" BorderWidth="1px" CellPadding="1" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="#003399" Height="200px" Width="220px">
+                        <td class="auto-style10"> <asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="#3366CC" BorderWidth="1px" CellPadding="1" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="#003399" Height="200px" Width="220px">
                             <DayHeaderStyle BackColor="#99CCCC" ForeColor="#336666" Height="1px" />
                             <NextPrevStyle Font-Size="8pt" ForeColor="#CCCCFF" />
                             <OtherMonthDayStyle ForeColor="#999999" />
