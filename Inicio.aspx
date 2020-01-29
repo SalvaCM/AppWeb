@@ -86,7 +86,7 @@
                <div class="auto-style4">
                     <asp:Label ID="lblAlojamientos" runat="server" Text="Seleccione el alojamiento que desee reservar:"></asp:Label>
                </div>
-                <asp:GridView ID="GridView1" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Dashed" BorderWidth="1px" CellPadding="4" CellSpacing="4" GridLines="Horizontal" PageSize="1000" AutoGenerateColumns="False">
+                <asp:GridView ID="GridView1" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Outset" BorderWidth="1px" CellPadding="4" CellSpacing="4" GridLines="Horizontal" PageSize="1000" AutoGenerateColumns="False" EnablePersistedSelection="True">
                     <AlternatingRowStyle BackColor="#99CCFF" />
                     <Columns>
                         <asp:BoundField DataField="cCodigo" HeaderText="CODIGO" Visible="False" />
@@ -107,6 +107,7 @@
                                 <br />
                                 Web: <asp:Label ID="Label7" runat="server" ForeColor="Pink" Text='<%# Bind("cWeb") %>'></asp:Label>
                                 <br />
+                                <asp:Label ID="Label3" runat="server" ForeColor="Pink" Text='<%# Bind("cCodAlojamiento") %>'></asp:Label>
                             </ItemTemplate>
                             <ControlStyle Width="500px" />
                             <HeaderStyle HorizontalAlign="Center" Width="300px" Wrap="False" />
@@ -134,9 +135,9 @@
                             <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="100px" Wrap="True" />
                             <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="100px" Wrap="True" />
                         </asp:TemplateField>
-                        <asp:TemplateField ShowHeader="False">
+                        <asp:TemplateField ShowHeader="False" HeaderText="RESERVAR">
                             <ItemTemplate>
-                                <asp:Button ID="Button1" runat="server" Text="RESERVAR" CssClass="btn bg-light-blue " />
+                                <asp:Button ID="Button3" runat="server" CommandName="Select" CssClass="btn bg-light-blue" OnClientClick="Button1_Click1" Text="RESERVAR2" />
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
