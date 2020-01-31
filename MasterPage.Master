@@ -149,13 +149,7 @@
                      <!-- BEING Lista del menu-->
                     <ul class="sidebar-menu">
                         <li class="active">
-                            <a href="PanelGeneral.aspx">
-                                <i class="fa fa-dashboard"></i>
-                                <span>Panel General</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="Inicio.aspx">
+                            <a href="Inicio.aspx" >
                                 <i class="fa fa-th"></i>
                                 <div class="pull-left image" style="width: 28px; height: 24px">
                                      <img src="img/home.png" class="image" alt="Home Image" />
@@ -182,15 +176,6 @@
                                 <span>Ver mapa</span>
                             </a>
                         </li>
-                         <li>
-                            <a href="IniSesion.aspx">
-                                <div class="pull-left image" style="width: 28px; height: 21px">
-                                     <img src="img/off-button.png" class="auto-style1" alt="Home Image" />
-                                </div>
-                                <i class="fa fa-dashboard"></i>
-                                <span>Cerrar sesión</span>
-                            </a>
-                        </li>
                     </ul>
 
                 </section>
@@ -198,7 +183,7 @@
             <aside class="right-side">
                 <section class="content-header">
                     <h1>
-                        <asp:Label ID="lblOpcionMenu" runat="server" Text="Panel General"> </asp:Label>
+                        <asp:Label ID="lblOpcionMenu" runat="server" Text="Alojamientos Euskadi"> </asp:Label>
                     </h1>
                 </section>
                 <section class="content">

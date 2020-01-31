@@ -149,31 +149,20 @@ Public Class Inicio
 		Dim row As GridViewRow = GridView1.Rows(indice)
 		codAlojamiento = TryCast(row.FindControl("Label3"), Label).Text
 		Dim nombre As String = TryCast(row.FindControl("Label2"), Label).Text
+		'Dim botton As Button = TryCast(row.FindControl("Button_1"), Button)
+		'botton.Visible = False
 		divFechasReserva.Visible = True
 		Session("codAlojamiento") = codAlojamiento
+		Dim query = "SELECT cCodAlojamiento,cNombre,cDescripcion,cCapacidad,cTelefono,cLocalidad,cWeb,cEmail,cTipo FROM tAlojamientos WHERE cCodAlojamiento LIKE '" & codAlojamiento & "';"
+		CargarGrid(GridView1, query)
+
 	End Sub
 	Protected Sub Buscador_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
 		Dim query = "SELECT cCodAlojamiento,cNombre,cDescripcion,cCapacidad,cTelefono,cLocalidad,cWeb,cEmail,cTipo FROM tAlojamientos WHERE cNombre LIKE '" & TextBox1.Text & "';"
-		MsgBox(query)
 		CargarGrid(GridView1, query)
 		divFechasReserva.Visible = False 'Se hace no visible las opciones de hacer la reserva
 	End Sub
-	Protected Sub btnDetalle_Click(sender As Object, e As EventArgs) Handles btnDetalle.Click
-		Dim alojamiento As String
-		Try
-			'alojamiento = ListBox1.SelectedItem.Value
-		Catch ex As Exception
-			alojamiento = Nothing
-		End Try
 
-		Session("aloj") = alojamiento
-		If (Session("aloj") = Nothing) Then
-			MsgBox("Tiene que elegir algun alojamiento para ver los detalles")
-		Else
-			Response.Redirect("detalle.aspx")
-		End If
-
-	End Sub 'TODO
 #End Region
 
 #Region "Fechas"

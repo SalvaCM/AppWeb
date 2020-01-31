@@ -181,24 +181,6 @@ Campo generado automáticamente.
 Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 </remarks>
 </member>
-<member name="F:AppWeb.Inicio._btnReservarAlojamiento">
-<summary>
-Control btnReservarAlojamiento.
-</summary>
-<remarks>
-Campo generado automáticamente.
-Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-</remarks>
-</member>
-<member name="F:AppWeb.Inicio._btnDetalle">
-<summary>
-Control btnDetalle.
-</summary>
-<remarks>
-Campo generado automáticamente.
-Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-</remarks>
-</member>
 <member name="F:AppWeb.Inicio._divFechasReserva">
 <summary>
 Control divFechasReserva.
@@ -208,9 +190,9 @@ Campo generado automáticamente.
 Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 </remarks>
 </member>
-<member name="F:AppWeb.Inicio._lblTituloFechas">
+<member name="F:AppWeb.Inicio._Label4">
 <summary>
-Control lblTituloFechas.
+Control Label4.
 </summary>
 <remarks>
 Campo generado automáticamente.

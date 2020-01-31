@@ -14,21 +14,26 @@
         }
         .auto-style7 {
             height: 23px;
+            width: 220px;
         }
         .auto-style8 {
             height: 602px;
             width: 481px;
         }
-        .auto-style9 {
-            width: 428px;
-            height: 139px;
-        }
         .auto-style10 {
-            width: 560px;
+            width: 360px;
+            height: 70px;
         }
         .auto-style11 {
-            width: 428px;
+            width: 551px;
             height: 23px;
+        }
+        .auto-style12 {
+            width: 551px;
+        }
+        .auto-style13 {
+            height: 748px;
+            width: 220px;
         }
     </style>
 </asp:Content>
@@ -85,7 +90,7 @@
                <div class="auto-style4">
                     <asp:Label ID="lblAlojamientos" runat="server" Text="Seleccione el alojamiento que desee reservar:"></asp:Label>
                </div>
-                <asp:GridView ID="GridView1" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Outset" BorderWidth="1px" CellPadding="4" CellSpacing="4" GridLines="Horizontal" PageSize="1000" AutoGenerateColumns="False">
+                <asp:GridView ID="GridView1" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Outset" BorderWidth="1px" CellPadding="4" CellSpacing="4" GridLines="Horizontal" PageSize="500" AutoGenerateColumns="False">
                     <AlternatingRowStyle BackColor="#99CCFF" />
                     <Columns>
                         <asp:BoundField DataField="cCodigo" HeaderText="CODIGO" Visible="False" />
@@ -150,29 +155,20 @@
                     <SortedDescendingCellStyle BackColor="#CAC9C9" />
                     <SortedDescendingHeaderStyle BackColor="#00547E" />
                 </asp:GridView>
-            <div class="auto-style10">
-                <br />
-                <asp:Button ID="btnReservarAlojamiento" runat="server" Text="Reservar alojamiento seleccionado" CssClass="btn bg-light-blue "/>
-           <asp:Button ID="btnDetalle" runat="server" Text="Mostrar detalles" CssClass="btn bg-light-blue " />
-                
-           
-            </div>
-                
             <br />
             <br />
             </div>
 
             <div id="divFechasReserva" runat="server">
-                <div class="auto-style5">
-                <asp:Label ID="lblTituloFechas" runat="server" Text="Seleccione la fecha de inicio y fin de su reserva"></asp:Label>
-               </div>
-                    <table class="auto-style8">
+
+                    <table >
+                        <tr> <td > <asp:Label ID="Label4" runat="server" Text="Seleccione las fechas deseadas" Font-Names="Lucida Handwriting"></asp:Label></td></tr>
                     <tr>
-                        <td class="auto-style11"> <asp:Label ID="lblFechaEntrada" runat="server" Text="Fecha de entrada"></asp:Label></td>
-                        <td class="auto-style7"><asp:Label ID="lblFechaSalida" runat="server" Text="Fecha de salida"></asp:Label></td>
+                        <td > <asp:Label ID="lblFechaEntrada" runat="server" Text="Fecha de entrada"></asp:Label></td>
+                        <td ><asp:Label ID="lblFechaSalida" runat="server" Text="Fecha de salida"></asp:Label></td>
                     </tr>
                     <tr>
-                        <td class="auto-style10"> <asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="#3366CC" BorderWidth="1px" CellPadding="1" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="#003399" Height="200px" Width="220px">
+                        <td > <asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="#3366CC" BorderWidth="1px" CellPadding="1" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="#003399" Height="200px" Width="220px">
                             <DayHeaderStyle BackColor="#99CCCC" ForeColor="#336666" Height="1px" />
                             <NextPrevStyle Font-Size="8pt" ForeColor="#CCCCFF" />
                             <OtherMonthDayStyle ForeColor="#999999" />
@@ -182,7 +178,7 @@
                             <TodayDayStyle BackColor="#99CCCC" ForeColor="White" />
                             <WeekendDayStyle BackColor="#CCCCFF" />
                             </asp:Calendar></td>
-                        <td class="auto-style2"><asp:Calendar ID="Calendar2" runat="server" BackColor="White" BorderColor="#3366CC" BorderWidth="1px" CellPadding="1" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="#003399" Height="200px" Width="220px">
+                        <td ><asp:Calendar ID="Calendar2" runat="server" BackColor="White" BorderColor="#3366CC" BorderWidth="1px" CellPadding="1" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="#003399" Height="200px" Width="220px">
                             <DayHeaderStyle BackColor="#99CCCC" ForeColor="#336666" Height="1px" />
                             <NextPrevStyle Font-Size="8pt" ForeColor="#CCCCFF" />
                             <OtherMonthDayStyle ForeColor="#999999" />
@@ -194,7 +190,6 @@
                             </asp:Calendar></td>
                     </tr>
                 </table>
-               
                 
                 <br />
                  <div style="text-align:center" >
