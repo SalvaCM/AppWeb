@@ -9,31 +9,8 @@
         .auto-style4 {
             width: 448px;
         }
-        .auto-style5 {
-            width: 458px;
-        }
-        .auto-style7 {
-            height: 23px;
-            width: 220px;
-        }
-        .auto-style8 {
-            height: 602px;
-            width: 481px;
-        }
-        .auto-style10 {
-            width: 360px;
-            height: 70px;
-        }
-        .auto-style11 {
-            width: 551px;
-            height: 23px;
-        }
-        .auto-style12 {
-            width: 551px;
-        }
-        .auto-style13 {
-            height: 748px;
-            width: 220px;
+        .auto-style14 {
+            width: 5691%;
         }
     </style>
 </asp:Content>
@@ -90,7 +67,7 @@
                <div class="auto-style4">
                     <asp:Label ID="lblAlojamientos" runat="server" Text="Seleccione el alojamiento que desee reservar:"></asp:Label>
                </div>
-                <asp:GridView ID="GridView1" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Outset" BorderWidth="1px" CellPadding="4" CellSpacing="4" GridLines="Horizontal" PageSize="500" AutoGenerateColumns="False">
+                <asp:GridView ID="GridView1" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Outset" BorderWidth="1px" CellPadding="4" CellSpacing="4" GridLines="Horizontal" AutoGenerateColumns="False">
                     <AlternatingRowStyle BackColor="#99CCFF" />
                     <Columns>
                         <asp:BoundField DataField="cCodigo" HeaderText="CODIGO" Visible="False" />
@@ -103,13 +80,13 @@
                                 &nbsp;<br />
                                 <asp:Image ID="Image1" runat="server" Height="100px" ImageUrl="img/HOTEL.jpg" Width="150px" />
                                 <br />
-                                Localidad : <asp:Label ID="Label5" runat="server" ForeColor="Pink" Text='<%# Bind("cLocalidad") %>'></asp:Label>
+                                Localidad : <asp:Label ID="Label5" runat="server" ForeColor="#009999" Text='<%# Bind("cLocalidad") %>'></asp:Label>
                                 <br />
-                                Capacidad : <asp:Label ID="Label9" runat="server" ForeColor="Pink" Text='<%# Bind("cCapacidad") %>'></asp:Label>
+                                Capacidad : <asp:Label ID="Label9" runat="server" ForeColor="#009999" Text='<%# Bind("cCapacidad") %>'></asp:Label>
                                 <br />
-                                E-Mail : <asp:Label ID="Label6" runat="server" ForeColor="Pink" Text='<%# Bind("cEmail") %>'></asp:Label>
+                                E-Mail : <asp:Label ID="Label6" runat="server" ForeColor="#009999" Text='<%# Bind("cEmail") %>'></asp:Label>
                                 <br />
-                                Web: <asp:Label ID="Label7" runat="server" ForeColor="Pink" Text='<%# Bind("cWeb") %>'></asp:Label>
+                                Web: <asp:Label ID="Label7" runat="server" ForeColor="#009999" Text='<%# Bind("cWeb") %>'></asp:Label>
                                 <br />
                                 <asp:Label ID="Label3" runat="server" ForeColor="Transparent" Text='<%# Bind("cCodAlojamiento") %>'></asp:Label>
                             </ItemTemplate>
@@ -149,7 +126,7 @@
                     <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
                     <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
                     <RowStyle ForeColor="#000066" />
-                    <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
+                    <SelectedRowStyle BackColor="#CCCCCC" Font-Bold="True" ForeColor="White" />
                     <SortedAscendingCellStyle BackColor="#F1F1F1" />
                     <SortedAscendingHeaderStyle BackColor="#007DBB" />
                     <SortedDescendingCellStyle BackColor="#CAC9C9" />
@@ -157,18 +134,20 @@
                 </asp:GridView>
             <br />
             <br />
+                
+
             </div>
 
             <div id="divFechasReserva" runat="server">
 
                     <table >
-                        <tr> <td > <asp:Label ID="Label4" runat="server" Text="Seleccione las fechas deseadas" Font-Names="Lucida Handwriting"></asp:Label></td></tr>
+                        <tr> <td colspan="2" style="padding-left:10px"> <asp:Label ID="Label4" runat="server" Text="Seleccione las fechas deseadas" Font-Names="Segoe Script" Font-Size="Large" ForeColor="#00CC99"></asp:Label></td></tr>
                     <tr>
-                        <td > <asp:Label ID="lblFechaEntrada" runat="server" Text="Fecha de entrada"></asp:Label></td>
-                        <td ><asp:Label ID="lblFechaSalida" runat="server" Text="Fecha de salida"></asp:Label></td>
+                        <td style="padding-left:10px"> <asp:Label ID="lblFechaEntrada" runat="server" Text="Fecha de entrada" ForeColor="#99CCFF"></asp:Label></td>
+                        <td style="padding-left:10px"><asp:Label ID="lblFechaSalida" runat="server" Text="Fecha de salida" ForeColor="#99CCFF"></asp:Label></td>
                     </tr>
                     <tr>
-                        <td > <asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="#3366CC" BorderWidth="1px" CellPadding="1" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="#003399" Height="200px" Width="220px">
+                        <td style="padding-left:10px"> <asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="#3366CC" BorderWidth="1px" CellPadding="1" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="#003399" Height="200px" Width="220px">
                             <DayHeaderStyle BackColor="#99CCCC" ForeColor="#336666" Height="1px" />
                             <NextPrevStyle Font-Size="8pt" ForeColor="#CCCCFF" />
                             <OtherMonthDayStyle ForeColor="#999999" />
@@ -178,7 +157,7 @@
                             <TodayDayStyle BackColor="#99CCCC" ForeColor="White" />
                             <WeekendDayStyle BackColor="#CCCCFF" />
                             </asp:Calendar></td>
-                        <td ><asp:Calendar ID="Calendar2" runat="server" BackColor="White" BorderColor="#3366CC" BorderWidth="1px" CellPadding="1" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="#003399" Height="200px" Width="220px">
+                        <td style="padding-left:10px"><asp:Calendar ID="Calendar2" runat="server" BackColor="White" BorderColor="#3366CC" BorderWidth="1px" CellPadding="1" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="#003399" Height="200px" Width="220px" >
                             <DayHeaderStyle BackColor="#99CCCC" ForeColor="#336666" Height="1px" />
                             <NextPrevStyle Font-Size="8pt" ForeColor="#CCCCFF" />
                             <OtherMonthDayStyle ForeColor="#999999" />
@@ -189,11 +168,23 @@
                             <WeekendDayStyle BackColor="#CCCCFF" />
                             </asp:Calendar></td>
                     </tr>
+                        <tr>
+                            <td colspan="2" style="padding-left:180px;padding-top:10px" >
+                                <asp:Button ID="btnRealizarReserva" runat="server" Text="Reservar" CssClass="btn bg-light-blue "/>
+                            </td>
+                        </tr>
                 </table>
                 
                 <br />
                  <div style="text-align:center" >
-                    <asp:Button ID="btnRealizarReserva" runat="server" Text="Reservar" CssClass="btn bg-light-blue "/>
+                      <table class="auto-style14">
+                     <tr >
+                            <td  style="padding-left:400px;padding-top:10px">
+                                <asp:Button ID="btnCargarMas" runat="server" Text="CARGAR MAS" CssClass="btn bg-light-blue " Width="395px"/>
+                            </td>
+                        </tr>
+                 </table>
+                    
                 </div>
                 <br />
                 <br />

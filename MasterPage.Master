@@ -121,7 +121,7 @@
     </style>
 
 </head>
-<body class="skin-blue">
+<body class="skin-blue" >
     <header class="header"> 
         <!-- BEGIN CABECERA -->
         <a href="Inicio.aspx" class="logo">Alojamientos Euskadi</a>
@@ -136,44 +136,43 @@
         <!-- END CABECERA -->
         <!-- BEING MENU-->
         <div class="wrapper row-offcanvas row-offcanvas-left">
-            <aside class="left-side sidebar-offcanvas">
+            <aside class="left-side sidebar-offcanvas" style="background-color:aliceblue">
                 <section class="sidebar" id="sidebar">
                     <div class="user-panel">
                         <div class="pull-left image">
                             <img src="img/avatar5.png" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
-                            <p>¡Bienvenido/a!</p>
+                            <Label>¡Bienvenido/a!</Label>
                         </div>
                     </div>
                      <!-- BEING Lista del menu-->
                     <ul class="sidebar-menu">
-                        <li class="active">
-                            <a href="Inicio.aspx" >
-                                <i class="fa fa-th"></i>
-                                <div class="pull-left image" style="width: 28px; height: 24px">
-                                     <img src="img/home.png" class="image" alt="Home Image" />
+                         <li class="active">
+                            <a id="BA" href="Inicio.aspx">
+                                <div class="pull-left image" style="width: 28px; height: 25px">
+                                     <img src="img/house.png" class="image" alt="Home Image" />
                                 </div>
-                                
-                                <span>Alojamientos</span>
+                                <i class="fa fa-dashboard"></i>
+                                <Label >Alojamientos</Label>
                             </a>
                         </li>
                         <li>
-                            <a href="Reserva.aspx">
-                                <div class="pull-left image" style="width: 29px; height: 28px">
-                                     <img src="img/booking.png" class="image" alt="Home Image" />
+                            <a id="MR" href="Reserva.aspx">
+                                <div class="pull-left image" style="width: 28px; height: 25px">
+                                     <img src="img/calendario.png" class="image" alt="Home Image" />
                                 </div>
                                 <i class="fa fa-dashboard"></i>
-                                <span>Mis reservas</span>
+                                <Label id="MR1">Mis reservas</Label>
                             </a>
                         </li>
                          <li>
                             <a href="Mapas.aspx">
                                 <div class="pull-left image" style="width: 28px; height: 21px">
-                                     <img src="img/off-button.png" class="auto-style1" alt="Home Image" />
+                                     <img src="img/mapa.gif" class="auto-style1" alt="Home Image" />
                                 </div>
                                 <i class="fa fa-dashboard"></i>
-                                <span>Ver mapa</span>
+                                <label>Ver mapa</label>
                             </a>
                         </li>
                     </ul>
@@ -182,14 +181,12 @@
             </aside>
             <aside class="right-side">
                 <section class="content-header">
-                    <h1>
-                        <asp:Label ID="lblOpcionMenu" runat="server" Text="Alojamientos Euskadi"> </asp:Label>
-                    </h1>
+                        <asp:Image ID="Image1" runat="server" Height="41px" ImageUrl="~/img/aeusk.gif" Width="464px" />
                 </section>
                 <section class="content">
                     <form id="form1" runat="server">
                         <div class="auto-style2">
-                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" >
                                 <!-- CARGAR aquí el diseño de la página que hereda de master page-->
 
 
@@ -203,8 +200,7 @@
         </div>
         <!-- END MENU-->
     </header>
-    
-    
+
 </body>
     <!-- Librerias:-->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>

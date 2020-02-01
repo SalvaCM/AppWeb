@@ -25,7 +25,7 @@ Public Class WebForm1
     Dim listaNombres As New ArrayList
     Dim listaContrasenas As New ArrayList
     Public cierto As Boolean = False
-
+    Public masterP As MasterPage
 #End Region
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -96,7 +96,6 @@ Public Class WebForm1
                     cierto = True
                     HttpContext.Current.Session(“ID”) = usuarioIntroducido
                     Response.Redirect("Inicio.aspx?ID=" + usuarioIntroducido, False)
-
                 Else
                     If cierto = True Then
 

@@ -10,7 +10,7 @@ Public Class Inicio
 #Region "Variables"
 	Public conexion As New MySqlConnection
 	Public connectionString = ConfigurationManager.ConnectionStrings("myConnectionString").ConnectionString
-
+	Public indiceAloj As Integer = 25
 	Dim thisDay = DateTime.Today
     Dim fechaActual As String = DateTime.Now.ToString("yyyy/MM/dd")
     Dim fechaEntrada As String = DateTime.Now.ToString("yyyy/MM/dd")
@@ -20,6 +20,7 @@ Public Class Inicio
     Dim orden As String = "Asc"
 	Dim nombreHotel As String = ""
 	Public codAlojamiento As String
+
 
 #End Region
 
@@ -45,7 +46,7 @@ Public Class Inicio
 			btnCerrarSesion.Visible = True
 			btnRegistrarse.Visible = False
 		End If
-
+		'btnCargarMas.Text = "CARGAR MAS"
 	End Sub
 #End Region
 
@@ -86,6 +87,18 @@ Public Class Inicio
 		divFechasReserva.Visible = False 'Se hace no visible las opciones de hacer la reserva
 	End Sub
 
+	Protected Sub btnCargarMas_Click(sender As Object, e As EventArgs) Handles btnCargarMas.Click
+		If btnCargarMas.Text = "CARGAR MAS" Then
+			Dim inicio As Integer = GridView1.Rows.Count
+			Session("indiceAloj") = Session("indiceAloj") + 25
+			Dim query = "SELECT cCodAlojamiento,cNombre,cDescripcion,cCapacidad,cTelefono,cLocalidad,cWeb,cEmail,cTipo FROM tAlojamientos ORDER BY cCodAlojamiento LIMIT " & Session("indiceAloj") & ";"
+			CargarGrid(GridView1, query)
+		Else
+			Response.Redirect("Inicio.aspx")
+			btnCargarMas.Text = "CARGAR MAS"
+		End If
+
+	End Sub
 
 	Protected Sub btnRealizarReserva_Click(sender As Object, e As EventArgs) Handles btnRealizarReserva.Click
 		Dim continuar As Boolean = False
@@ -155,7 +168,8 @@ Public Class Inicio
 		Session("codAlojamiento") = codAlojamiento
 		Dim query = "SELECT cCodAlojamiento,cNombre,cDescripcion,cCapacidad,cTelefono,cLocalidad,cWeb,cEmail,cTipo FROM tAlojamientos WHERE cCodAlojamiento LIKE '" & codAlojamiento & "';"
 		CargarGrid(GridView1, query)
-
+		GridView1.Columns(4).Visible = False
+		btnCargarMas.Text = "Volver"
 	End Sub
 	Protected Sub Buscador_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
 		Dim query = "SELECT cCodAlojamiento,cNombre,cDescripcion,cCapacidad,cTelefono,cLocalidad,cWeb,cEmail,cTipo FROM tAlojamientos WHERE cNombre LIKE '" & TextBox1.Text & "';"
@@ -202,7 +216,7 @@ Public Class Inicio
 
 #Region "Funciones"
 	Protected Sub cargarDatosAlojamientos()
-		Dim query = "SELECT cCodAlojamiento,cNombre,cDescripcion,cCapacidad,cTelefono,cLocalidad,cWeb,cEmail,cTipo FROM tAlojamientos  WHERE cLocalidad = '" & DropDownList1.SelectedValue & "' ORDER BY cCodAlojamiento ;"
+		Dim query = "SELECT cCodAlojamiento,cNombre,cDescripcion,cCapacidad,cTelefono,cLocalidad,cWeb,cEmail,cTipo FROM tAlojamientos ORDER BY cCodAlojamiento LIMIT " & indiceAloj & ";"
 		CargarGrid(GridView1, query)
 	End Sub
 	Public Sub CodReserva()
@@ -254,6 +268,8 @@ Public Class Inicio
 			conexion.Close()
 		End Try
 	End Sub
+
+
 
 #End Region
 
