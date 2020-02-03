@@ -134,7 +134,13 @@
                 </asp:GridView>
             <br />
             <br />
-                
+                 <table class="auto-style14">
+                     <tr >
+                            <td  style="padding-left:400px;padding-top:10px">
+                                <asp:Button ID="btnCargarMas" runat="server" Text="CARGAR MAS" CssClass="btn bg-light-blue " Width="450px"/>
+                            </td>
+                        </tr>
+                 </table>
 
             </div>
 
@@ -177,13 +183,7 @@
                 
                 <br />
                  <div style="text-align:center" >
-                      <table class="auto-style14">
-                     <tr >
-                            <td  style="padding-left:400px;padding-top:10px">
-                                <asp:Button ID="btnCargarMas" runat="server" Text="CARGAR MAS" CssClass="btn bg-light-blue " Width="395px"/>
-                            </td>
-                        </tr>
-                 </table>
+                     
                     
                 </div>
                 <br />
