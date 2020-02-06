@@ -143,7 +143,10 @@
                             <img src="img/avatar5.png" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
-                            <Label>¡Bienvenido/a!</Label>
+                            <Label>¡Bienvenido/a! <% If Session("logeado") = True Then %>
+                                <% Response.Write(Session("ID")) %>
+                                <% End If %>
+                            </Label>
                         </div>
                     </div>
                      <!-- BEING Lista del menu-->

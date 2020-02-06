@@ -38,9 +38,9 @@ Public Class Inicio
 			btnReservas.Visible = False
 			btnRegistrarse.Visible = True
 			btnCerrarSesion.Visible = False
-			Response.Write("no estas logeado : ")
+			'Response.Write("no estas logeado : ")
 		Else
-			Response.Write("Bienvenido : " & System.Web.HttpContext.Current.Session(“ID”))
+			'Response.Write("Bienvenido : " & System.Web.HttpContext.Current.Session(“ID”))
 			btnIniciarSesion.Visible = False
 			btnReservas.Visible = True
 			btnCerrarSesion.Visible = True
@@ -130,7 +130,6 @@ Public Class Inicio
 					fechaEntrada = fechaEntrada.Replace("/", "-")
 					fechaSalida = fechaSalida.Replace("/", "-")
 
-					MsgBox(Session("codAlojamiento").ToString)
 					Dim sql1 = "INSERT INTO `tReservas`(`cReserva`,`cCodAlojamiento`, `cCodUsuario`, `cFechaEntrada`, `cFechaRealizada`, `cFechaSalida`) VALUES (" + reservas.ToString + ",'" + Session("codAlojamiento").ToString + "','" + HttpContext.Current.Session("ID").ToString + "','" + fechaEntrada + "','" + fechaActual + "','" + fechaSalida + "')"
 					Dim comando1 As New MySqlCommand(sql1, conexion)
 					Dim Datos As MySqlDataReader = comando1.ExecuteReader
@@ -173,7 +172,7 @@ Public Class Inicio
 		btnCargarMas.Text = "Volver"
 	End Sub
 	Protected Sub Buscador_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
-		Dim query = "SELECT cCodAlojamiento,cNombre,cDescripcion,cCapacidad,cTelefono,cLocalidad,cWeb,cEmail,cTipo FROM tAlojamientos WHERE cNombre LIKE '" & TextBox1.Text & "';"
+		Dim query = "SELECT cCodAlojamiento,cNombre,cDescripcion,cCapacidad,cTelefono,cLocalidad,cWeb,cEmail,cTipo FROM tAlojamientos WHERE UPPER(cNombre) LIKE '%" & TextBox1.Text.ToUpper & "%';"
 		CargarGrid(GridView1, query)
 		divFechasReserva.Visible = False 'Se hace no visible las opciones de hacer la reserva
 	End Sub
@@ -207,7 +206,7 @@ Public Class Inicio
 		If e.Day.Date < thisDay Then
 			e.Day.IsSelectable = False
 		End If
-		Calendar2.SelectedDate = Calendar1.SelectedDate.AddDays(1)
+		'Calendar2.SelectedDate = Calendar1.SelectedDate.AddDays(1)
 	End Sub
 	Protected Sub Calendar2_DayRender(sender As Object, e As DayRenderEventArgs) Handles Calendar2.DayRender
 		If e.Day.Date < Calendar1.SelectedDate.AddDays(1) Then
