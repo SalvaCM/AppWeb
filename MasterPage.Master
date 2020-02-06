@@ -157,8 +157,9 @@
                                 <Label >Alojamientos</Label>
                             </a>
                         </li>
+                        <% If Session("logeado") = True Then%>
                         <li>
-                            <a id="MR" href="Reserva.aspx">
+                             <a id="MR" href="Reserva.aspx">
                                 <div class="pull-left image" style="width: 28px; height: 25px">
                                      <img src="img/calendario.png" class="image" alt="Home Image" />
                                 </div>
@@ -166,6 +167,9 @@
                                 <Label id="MR1">Mis reservas</Label>
                             </a>
                         </li>
+                               <% End If %>
+                           
+                
                          <li>
                             <a href="Mapas.aspx">
                                 <div class="pull-left image" style="width: 28px; height: 21px">

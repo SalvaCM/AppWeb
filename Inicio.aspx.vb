@@ -58,6 +58,7 @@ Public Class Inicio
 	End Sub
 
 	Protected Sub btnIniciarSesion_Click(sender As Object, e As EventArgs) Handles btnIniciarSesion.Click
+		Session("logeado") = False
 		Response.Redirect("IniSesion.aspx") 'Ir a la página de iniciar sesión
 	End Sub
 	Protected Sub btnCerrarSesion_Click(sender As Object, e As EventArgs) Handles btnCerrarSesion.Click
@@ -183,7 +184,7 @@ Public Class Inicio
 	Protected Function validarFechas() As Boolean
         Dim continuar As Boolean = True
 
-        fechaEntrada = Calendar1.SelectedDate.ToString("yyyy/MM/dd")
+		fechaEntrada = Calendar1.SelectedDate.ToString("yyyy/MM/dd")
         fechaSalida = Calendar2.SelectedDate.ToString("yyyy/MM/dd")
 
         If fechaEntrada < thisDay Then
@@ -203,14 +204,16 @@ Public Class Inicio
     End Function
 
     Protected Sub Calendar1_DayRender(sender As Object, e As DayRenderEventArgs) Handles Calendar1.DayRender
-        If e.Day.Date < thisDay Then
-            e.Day.IsSelectable = False
-        End If
-    End Sub
-	Protected Sub Calendar2_DayRender(sender As Object, e As DayRenderEventArgs) Handles Calendar2.DayRender
-		If e.Day.Date < fechaEntrada Then
+		If e.Day.Date < thisDay Then
 			e.Day.IsSelectable = False
 		End If
+		Calendar2.SelectedDate = Calendar1.SelectedDate.AddDays(1)
+	End Sub
+	Protected Sub Calendar2_DayRender(sender As Object, e As DayRenderEventArgs) Handles Calendar2.DayRender
+		If e.Day.Date < Calendar1.SelectedDate.AddDays(1) Then
+			e.Day.IsSelectable = False
+		End If
+
 	End Sub
 #End Region
 

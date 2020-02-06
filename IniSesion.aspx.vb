@@ -2,11 +2,10 @@
 Imports System.Security.Cryptography
 Imports System.Web.UI.WebControls.Expressions
 Public Class WebForm1
-    Inherits System.Web.UI.Page
-
+	Inherits System.Web.UI.Page
 
 #Region "Propiedades publicas"
-    Public Property usuario As String
+	Public Property usuario As String
         Get
             Return usuario
         End Get
@@ -28,12 +27,11 @@ Public Class WebForm1
     Public masterP As MasterPage
 #End Region
 
-    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-
-    End Sub
+	Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+	End Sub
 
 #Region "BOTONES CABECERA"
-    Protected Sub btnInicio_Click(sender As Object, e As EventArgs) Handles btnInicio.Click
+	Protected Sub btnInicio_Click(sender As Object, e As EventArgs) Handles btnInicio.Click
         Response.Redirect("Inicio.aspx") 'Ir a la página de inicio
     End Sub
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -94,12 +92,13 @@ Public Class WebForm1
 
                 If sb.ToString() = Datos(2) And usuarioIntroducido.Equals(Datos(0)) Then
                     cierto = True
-                    HttpContext.Current.Session(“ID”) = usuarioIntroducido
-                    Response.Redirect("Inicio.aspx?ID=" + usuarioIntroducido, False)
+					HttpContext.Current.Session(“ID”) = usuarioIntroducido
+					Session("logeado") = True
+					Response.Redirect("Inicio.aspx?ID=" + usuarioIntroducido, False)
                 Else
                     If cierto = True Then
 
-                    Else
+					Else
                         cierto = False
                     End If
                 End If
